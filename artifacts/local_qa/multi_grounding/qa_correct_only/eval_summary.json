@@ -1,0 +1,14 @@
+{
+  "n": 89,
+  "accuracy": {
+    "original": 0.48314606741573035,
+    "joint": 0.4943820224719101,
+    "shuffled": 0.5056179775280899
+  },
+  "paired": {
+    "joint_vs_original_prediction_changed": 24,
+    "shuffle_vs_joint_prediction_changed": 12,
+    "joint_correct_shuffle_wrong": 2,
+    "joint_wrong_shuffle_correct": 3
+  }
+}

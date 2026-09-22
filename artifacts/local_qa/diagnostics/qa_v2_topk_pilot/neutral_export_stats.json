@@ -1,0 +1,73 @@
+{
+  "config": {
+    "repo": "/root/3eedqa/3EED",
+    "data_root": "data/3eed",
+    "scenes": "/root/autodl-tmp/3eed_data/scenes/3eed_scenes.jsonl",
+    "checkpoint": "/root/autodl-tmp/3eed_data/checkpoints/ckpt_6384.pth",
+    "out_dir": "/root/autodl-tmp/3eed_data/qa_v2_topk_pilot",
+    "splits": [
+      "train",
+      "val"
+    ],
+    "batch_size": 4,
+    "num_workers": 0,
+    "limit_per_split": 32,
+    "seed": 42,
+    "span_policy": "noun",
+    "diagnose_candidates": true
+  },
+  "rejections": {
+    "spatial_cue": 1163,
+    "noun_not_target_category": 108,
+    "too_long": 50,
+    "no_noun": 9,
+    "too_short": 4
+  },
+  "splits": {
+    "train": {
+      "loaded": 3682,
+      "eligible_before_limit": 3048,
+      "exported": 32,
+      "rejections": {
+        "spatial_cue": 551,
+        "noun_not_target_category": 48,
+        "too_long": 28,
+        "no_noun": 7
+      },
+      "iou_mean": 0.3485,
+      "acc_025": 0.5625,
+      "acc_05": 0.4062,
+      "oracle_iou_mean": 0.6026,
+      "oracle_acc_025": 1.0,
+      "oracle_acc_05": 0.625,
+      "top5_acc_025": 0.875,
+      "top10_acc_025": 0.875
+    },
+    "val": {
+      "loaded": 3782,
+      "eligible_before_limit": 3082,
+      "exported": 32,
+      "rejections": {
+        "spatial_cue": 612,
+        "noun_not_target_category": 60,
+        "too_short": 4,
+        "too_long": 22,
+        "no_noun": 2
+      },
+      "iou_mean": 0.2998,
+      "acc_025": 0.5312,
+      "acc_05": 0.3125,
+      "oracle_iou_mean": 0.5728,
+      "oracle_acc_025": 0.9688,
+      "oracle_acc_05": 0.625,
+      "top5_acc_025": 0.8125,
+      "top10_acc_025": 0.8125
+    }
+  },
+  "selector": "first_object_noun_in_neutral_query_no_gt_for_ranking",
+  "total_exported": 64,
+  "token_shape": [
+    64,
+    288
+  ]
+}

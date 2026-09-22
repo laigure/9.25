@@ -1,0 +1,43 @@
+{
+  "total_qa_rows": 18274,
+  "source_object_annotations": 6130,
+  "source_scenes": 4681,
+  "qa_distinct_objects": 5961,
+  "qa_distinct_scenes": 4519,
+  "multi_object_scenes": 1228,
+  "three_object_scenes": 186,
+  "by_split_scenario": {
+    "test:closer_of_two": 102,
+    "test:closer_to_ego": 227,
+    "test:closest_of_three_to_ego": 27,
+    "test:ego_location": 1307,
+    "test:ego_near_far": 703,
+    "test:ego_side": 933,
+    "test:relative_location": 608,
+    "test:which_is_left": 312,
+    "train:closer_of_two": 245,
+    "train:closer_to_ego": 509,
+    "train:closest_of_three_to_ego": 68,
+    "train:ego_location": 2629,
+    "train:ego_near_far": 1490,
+    "train:ego_side": 1957,
+    "train:relative_location": 1310,
+    "train:which_is_left": 694,
+    "val:closer_of_two": 210,
+    "val:closer_to_ego": 251,
+    "val:closest_of_three_to_ego": 23,
+    "val:ego_location": 1463,
+    "val:ego_near_far": 743,
+    "val:ego_side": 1076,
+    "val:relative_location": 924,
+    "val:which_is_left": 463
+  },
+  "sequences": {
+    "train": 94,
+    "val": 46,
+    "test": 47
+  },
+  "input_policy": "question plus implicit 288D Grounding tokens only",
+  "label_policy": "GT geometry offline only; no predicted-IoU filtering",
+  "planning": "no future trajectory labels in current 3EED conversion"
+}

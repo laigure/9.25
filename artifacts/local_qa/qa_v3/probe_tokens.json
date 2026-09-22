@@ -1,0 +1,114 @@
+{
+  "closer_of_two": {
+    "train": {
+      "n": 245,
+      "accuracy": 1.0
+    },
+    "val": {
+      "n": 210,
+      "accuracy": 0.4333
+    },
+    "test": {
+      "n": 102,
+      "accuracy": 0.4216
+    }
+  },
+  "closer_to_ego": {
+    "train": {
+      "n": 509,
+      "accuracy": 0.9961
+    },
+    "val": {
+      "n": 251,
+      "accuracy": 0.5777
+    },
+    "test": {
+      "n": 227,
+      "accuracy": 0.5154
+    }
+  },
+  "closest_of_three_to_ego": {
+    "train": {
+      "n": 68,
+      "accuracy": 1.0
+    },
+    "val": {
+      "n": 23,
+      "accuracy": 0.2174
+    },
+    "test": {
+      "n": 27,
+      "accuracy": 0.3704
+    }
+  },
+  "ego_location": {
+    "train": {
+      "n": 2629,
+      "accuracy": 0.7398
+    },
+    "val": {
+      "n": 1463,
+      "accuracy": 0.5284
+    },
+    "test": {
+      "n": 1307,
+      "accuracy": 0.5585
+    }
+  },
+  "ego_near_far": {
+    "train": {
+      "n": 1490,
+      "accuracy": 0.9597
+    },
+    "val": {
+      "n": 743,
+      "accuracy": 0.8937
+    },
+    "test": {
+      "n": 703,
+      "accuracy": 0.8748
+    }
+  },
+  "ego_side": {
+    "train": {
+      "n": 1957,
+      "accuracy": 0.859
+    },
+    "val": {
+      "n": 1076,
+      "accuracy": 0.6942
+    },
+    "test": {
+      "n": 933,
+      "accuracy": 0.7053
+    }
+  },
+  "relative_location": {
+    "train": {
+      "n": 1310,
+      "accuracy": 0.9802
+    },
+    "val": {
+      "n": 924,
+      "accuracy": 0.3009
+    },
+    "test": {
+      "n": 608,
+      "accuracy": 0.2204
+    }
+  },
+  "which_is_left": {
+    "train": {
+      "n": 694,
+      "accuracy": 0.9885
+    },
+    "val": {
+      "n": 463,
+      "accuracy": 0.5054
+    },
+    "test": {
+      "n": 312,
+      "accuracy": 0.5288
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "config": {
+    "repo": "/root/3eedqa/3EED",
+    "data_root": "data/3eed",
+    "scenes": "/root/autodl-tmp/3eed_data/scenes/3eed_scenes.jsonl",
+    "checkpoint": "/root/autodl-tmp/3eed_data/checkpoints/ckpt_6384.pth",
+    "out_dir": "/root/autodl-tmp/3eed_data/qa_v2_fullspan_pilot",
+    "splits": [
+      "train",
+      "val"
+    ],
+    "batch_size": 8,
+    "num_workers": 4,
+    "limit_per_split": 128,
+    "seed": 42,
+    "span_policy": "full"
+  },
+  "rejections": {
+    "spatial_cue": 1163,
+    "noun_not_target_category": 108,
+    "too_long": 50,
+    "no_noun": 9,
+    "too_short": 4
+  },
+  "splits": {
+    "train": {
+      "loaded": 3682,
+      "eligible_before_limit": 3048,
+      "exported": 128,
+      "rejections": {
+        "spatial_cue": 551,
+        "noun_not_target_category": 48,
+        "too_long": 28,
+        "no_noun": 7
+      },
+      "iou_mean": 0.3445,
+      "acc_025": 0.5938,
+      "acc_05": 0.3672
+    },
+    "val": {
+      "loaded": 3782,
+      "eligible_before_limit": 3082,
+      "exported": 128,
+      "rejections": {
+        "spatial_cue": 612,
+        "noun_not_target_category": 60,
+        "too_short": 4,
+        "too_long": 22,
+        "no_noun": 2
+      },
+      "iou_mean": 0.2805,
+      "acc_025": 0.5156,
+      "acc_05": 0.2812
+    }
+  },
+  "selector": "full_neutral_phrase_no_gt_for_ranking",
+  "total_exported": 256,
+  "token_shape": [
+    256,
+    288
+  ]
+}

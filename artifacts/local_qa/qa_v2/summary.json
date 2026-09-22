@@ -1,0 +1,22 @@
+{
+  "total": 6984,
+  "by_split_scenario": {
+    "test:closer_of_two": 29,
+    "test:ego_location": 1307,
+    "test:relative_location": 304,
+    "train:closer_of_two": 80,
+    "train:ego_location": 2629,
+    "train:relative_location": 655,
+    "val:closer_of_two": 55,
+    "val:ego_location": 1463,
+    "val:relative_location": 462
+  },
+  "sequences": {
+    "train": 94,
+    "val": 46,
+    "test": 47
+  },
+  "coordinate_convention": "Waymo ego +x forward, +y left",
+  "input_policy": "question plus implicit 288D Grounding tokens only; GT geometry offline labels",
+  "planning": "not generated: no future ego trajectory or drivable-area labels"
+}

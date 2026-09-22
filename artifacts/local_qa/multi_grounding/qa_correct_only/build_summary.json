@@ -1,0 +1,29 @@
+{
+  "threshold": 0.25,
+  "grounding_samples": 397,
+  "grounding_targets": {
+    "2": 362,
+    "3": 35
+  },
+  "grounding_all_correct": 23,
+  "qa_multiref_by_split": {
+    "train": 2826,
+    "test": 1276,
+    "val": 1871
+  },
+  "qa_eligible_before_donor": {
+    "test": 89
+  },
+  "qa_matched_after_donor": {
+    "test": 89
+  },
+  "qa_scenarios": {
+    "relative_location": 42,
+    "closer_of_two": 6,
+    "which_is_left": 20,
+    "closer_to_ego": 19,
+    "closest_of_three_to_ego": 2
+  },
+  "token_entries": 48,
+  "all_shuffled_ids_differ": true
+}

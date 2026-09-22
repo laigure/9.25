@@ -1,0 +1,77 @@
+{
+  "train": {
+    "records": 903,
+    "scenes": 609,
+    "sequences": 79,
+    "targets": {
+      "2": 807,
+      "3": 96
+    },
+    "class_sets": {
+      "car+car": 366,
+      "pedestrian+pedestrian": 184,
+      "car+pedestrian": 181,
+      "car+car+car": 41,
+      "car+cyclist": 31,
+      "cyclist+pedestrian": 19,
+      "pedestrian+pedestrian+pedestrian": 14,
+      "car+car+pedestrian": 13,
+      "car+pedestrian+pedestrian": 12,
+      "car+truck": 10,
+      "pedestrian+truck": 6,
+      "car+car+cyclist": 6
+    },
+    "caption_field": "source_caption",
+    "coordinate_frame": "source_lidar"
+  },
+  "val": {
+    "records": 529,
+    "scenes": 324,
+    "sequences": 39,
+    "targets": {
+      "2": 468,
+      "3": 61
+    },
+    "class_sets": {
+      "car+car": 307,
+      "car+pedestrian": 81,
+      "pedestrian+pedestrian": 58,
+      "car+car+car": 46,
+      "car+truck": 12,
+      "car+pedestrian+pedestrian": 8,
+      "car+car+pedestrian": 3,
+      "pedestrian+truck": 3,
+      "car+cyclist": 3,
+      "car+car+truck": 2,
+      "bus+car": 2,
+      "pedestrian+pedestrian+pedestrian": 1
+    },
+    "caption_field": "source_caption",
+    "coordinate_frame": "source_lidar"
+  },
+  "test": {
+    "records": 386,
+    "scenes": 295,
+    "sequences": 40,
+    "targets": {
+      "2": 357,
+      "3": 29
+    },
+    "class_sets": {
+      "car+pedestrian": 119,
+      "car+car": 115,
+      "pedestrian+pedestrian": 90,
+      "cyclist+pedestrian": 14,
+      "car+pedestrian+pedestrian": 8,
+      "car+car+pedestrian": 8,
+      "car+cyclist": 6,
+      "car+car+car": 6,
+      "pedestrian+pedestrian+pedestrian": 5,
+      "cyclist+cyclist": 4,
+      "car+truck": 3,
+      "cyclist+truck": 2
+    },
+    "caption_field": "source_caption",
+    "coordinate_frame": "source_lidar"
+  }
+}

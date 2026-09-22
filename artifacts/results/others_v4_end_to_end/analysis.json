@@ -1,0 +1,111 @@
+{
+  "end_to_end": {
+    "n": 1638,
+    "accuracy": 0.5708180708180708,
+    "exact_sentence": 0.5708180708180708,
+    "parse_rate": 1.0,
+    "by_scenario": {
+      "relative_location": {
+        "n": 924,
+        "accuracy": 0.3722943722943723
+      },
+      "which_is_left": {
+        "n": 463,
+        "accuracy": 0.7365010799136069
+      },
+      "closer_to_ego": {
+        "n": 251,
+        "accuracy": 0.9960159362549801
+      }
+    }
+  },
+  "majority_baseline": 0.3528693528693529,
+  "qa_rows": 1638,
+  "unique_grounding_pairs": 508,
+  "pairs_grounding_correct": 180,
+  "pairs_grounding_incorrect": 328,
+  "by_grounding": {
+    "all:incorrect": {
+      "correct": 443,
+      "n": 1023,
+      "accuracy": 0.43304007820136853
+    },
+    "all:correct": {
+      "correct": 492,
+      "n": 615,
+      "accuracy": 0.8
+    },
+    "closer_to_ego:incorrect": {
+      "correct": 119,
+      "n": 120,
+      "accuracy": 0.9916666666666667
+    },
+    "closer_to_ego:correct": {
+      "correct": 131,
+      "n": 131,
+      "accuracy": 1.0
+    },
+    "relative_location:incorrect": {
+      "correct": 131,
+      "n": 600,
+      "accuracy": 0.21833333333333332
+    },
+    "relative_location:correct": {
+      "correct": 213,
+      "n": 324,
+      "accuracy": 0.6574074074074074
+    },
+    "which_is_left:incorrect": {
+      "correct": 193,
+      "n": 303,
+      "accuracy": 0.636963696369637
+    },
+    "which_is_left:correct": {
+      "correct": 148,
+      "n": 160,
+      "accuracy": 0.925
+    }
+  },
+  "by_min_target_iou": {
+    "lt_0.10": {
+      "correct": 441,
+      "n": 1019,
+      "accuracy": 0.43277723258096173
+    },
+    "ge_0.50": {
+      "correct": 208,
+      "n": 290,
+      "accuracy": 0.7172413793103448
+    },
+    "0.25_to_0.50": {
+      "correct": 284,
+      "n": 325,
+      "accuracy": 0.8738461538461538
+    },
+    "0.10_to_0.25": {
+      "correct": 2,
+      "n": 4,
+      "accuracy": 0.5
+    }
+  },
+  "label_distribution": {
+    "closer_to_ego": {
+      "A": 134,
+      "B": 117
+    },
+    "relative_location": {
+      "right": 205,
+      "left": 205,
+      "right_behind": 113,
+      "left_behind": 113,
+      "behind": 31,
+      "left_front": 113,
+      "right_front": 113,
+      "front": 31
+    },
+    "which_is_left": {
+      "A": 239,
+      "B": 224
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "method": "main ground_info target plus an others box matched to another ground_info target",
+  "targets_per_record": 2,
+  "splits": {
+    "train": {
+      "records": 1137,
+      "scenes": 842,
+      "sequences": 82,
+      "class_pairs": {
+        "car+car": 516,
+        "car+pedestrian": 277,
+        "pedestrian+pedestrian": 234,
+        "car+cyclist": 42,
+        "cyclist+pedestrian": 28,
+        "car+truck": 12,
+        "pedestrian+truck": 11,
+        "bus+car": 8,
+        "cyclist+cyclist": 5,
+        "car+othervehicle": 3,
+        "bus+pedestrian": 1
+      }
+    },
+    "val": {
+      "records": 1300,
+      "scenes": 903,
+      "sequences": 85,
+      "class_pairs": {
+        "car+car": 723,
+        "car+pedestrian": 303,
+        "pedestrian+pedestrian": 181,
+        "car+truck": 33,
+        "car+cyclist": 15,
+        "cyclist+pedestrian": 15,
+        "pedestrian+truck": 7,
+        "bus+pedestrian": 7,
+        "cyclist+truck": 4,
+        "cyclist+cyclist": 4,
+        "car+othervehicle": 3,
+        "othervehicle+pedestrian": 2,
+        "bus+car": 2,
+        "truck+truck": 1
+      }
+    }
+  },
+  "counters": {
+    "frames": 5409,
+    "ground_entries": 7481,
+    "others_edges": 28823,
+    "unmatched_other_edges": 23929,
+    "matched_other_edges": 4894,
+    "duplicate_reverse_edges": 2447,
+    "missing_sequences": 10,
+    "missing_target_noun": 10,
+    "unique_pairs": 2437
+  },
+  "unmatched_other_classes": {
+    "car": 13969,
+    "pedestrian": 9313,
+    "truck": 293,
+    "cyclist": 218,
+    "bus": 89,
+    "othervehicle": 47
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "train": {
+    "samples": 908,
+    "scenes": 604,
+    "targets": {
+      "2": 805,
+      "3": 103
+    }
+  },
+  "val": {
+    "samples": 614,
+    "scenes": 320,
+    "targets": {
+      "2": 511,
+      "3": 103
+    }
+  },
+  "test": {
+    "samples": 397,
+    "scenes": 295,
+    "targets": {
+      "2": 362,
+      "3": 35
+    }
+  }
+}

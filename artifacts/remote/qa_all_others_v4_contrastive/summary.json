@@ -1,0 +1,55 @@
+{
+  "threshold": 0.25,
+  "token_variant": "contrastive",
+  "eligibility": "all",
+  "keep_without_donor": true,
+  "augment_train_swaps": false,
+  "train_swaps_added": {},
+  "swap_eval_rows": 1638,
+  "splits": [
+    "val"
+  ],
+  "grounding_samples": 2437,
+  "grounding_targets": {
+    "2": 2437
+  },
+  "grounding_all_correct": 1631,
+  "qa_multiref_by_split": {
+    "train": 2826,
+    "test": 1276,
+    "val": 1871
+  },
+  "qa_eligible_before_donor": {
+    "val": 1638
+  },
+  "qa_matched_before_augmentation": {
+    "val": 1638
+  },
+  "qa_matched_after_donor": {
+    "val": 1638
+  },
+  "qa_rows_after_augmentation": {
+    "val": 1638
+  },
+  "qa_scenarios": {
+    "relative_location": 924,
+    "which_is_left": 463,
+    "closer_to_ego": 251
+  },
+  "answer_distribution": {
+    "val:relative_location:right": 205,
+    "val:relative_location:left": 205,
+    "val:relative_location:right_behind": 113,
+    "val:relative_location:left_behind": 113,
+    "val:relative_location:behind": 31,
+    "val:which_is_left:A": 239,
+    "val:which_is_left:B": 224,
+    "val:relative_location:left_front": 113,
+    "val:closer_to_ego:A": 134,
+    "val:relative_location:right_front": 113,
+    "val:closer_to_ego:B": 117,
+    "val:relative_location:front": 31
+  },
+  "token_entries": 1016,
+  "all_shuffled_ids_differ": true
+}

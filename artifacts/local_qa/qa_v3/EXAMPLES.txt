@@ -1,0 +1,56 @@
+=== closer_of_two ===
+Q: Object A: a silver SUV with a large body and closed windows. Object B: Red SUV with smooth body lines. Object C: a red pickup truck. Which object is closer to Object C, Object A or Object B?
+A: Object A is closer to Object C.
+
+Q: Object A: a large silver SUV with closed windows. Object B: Dark blue SUV. Object C: a white SUV with smooth body lines. Which object is closer to Object C, Object A or Object B?
+A: Object B is closer to Object C.
+
+=== closer_to_ego ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. Object B: The pedestrian, wearing a dark top and light-colored pants with a backpack. Which object is closer to the ego vehicle, Object A or Object B?
+A: Object A is closer to the ego vehicle.
+
+Q: Object A: pedestrian wearing a red backpack, black top and dark pants, walking. Object B: The pedestrian, wearing a dark top and light-colored pants. Which object is closer to the ego vehicle, Object A or Object B?
+A: Object A is closer to the ego vehicle.
+
+=== closest_of_three_to_ego ===
+Q: Object A: Red SUV with smooth body lines. Object B: a silver SUV with a large body and closed windows. Object C: a red pickup truck. Which object is closest to the ego vehicle?
+A: Object A is closest to the ego vehicle.
+
+Q: Object A: Dark blue SUV. Object B: a large silver SUV with closed windows. Object C: a white SUV with smooth body lines. Which object is closest to the ego vehicle?
+A: Object B is closest to the ego vehicle.
+
+=== ego_location ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants. Where is Object A relative to the ego vehicle?
+A: Object A is to the left and in front of the ego vehicle.
+
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. Where is Object A relative to the ego vehicle?
+A: Object A is to the left and in front of the ego vehicle.
+
+=== ego_near_far ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants. Is Object A near or far from the ego vehicle?
+A: Object A is near the ego vehicle.
+
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. Is Object A near or far from the ego vehicle?
+A: Object A is near the ego vehicle.
+
+=== ego_side ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants. On which side of the ego vehicle is Object A?
+A: Object A is on the left side of the ego vehicle.
+
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. On which side of the ego vehicle is Object A?
+A: Object A is on the left side of the ego vehicle.
+
+=== relative_location ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. Object B: The pedestrian, wearing a dark top and light-colored pants with a backpack. Where is Object A relative to Object B?
+A: Object A is to the left and behind Object B.
+
+Q: Object A: pedestrian wearing a red backpack, black top and dark pants, walking. Object B: The pedestrian, wearing a dark top and light-colored pants. Where is Object A relative to Object B?
+A: Object A is to the left and behind Object B.
+
+=== which_is_left ===
+Q: Object A: The pedestrian, wearing a dark long coat and black pants with white sports shoes. Object B: The pedestrian, wearing a dark top and light-colored pants with a backpack. Which object is farther to the left, Object A or Object B?
+A: Object A is farther to the left.
+
+Q: Object A: pedestrian wearing a red backpack, black top and dark pants, walking. Object B: The pedestrian, wearing a dark top and light-colored pants. Which object is farther to the left, Object A or Object B?
+A: Object A is farther to the left.
+

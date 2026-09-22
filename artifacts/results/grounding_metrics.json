@@ -1,0 +1,27 @@
+{
+  "run": "others-linked multi-target grounding, 200 epochs",
+  "targets_per_sample": 2,
+  "token_dimension": 288,
+  "selection_used_by_qa_v4": "contrastive",
+  "train": {
+    "pairs": 1137,
+    "per_target_acc_025": 0.9864,
+    "joint_acc_025": 0.9727,
+    "miou": 0.6363
+  },
+  "val": {
+    "pairs": 1300,
+    "per_target_acc_025": 0.5938,
+    "per_target_acc_050": 0.3700,
+    "joint_acc_025": 0.4038,
+    "joint_acc_050": 0.1854,
+    "miou": 0.3465
+  },
+  "checkpoint": {
+    "filename": "ckpt_epoch_200.pth",
+    "included": false,
+    "reason": "738269590-byte file exceeds GitHub regular Git 100 MB single-file limit",
+    "size_bytes": 738269590,
+    "sha256": "84052fb17030fa0e8638e0fd9e91ec878afd9221c5293d1942c3a413711addac"
+  }
+}

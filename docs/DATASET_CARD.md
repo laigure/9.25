@@ -1,0 +1,51 @@
+# 数据说明
+
+## 双目标 Grounding 数据
+
+| split | pair 数 | scene 数 | sequence 数 | 每条目标数 |
+|---|---:|---:|---:|---:|
+| train | 1,137 | 842 | 82 | 2 |
+| val | 1,300 | 903 | 85 | 2 |
+| total | 2,437 | - | - | 2 |
+
+构建统计在 `grounding/annotations/others_linked_data/summary.json`。原始 `others` 关联边 28,823 条，能与同帧另一条真实 caption/box 精确匹配的边 4,894 条，去掉双向重复后得到 2,437 个 pair。23,929 条没有独立目标文本的 context-only `others` 未用于多目标语言监督。
+
+## QA 版本
+
+| 数据 | 用途 | train | val |
+|---|---|---:|---:|
+| `artifacts/local_qa/qa_v2` | 早期隐式 token QA | 见各目录 summary | 见各目录 summary |
+| `artifacts/local_qa/qa_v3` | 多参照 QA 和后续对齐源 | 见各目录 summary | 见各目录 summary |
+| `qa_correct_others_v4_contrastive` | 只保留两目标均 IoU≥0.25，测 token 能力上限 | 3,610 | 615 |
+| `qa_all_others_v4_contrastive` | 不做 IoU 筛选，端到端评测 | - | 1,638 |
+
+v4 包含三类问题：
+
+- `relative_location`：A 相对 B 的 left/right/front/behind 组合。
+- `which_is_left`：A/B 谁更靠左。
+- `closer_to_ego`：A/B 谁更靠近自车。
+
+`joint/qa.jsonl` 是公开模型输入；`private_gt.jsonl` 保存几何和 IoU 诊断，不应拼入 LLM prompt。`shuffled/` 是同类别 donor token 打乱对照，`swap_eval/` 是 A/B 交换逻辑一致性对照。
+
+## token 文件
+
+`artifacts/remote/others_linked_tokens/{train,val}/rank00/batch*.npz` 保留 batch 级原始导出。一个典型 batch 的主要字段：
+
+| 字段 | 形状 | 说明 |
+|---|---|---|
+| `target_count` | `[B]` | 当前均为 2 |
+| `object_token` | `[B,2,288]` | soft selector token |
+| `contrastive_object_token` | `[B,2,288]` | v4 使用的 token |
+| `query_index` | `[B,2]` | soft query 索引 |
+| `contrastive_query_index` | `[B,2]` | contrastive query 索引 |
+| `pred_center`, `pred_size` | `[B,2,3]` | 评测/对齐用，不输入 LLM |
+| `gt_box` | `[B,2,7]` | 评测用，不输入 LLM |
+| `utterance` | `[B]` | 联合文本 |
+| `object_ids_json` | `[B]` | 目标 ID 对齐 |
+
+## 数据局限
+
+- 当前是双目标数据，没有证明三目标以上训练效果。
+- 双目标 pair 由公开 `others` 关系和两条真实单目标 caption 重建，不等同于论文未公开的原生组合式多目标问句。
+- 端到端 QA 只覆盖能与 QA v3 对齐的 508 个 val pair，还没有覆盖全部 1,300 个 val pair。
+- 这些 token 和标注由 3EED/Waymo 衍生，需遵守原始数据许可。
