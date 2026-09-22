@@ -89,6 +89,33 @@ class GroundingEvaluator:
 
         return_str += "\n"
 
+        count_lines = []
+        target_counts = sorted(
+            {
+                key[2]
+                for key in self.gts.keys()
+                if isinstance(key, tuple) and key[0] == "target_count"
+            }
+        )
+        for mode in ("bbs", "bbf"):
+            for num_obj in target_counts:
+                parts = []
+                for t in self.thresholds:
+                    num = self.gts.get(("target_count", mode, num_obj, t), 0)
+                    if num:
+                        hit = self.dets.get(("target_count", mode, num_obj, t), 0)
+                        parts.append(f"JointAcc@{t}={hit / num:.4f}")
+                if parts:
+                    count_lines.append(
+                        f"  {mode} targets={num_obj}: n={num}  " + "  ".join(parts)
+                    )
+        if count_lines:
+            return_str += (
+                "==Per-target-count (all targets must be correct)==\n"
+                + "\n".join(count_lines)
+                + "\n"
+            )
+
         cls_lines = []
         for mode in ("bbs", "bbf"):
             for name in CLASS_NAMES.values():
@@ -231,6 +258,11 @@ class GroundingEvaluator:
                 if prefix == "last_":
                     self.dets[("multi_all", mode, threshold, k)] += int(found.all().item())
                     self.gts[("multi_all", mode, threshold, k)] += 1
+                    if k == 1:
+                        self.dets[("target_count", mode, num_obj, threshold)] += int(
+                            found.all().item()
+                        )
+                        self.gts[("target_count", mode, num_obj, threshold)] += 1
                 if mode == "bbf" and prefix == "last_" and k == 1:
                     self.dets[("total_acc", threshold, "bbf")] += value
                     self.gts[("total_acc", threshold, "bbf")] += total
@@ -328,6 +360,9 @@ class GroundingEvaluator:
                     # NOTE bbs is "Box given span (soft-token)"
                     self.dets[(prefix, t, k, "bbs")] += found.sum().item()  # Number of hit GT boxes
                     self.gts[(prefix, t, k, "bbs")] += len(thresholded)  # Total number of GT boxes
+                    if prefix == "last_" and k == 1:
+                        self.dets[("target_count", "bbs", num_obj, t)] += int(found.all().item())
+                        self.gts[("target_count", "bbs", num_obj, t)] += 1
 
     def evaluate_bbox_by_contrast(self, batch_data, end_points, prefix):
         """
@@ -479,6 +514,8 @@ class GroundingEvaluator:
                     if prefix == "last_" and k == 1:
                         self.dets[("total_acc", t, "bbf")] += all_found
                         self.gts[("total_acc", t, "bbf")] += 1
+                        self.dets[("target_count", "bbf", num_obj, t)] += int(all_found)
+                        self.gts[("target_count", "bbf", num_obj, t)] += 1
 
     def _parse_gt(self, end_points):
         positive_map = torch.clone(end_points["positive_map"])  # (B, K, 256)

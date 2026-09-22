@@ -1,6 +1,6 @@
 # 3EED Multi-Object Grounding → Spatial QA
 
-本仓库保存当前可复现的研究阶段成果：在 3EED 单目标 Grounding 代码上实现双目标监督，导出两个对象的 288 维 decoder token，再通过关系 Projector 和 Qwen2.5-7B LoRA 完成隐式 token 空间问答。
+本仓库保存当前可复现的研究阶段成果：先在 3EED 单目标代码上完成双目标验证，再升级为每个场景 1–5 个目标的可变数量 Grounding；每个目标导出一个 288 维 decoder token，随后通过关系 Projector 和 Qwen2.5-7B LoRA 完成隐式 token 空间问答。
 
 ## 当前结论
 
@@ -17,7 +17,7 @@
 - Grounding 数据已从固定双目标升级为每帧 **1–5 个**有真实 caption 的目标：train 2,701 帧/3,687 目标，val 2,708 帧/3,794 目标。
 - RoBERTa、positive map 和 soft-token head 从 256 扩展到 512 token；真实 4 目标 GPU forward/loss/backward smoke 已通过。
 - 新增 5,518 条高难一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划。
-- 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确。
+- 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确，并按目标数 N=1…5 分别报告全部目标同时定位正确的准确率。
 - 可变目标 Grounding 正在 4090 上训练；新结果出来前，上文 40.38%/80.00%/57.08% 仍属于旧双目标 v4，不得当作 v5 指标。
 
 ## 目录
@@ -39,12 +39,12 @@
 ## 架构
 
 ```text
-Point cloud + two referring expressions
+Point cloud + N referring expressions (N=1...5 in released data)
               │
               ▼
   multi-target 3EED decoder queries
               │
-       token A, token B (288D)
+       token A ... token N (288D each)
               │
  role embedding + 1-layer/8-head relation Transformer
               │

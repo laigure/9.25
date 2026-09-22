@@ -726,3 +726,13 @@
 5. 新增 `build_scene_reasoning_qa.py`，生成 5,518 条一句话 QA：train 2,656 / val 2,862；含 3,506 条多干扰物 A/B 关系题、271 条两步关系链、271 条距离排序后关系题和 1,470 条局部路径规划题。
 6. 新增 `strict_scene_qa_eval.py`，只有关系关键词集、全部严格三元组集、完整标准句、一句话结构、规划动作、A/B swap 全通过才计 `language_all_ok`；端到端还要求所有被引用目标 Grounding 通过。
 7. 用 5,518 条 canonical answer 作 oracle prediction 时，关键词、三元组、完整句、一句话、规划动作、A/B swap 和严格合取指标均为 100%，证明数据生成与评测器自洽；Grounding 条件/端到端指标需等新模型 token 导出后才有真实数值。
+8. 场景级 Grounding 已在远程 RTX 4090 启动 100 epoch 训练，使用旧 checkpoint 部分初始化；旧权重中 1,020 个张量直接载入、14 个文本 head 张量由 256 扩展到 512，没有跳过不兼容权重。真实训练已通过 epoch 10 并继续运行，无 OOM/NaN。
+9. epoch 10 首次验证：`PerTargetContrast@0.25=71.56%`、`@0.5=41.70%`；要求场景内全部目标同时正确时，soft-token head 为 `48.46%/20.33%`，contrastive head 为 `50.88%/21.32%`（对应 IoU 0.25/0.5）。这是中途结果，不能作为最终模型结论。
+10. 总体 Joint 指标会被 1 目标场景占比影响，因此 evaluator 新增按场景目标数分组的严格指标：分别报告 N=1、2、3、4、5 时“所有目标均超过 IoU 阈值”的准确率。该修改不重启当前训练，将用于后续验证与最终 checkpoint 评测。
+
+### 本阶段验收口径
+
+1. `language_all_ok = keyword_ok ∧ triples_ok ∧ canonical_sentence_ok ∧ one_sentence_ok ∧ planning_ok ∧ swap_ok`，其中只合取该样本适用的检查项。
+2. `strict_end_to_end_ok = language_all_ok ∧ all_referenced_targets_grounded`；任何一个被问题引用的目标定位失败，整条样本即失败。
+3. Grounding 条件准确率只在所有被引用目标均定位正确的子集上计算，用于定位 QA 后端能力；端到端准确率在完整数据上计算，作为真实系统主结果。
+4. 3EED 当前只支持基于当帧障碍物和固定前向终点的局部避障动作。完整道路路线规划还需要 Waymo Motion/Map、ego 历史状态和导航终点，不能从现有 3EED 标注可靠生成。
