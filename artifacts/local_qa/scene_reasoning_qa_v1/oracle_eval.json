@@ -1350,7 +1350,7 @@
     {
       "qa_id": "0e7935d2e2890c4c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -2812,7 +2812,7 @@
     {
       "qa_id": "589a3e894eb3bf9c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -5500,7 +5500,7 @@
     {
       "qa_id": "a0696f4f9d28b513",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -6491,7 +6491,7 @@
     {
       "qa_id": "e8f65d561d207f50",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -6656,7 +6656,7 @@
     {
       "qa_id": "7dc0d4ed9153f93d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -6821,7 +6821,7 @@
     {
       "qa_id": "a64016c60d09c492",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -6986,7 +6986,7 @@
     {
       "qa_id": "45b7d5dfd74166db",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -7151,7 +7151,7 @@
     {
       "qa_id": "2be6dbd313014ed6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -7413,7 +7413,7 @@
     {
       "qa_id": "b357962424e60bf0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -7685,7 +7685,7 @@
     {
       "qa_id": "d76246e86af2d8c0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -8814,7 +8814,7 @@
     {
       "qa_id": "f9a10a0efc76b6f9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -9262,7 +9262,7 @@
     {
       "qa_id": "85e19d3fbdf50332",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -9437,7 +9437,7 @@
     {
       "qa_id": "10310c2ee0ce113c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -10099,7 +10099,7 @@
     {
       "qa_id": "1bbf2db90401f0f8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -13439,7 +13439,7 @@
     {
       "qa_id": "683382b8916e02b9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -14238,7 +14238,7 @@
     {
       "qa_id": "3ae62ed3b2ea0787",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -15153,7 +15153,7 @@
     {
       "qa_id": "401a2215dde8405f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -17186,7 +17186,7 @@
     {
       "qa_id": "c7d2c698cfbe4854",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -17371,7 +17371,7 @@
     {
       "qa_id": "bbac106e42878640",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -17576,7 +17576,7 @@
     {
       "qa_id": "4157088038db0de5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -17995,7 +17995,7 @@
     {
       "qa_id": "35bfa6a79a222f65",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -19698,7 +19698,7 @@
     {
       "qa_id": "3fd80481245e66b0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -20030,7 +20030,7 @@
     {
       "qa_id": "2532286029d3ffff",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -22924,7 +22924,7 @@
     {
       "qa_id": "557633966682ac21",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -23839,7 +23839,7 @@
     {
       "qa_id": "e916bc45163b5f8b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -24189,7 +24189,7 @@
     {
       "qa_id": "5014efd380fbcd45",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -24471,7 +24471,7 @@
     {
       "qa_id": "aa16cf2cc0b345fa",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -25746,7 +25746,7 @@
     {
       "qa_id": "bb98722ff2df03da",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -26038,7 +26038,7 @@
     {
       "qa_id": "761f3b208dad0443",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -27859,7 +27859,7 @@
     {
       "qa_id": "6b0eb26b264f6f3b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -28035,7 +28035,7 @@
     {
       "qa_id": "7858d260aa22df03",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -28250,7 +28250,7 @@
     {
       "qa_id": "64bcc90fd1841761",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -28913,7 +28913,7 @@
     {
       "qa_id": "5a844528d4e1d9aa",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -30004,7 +30004,7 @@
     {
       "qa_id": "71b3c890abe66b74",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -30609,7 +30609,7 @@
     {
       "qa_id": "d8c856144b4036ce",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -30804,7 +30804,7 @@
     {
       "qa_id": "a49768f429b2a327",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -30940,7 +30940,7 @@
     {
       "qa_id": "b12ba4e90ee14bb5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -31213,7 +31213,7 @@
     {
       "qa_id": "0e6644ad6b26fe13",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -31428,7 +31428,7 @@
     {
       "qa_id": "b12a7b2a7201a0d7",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -31740,7 +31740,7 @@
     {
       "qa_id": "e08180cef738313a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -32306,7 +32306,7 @@
     {
       "qa_id": "892164e19b454fae",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -32969,7 +32969,7 @@
     {
       "qa_id": "76874a9c54e7382d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -33923,7 +33923,7 @@
     {
       "qa_id": "ef03340ca8b211e4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -34079,7 +34079,7 @@
     {
       "qa_id": "29f2897ce5737611",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -34391,7 +34391,7 @@
     {
       "qa_id": "77ec8d7746a0e92f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -34723,7 +34723,7 @@
     {
       "qa_id": "413c3f1602b4e051",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -35016,7 +35016,7 @@
     {
       "qa_id": "22b16c532be327ac",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -35504,7 +35504,7 @@
     {
       "qa_id": "31168ff6fbab3fe3",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -36050,7 +36050,7 @@
     {
       "qa_id": "1a28675da0c413dd",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -36616,7 +36616,7 @@
     {
       "qa_id": "7b9ca252180cb5c8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -37026,7 +37026,7 @@
     {
       "qa_id": "abe68e623a7fd3d0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -37358,7 +37358,7 @@
     {
       "qa_id": "509e3d4d90a9d39d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -37807,7 +37807,7 @@
     {
       "qa_id": "904aacce6d208bfd",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -38139,7 +38139,7 @@
     {
       "qa_id": "2b1d4cfd0d111d27",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -38354,7 +38354,7 @@
     {
       "qa_id": "b90a96dac9a80f98",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -38666,7 +38666,7 @@
     {
       "qa_id": "21b7398982487c15",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -39456,7 +39456,7 @@
     {
       "qa_id": "d3330be78762b9c2",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -39788,7 +39788,7 @@
     {
       "qa_id": "325aee2764b21da1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -41385,7 +41385,7 @@
     {
       "qa_id": "54ce034e83ffe981",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -42009,7 +42009,7 @@
     {
       "qa_id": "9e51505f96c8f4e5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -42185,7 +42185,7 @@
     {
       "qa_id": "b7c0ee9fab74e64e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -44026,7 +44026,7 @@
     {
       "qa_id": "7fed430ff5ee80ba",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -45573,7 +45573,7 @@
     {
       "qa_id": "dfa52d18329a9009",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -46498,7 +46498,7 @@
     {
       "qa_id": "9e6f29d95b081f3b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -46703,7 +46703,7 @@
     {
       "qa_id": "d81b3920c8e0b85a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -47122,7 +47122,7 @@
     {
       "qa_id": "f1230bb8d58c55b1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -47327,7 +47327,7 @@
     {
       "qa_id": "911db39933b6f414",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -47503,7 +47503,7 @@
     {
       "qa_id": "fb97f9477ebd5790",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -47679,7 +47679,7 @@
     {
       "qa_id": "454fc1f46ccfe8bc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -47991,7 +47991,7 @@
     {
       "qa_id": "9697b65c4957da8d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -48254,7 +48254,7 @@
     {
       "qa_id": "d8f400c14289bd74",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -48780,7 +48780,7 @@
     {
       "qa_id": "39f36c91065a4cbc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -48985,7 +48985,7 @@
     {
       "qa_id": "12b28a3e3fd27c1d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -49355,7 +49355,7 @@
     {
       "qa_id": "0f1e5978ecaa71d8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -49560,7 +49560,7 @@
     {
       "qa_id": "519f6a4c3c81142b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -49872,7 +49872,7 @@
     {
       "qa_id": "6cfa761dfe89cb81",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -50223,7 +50223,7 @@
     {
       "qa_id": "8c1017184dbdc824",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -50729,7 +50729,7 @@
     {
       "qa_id": "72e276f3df37fe17",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -52022,7 +52022,7 @@
     {
       "qa_id": "7795398fe507de45",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -52334,7 +52334,7 @@
     {
       "qa_id": "16b49ef28e450f53",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -52529,7 +52529,7 @@
     {
       "qa_id": "1d959893e80d2079",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -52714,7 +52714,7 @@
     {
       "qa_id": "413e53ff60930d99",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -53143,7 +53143,7 @@
     {
       "qa_id": "468cf6890a0fd08f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -53358,7 +53358,7 @@
     {
       "qa_id": "823a752c7aee36a8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -53787,7 +53787,7 @@
     {
       "qa_id": "47a570a882c60db1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -54002,7 +54002,7 @@
     {
       "qa_id": "092fa19628579d64",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -54334,7 +54334,7 @@
     {
       "qa_id": "089935a26a92f9e4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -54549,7 +54549,7 @@
     {
       "qa_id": "0120381733ad2bc4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -54764,7 +54764,7 @@
     {
       "qa_id": "90643547d3cd9d42",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -55542,7 +55542,7 @@
     {
       "qa_id": "31ceb3528018f426",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -57082,7 +57082,7 @@
     {
       "qa_id": "d68455b68eca89a6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -57394,7 +57394,7 @@
     {
       "qa_id": "046565c1f302e313",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -58164,7 +58164,7 @@
     {
       "qa_id": "947079b6cb72b6d8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -58476,7 +58476,7 @@
     {
       "qa_id": "e79114c65713c8c8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -58661,7 +58661,7 @@
     {
       "qa_id": "9beea64883aac6ed",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -59050,7 +59050,7 @@
     {
       "qa_id": "bd81dd4def1b6341",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is in front of Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -59449,7 +59449,7 @@
     {
       "qa_id": "4685fc74f5bd192e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -59634,7 +59634,7 @@
     {
       "qa_id": "83dd5835db8dc884",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -60083,7 +60083,7 @@
     {
       "qa_id": "9d1e3661ea99fca5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -60424,7 +60424,7 @@
     {
       "qa_id": "63420330bf935b10",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -60853,7 +60853,7 @@
     {
       "qa_id": "17a1754df3ad7d07",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -61126,7 +61126,7 @@
     {
       "qa_id": "d7d3c3c283b3d70d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -61983,7 +61983,7 @@
     {
       "qa_id": "b993fa66b7020f07",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -63103,7 +63103,7 @@
     {
       "qa_id": "5f41d0e41f2c4605",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -64750,7 +64750,7 @@
     {
       "qa_id": "ed03e185ef64e3bb",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -64915,7 +64915,7 @@
     {
       "qa_id": "bc17c04ab6eed13c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -65391,7 +65391,7 @@
     {
       "qa_id": "a7a8a1ee5f16fe08",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -65750,7 +65750,7 @@
     {
       "qa_id": "295f61616afedce7",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is behind object a.",
+      "prediction": "Object A is in front of Object B; Object C is behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -69903,7 +69903,7 @@
     {
       "qa_id": "47aef7accd93e9f4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -73075,7 +73075,7 @@
     {
       "qa_id": "9a33de57f4801880",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -73562,7 +73562,7 @@
     {
       "qa_id": "9cab3cff970f5355",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -74107,7 +74107,7 @@
     {
       "qa_id": "000f13e8c80c6d1d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -75753,7 +75753,7 @@
     {
       "qa_id": "86948f6498280568",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -75968,7 +75968,7 @@
     {
       "qa_id": "d966c29966d95c35",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -76611,7 +76611,7 @@
     {
       "qa_id": "8b0169f04350b561",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -76903,7 +76903,7 @@
     {
       "qa_id": "f646415e174b9cf5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -77079,7 +77079,7 @@
     {
       "qa_id": "a6dbfd75147b9748",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -77586,7 +77586,7 @@
     {
       "qa_id": "0a5a51b7d6309897",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -77791,7 +77791,7 @@
     {
       "qa_id": "b3aa41e892768277",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -78415,7 +78415,7 @@
     {
       "qa_id": "f4c8a83c0b2a653d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -78630,7 +78630,7 @@
     {
       "qa_id": "f69ec600d97c6bca",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -78806,7 +78806,7 @@
     {
       "qa_id": "0343e5193a361c05",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -81803,7 +81803,7 @@
     {
       "qa_id": "01c53326bb7e8c1e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -81998,7 +81998,7 @@
     {
       "qa_id": "210adc6226e6efb9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -82524,7 +82524,7 @@
     {
       "qa_id": "a6816b9f58e461dc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -85290,7 +85290,7 @@
     {
       "qa_id": "76bc4a2d00c96eb1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -86177,7 +86177,7 @@
     {
       "qa_id": "ecae54d346c867ec",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -90128,7 +90128,7 @@
     {
       "qa_id": "4582dcf007367873",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -90986,7 +90986,7 @@
     {
       "qa_id": "9daaeb865e48db7f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -93772,7 +93772,7 @@
     {
       "qa_id": "f41193ea3d0b776d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -95711,7 +95711,7 @@
     {
       "qa_id": "a4e7fc72be1dcb26",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -97135,7 +97135,7 @@
     {
       "qa_id": "0ff82ab0a05a32ac",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -98149,7 +98149,7 @@
     {
       "qa_id": "d1938334e1ff5a5d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -98695,7 +98695,7 @@
     {
       "qa_id": "ae87fbb8e9cdf6fc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -99748,7 +99748,7 @@
     {
       "qa_id": "f454ea5c37d1fad9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -100274,7 +100274,7 @@
     {
       "qa_id": "0d347144e81f51a3",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -100693,7 +100693,7 @@
     {
       "qa_id": "5ab79c1ced0e394f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -100995,7 +100995,7 @@
     {
       "qa_id": "48a4c457e3410762",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -102126,7 +102126,7 @@
     {
       "qa_id": "cc47341769d91db8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -102438,7 +102438,7 @@
     {
       "qa_id": "54fa3bac3a435cab",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -102613,7 +102613,7 @@
     {
       "qa_id": "20a80cdded7ab689",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -103022,7 +103022,7 @@
     {
       "qa_id": "496bd3da6b80e218",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -103412,7 +103412,7 @@
     {
       "qa_id": "27ac96ad5acb0399",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -103744,7 +103744,7 @@
     {
       "qa_id": "5cbfa903c9db0d50",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -103959,7 +103959,7 @@
     {
       "qa_id": "09d87721a025bd63",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -104544,7 +104544,7 @@
     {
       "qa_id": "33b33638823982de",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -105312,7 +105312,7 @@
     {
       "qa_id": "00fed24f849aa253",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -105711,7 +105711,7 @@
     {
       "qa_id": "5e2d48074233caa3",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -105906,7 +105906,7 @@
     {
       "qa_id": "7cefc6438f89175f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -106168,7 +106168,7 @@
     {
       "qa_id": "1f4e3182c8b0d694",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -107469,7 +107469,7 @@
     {
       "qa_id": "beedff50aa814577",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -107644,7 +107644,7 @@
     {
       "qa_id": "5db0e0dc081320e0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -114444,7 +114444,7 @@
     {
       "qa_id": "c50ef3dd68cdc22e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -114893,7 +114893,7 @@
     {
       "qa_id": "bc8938ab12d218b6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -115342,7 +115342,7 @@
     {
       "qa_id": "f9fca817473c1a1e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -115557,7 +115557,7 @@
     {
       "qa_id": "07c32bb1a8e575ca",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -115762,7 +115762,7 @@
     {
       "qa_id": "4dc95d92051bcb1b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -119362,7 +119362,7 @@
     {
       "qa_id": "1d7b810ed33ba0d1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -119605,7 +119605,7 @@
     {
       "qa_id": "a20c8eb3e1da679a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -119770,7 +119770,7 @@
     {
       "qa_id": "f12cad9aa9a209d7",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -119935,7 +119935,7 @@
     {
       "qa_id": "fc316f19b3b99eac",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -120100,7 +120100,7 @@
     {
       "qa_id": "8d258530f2cb8b27",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -120372,7 +120372,7 @@
     {
       "qa_id": "d9140a61e3715873",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -120537,7 +120537,7 @@
     {
       "qa_id": "b86e8c7e69f077f1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -120809,7 +120809,7 @@
     {
       "qa_id": "42c30c8ca4683316",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -120974,7 +120974,7 @@
     {
       "qa_id": "19fd63aea65a2be0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -121139,7 +121139,7 @@
     {
       "qa_id": "3784389196c2d92b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -121304,7 +121304,7 @@
     {
       "qa_id": "6fcb3a7e563d41bd",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -121576,7 +121576,7 @@
     {
       "qa_id": "c1e5162e9fa202a1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -121848,7 +121848,7 @@
     {
       "qa_id": "ae050788cf0b8119",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -122120,7 +122120,7 @@
     {
       "qa_id": "3ff95e590f47ebc0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -122285,7 +122285,7 @@
     {
       "qa_id": "1eeddf6418a7b006",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -122567,7 +122567,7 @@
     {
       "qa_id": "c6104e30c38b2fe5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -122732,7 +122732,7 @@
     {
       "qa_id": "28bcc21c643e2f6f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -122897,7 +122897,7 @@
     {
       "qa_id": "79df6282cae77762",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -123266,7 +123266,7 @@
     {
       "qa_id": "155b66fb22a3a1be",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -123431,7 +123431,7 @@
     {
       "qa_id": "a2a86d0eda24312a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -123713,7 +123713,7 @@
     {
       "qa_id": "27826417c0acd9fe",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -123878,7 +123878,7 @@
     {
       "qa_id": "c6989f4991610d89",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -124043,7 +124043,7 @@
     {
       "qa_id": "82a9685aeaaae7f3",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -124295,7 +124295,7 @@
     {
       "qa_id": "87882ea61dfce6a8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -124577,7 +124577,7 @@
     {
       "qa_id": "b8abc7494acdd091",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -124859,7 +124859,7 @@
     {
       "qa_id": "2114d76c4f6b2f9a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -125024,7 +125024,7 @@
     {
       "qa_id": "0cae4fbcc097fa45",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -125189,7 +125189,7 @@
     {
       "qa_id": "fe32fc3c6fcde0da",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -125354,7 +125354,7 @@
     {
       "qa_id": "d0d9d87278f1bcde",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -125519,7 +125519,7 @@
     {
       "qa_id": "3500b22a79fbd243",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -125791,7 +125791,7 @@
     {
       "qa_id": "02d7c2d9e0d470de",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -126053,7 +126053,7 @@
     {
       "qa_id": "318a6f7a9746c165",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -126218,7 +126218,7 @@
     {
       "qa_id": "e752fc9a13236a9d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -126383,7 +126383,7 @@
     {
       "qa_id": "ae4f427e931781c2",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -129003,7 +129003,7 @@
     {
       "qa_id": "2411af06fa71ad75",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -130641,7 +130641,7 @@
     {
       "qa_id": "2e0f458bfeb054ff",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -132140,7 +132140,7 @@
     {
       "qa_id": "1acbefabb1cff7aa",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -132550,7 +132550,7 @@
     {
       "qa_id": "358f4fe7149d77bd",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -134284,7 +134284,7 @@
     {
       "qa_id": "a5163c24470ff47e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -136585,7 +136585,7 @@
     {
       "qa_id": "161688dacf97cf35",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -138470,7 +138470,7 @@
     {
       "qa_id": "daf0c39a605a07e4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -138675,7 +138675,7 @@
     {
       "qa_id": "8b427cc031160ab7",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -140874,7 +140874,7 @@
     {
       "qa_id": "491c6f20d9fd6066",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -141350,7 +141350,7 @@
     {
       "qa_id": "9fd5ff804c4de329",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -141817,7 +141817,7 @@
     {
       "qa_id": "ad63742fa48544c6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -143716,7 +143716,7 @@
     {
       "qa_id": "02d02be718b916a0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -146091,7 +146091,7 @@
     {
       "qa_id": "3e9cf36c1dc5260d",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -146618,7 +146618,7 @@
     {
       "qa_id": "c69544ed26a1e277",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -146871,7 +146871,7 @@
     {
       "qa_id": "01c315b68bedbc37",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -147319,7 +147319,7 @@
     {
       "qa_id": "983cdadeff3b7761",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -147689,7 +147689,7 @@
     {
       "qa_id": "628093755ea5f751",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -149247,7 +149247,7 @@
     {
       "qa_id": "2bf46758c584bcbf",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -150650,7 +150650,7 @@
     {
       "qa_id": "7326f099f209f5d1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -150845,7 +150845,7 @@
     {
       "qa_id": "03890ca64c5a771a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -151769,7 +151769,7 @@
     {
       "qa_id": "1ccfbc8145da1bfc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -152295,7 +152295,7 @@
     {
       "qa_id": "2ee4bee4ba26ed4f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is in front of Object B; object c is in front of object a.",
+      "prediction": "Object A is in front of Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -153133,7 +153133,7 @@
     {
       "qa_id": "84eb018c607405ce",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -153348,7 +153348,7 @@
     {
       "qa_id": "71286a7af9958bf8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -153631,7 +153631,7 @@
     {
       "qa_id": "9150734dbbd70b76",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -154060,7 +154060,7 @@
     {
       "qa_id": "0dd025d5b1e258bf",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and in front of Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is to the left of and in front of Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -155676,7 +155676,7 @@
     {
       "qa_id": "64986052488b3c96",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -157098,7 +157098,7 @@
     {
       "qa_id": "8cdb6e1e44621dcf",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -157390,7 +157390,7 @@
     {
       "qa_id": "4062b2a08f046395",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -157565,7 +157565,7 @@
     {
       "qa_id": "bbcd4e44e84b1115",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -157954,7 +157954,7 @@
     {
       "qa_id": "023aa7367071c5f5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -158440,7 +158440,7 @@
     {
       "qa_id": "24337d9029670766",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -159999,7 +159999,7 @@
     {
       "qa_id": "720f92dbf0bdbc86",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -162619,7 +162619,7 @@
     {
       "qa_id": "e456d052c88c74f6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -164489,7 +164489,7 @@
     {
       "qa_id": "fb5ca6fb31e3c827",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -165639,7 +165639,7 @@
     {
       "qa_id": "7ad987c9ac2def85",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -166387,7 +166387,7 @@
     {
       "qa_id": "cd14287bff03a096",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -168469,7 +168469,7 @@
     {
       "qa_id": "d40b239e989441b8",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -171216,7 +171216,7 @@
     {
       "qa_id": "eb71c661d9c8d65c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -172055,7 +172055,7 @@
     {
       "qa_id": "43933c8382c7e922",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -172328,7 +172328,7 @@
     {
       "qa_id": "294b9fb9deece35a",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -172582,7 +172582,7 @@
     {
       "qa_id": "59649d055c29839f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -173537,7 +173537,7 @@
     {
       "qa_id": "9a41939e3810eca9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -173810,7 +173810,7 @@
     {
       "qa_id": "8edc7fea339c6602",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -174278,7 +174278,7 @@
     {
       "qa_id": "49421421363ef61e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -175973,7 +175973,7 @@
     {
       "qa_id": "de7e2c69f8efe83e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -178410,7 +178410,7 @@
     {
       "qa_id": "703fa601fcf39798",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -179073,7 +179073,7 @@
     {
       "qa_id": "5b2c076c8b0226fb",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -179405,7 +179405,7 @@
     {
       "qa_id": "a595869734ddb8ed",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -179620,7 +179620,7 @@
     {
       "qa_id": "50aa3fa74a4d60ad",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -179835,7 +179835,7 @@
     {
       "qa_id": "3230a371868aed28",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -180050,7 +180050,7 @@
     {
       "qa_id": "0cfe080fdbde4b54",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -181975,7 +181975,7 @@
     {
       "qa_id": "78ffa8199fd2150f",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -183641,7 +183641,7 @@
     {
       "qa_id": "94197f6942cc5d15",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -184343,7 +184343,7 @@
     {
       "qa_id": "9d3b0ff359eedb02",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -184557,7 +184557,7 @@
     {
       "qa_id": "ae54c71aa28e8cbe",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -185082,7 +185082,7 @@
     {
       "qa_id": "bea3f51881980fc6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -185579,7 +185579,7 @@
     {
       "qa_id": "84f2dc6a5f94e216",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -185901,7 +185901,7 @@
     {
       "qa_id": "412e56e05cef739c",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -187147,7 +187147,7 @@
     {
       "qa_id": "b6cd90f7dffe04da",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -189102,7 +189102,7 @@
     {
       "qa_id": "4f50952d78f37a81",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -190210,7 +190210,7 @@
     {
       "qa_id": "0d45816e717268db",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is behind Object B; object c is to the right of and behind object a.",
+      "prediction": "Object A is behind Object B; Object C is to the right of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -191224,7 +191224,7 @@
     {
       "qa_id": "c746f511e5d53133",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -192043,7 +192043,7 @@
     {
       "qa_id": "929e7ff86e5813e0",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -193446,7 +193446,7 @@
     {
       "qa_id": "5cac0bb5f50ca1f9",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -195296,7 +195296,7 @@
     {
       "qa_id": "7c39b88370ac60f6",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -195628,7 +195628,7 @@
     {
       "qa_id": "69ad1c22e73d17ab",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -196057,7 +196057,7 @@
     {
       "qa_id": "785ee6bf51b4bd90",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -196466,7 +196466,7 @@
     {
       "qa_id": "58eb266255af4868",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -196681,7 +196681,7 @@
     {
       "qa_id": "c0b918a38d857fdc",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -197100,7 +197100,7 @@
     {
       "qa_id": "4b4d01096f7a25c5",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -198328,7 +198328,7 @@
     {
       "qa_id": "4af49e2a56e90e61",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -198620,7 +198620,7 @@
     {
       "qa_id": "89a31ca084486235",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the left of Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -200100,7 +200100,7 @@
     {
       "qa_id": "30552fd1ea28811e",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -200295,7 +200295,7 @@
     {
       "qa_id": "f6ac96f47c613625",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -200510,7 +200510,7 @@
     {
       "qa_id": "c7e84c22daa0a813",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and in front of Object B; object c is to the left of and behind object a.",
+      "prediction": "Object A is to the right of and in front of Object B; Object C is to the left of and behind Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -202524,7 +202524,7 @@
     {
       "qa_id": "5e41c68b405863e1",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the left of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -203254,7 +203254,7 @@
     {
       "qa_id": "ffcc09a8c8120120",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -203994,7 +203994,7 @@
     {
       "qa_id": "a3491ad540399ec4",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the left of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the left of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,
@@ -204199,7 +204199,7 @@
     {
       "qa_id": "c450db51da11075b",
       "scenario": "two_step_relation_chain",
-      "prediction": "Object A is to the right of and behind Object B; object c is to the right of and in front of object a.",
+      "prediction": "Object A is to the right of and behind Object B; Object C is to the right of and in front of Object A.",
       "keyword_ok": true,
       "triple_ok": true,
       "sentence_ok": true,

@@ -54,7 +54,9 @@ def refs(record, order):
 
 
 def preamble(object_refs):
-    return " ".join(f"Object {x['role']}: {x['description']}." for x in object_refs)
+    return " ".join(
+        f"Object {x['role']}: {x['description'].rstrip(' .')}."
+        for x in object_refs)
 
 
 def qa_id(scene_id, scenario, suffix):
@@ -161,7 +163,7 @@ def build_record(record, split, rows, private):
         atoms_ab = relation_atoms(boxes[0], boxes[1])
         atoms_ca = relation_atoms(boxes[2], boxes[0])
         answer = (relation_phrase("A", atoms_ab, "B") + "; " +
-                  relation_phrase("C", atoms_ca, "A").lower() + ".")
+                  relation_phrase("C", atoms_ca, "A") + ".")
         add_row(rows, private, record, split, "two_step_relation_chain", "abc",
                 order, "State both where Object A is relative to Object B and where "
                 "Object C is relative to Object A, using exactly one sentence.",
