@@ -11,22 +11,32 @@ from utils.transform_waymo import transform_to_front_view
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--dataset", default="waymo-multi",
-                    choices=["waymo-multi", "waymo-others-multi"])
+                    choices=["waymo-multi", "waymo-others-multi",
+                             "waymo-scene-multi"])
 args = parser.parse_args()
-splits = ("train", "val") if args.dataset == "waymo-others-multi" else ("train", "val", "test")
+splits = (("train", "val") if args.dataset in
+          ("waymo-others-multi", "waymo-scene-multi")
+          else ("train", "val", "test"))
 
 for split in splits:
+    token_budget = 512 if args.dataset == "waymo-scene-multi" else 256
     dataset = Joint3DDataset(
         dataset_dict={args.dataset: 1},
         test_dataset={args.dataset: 1},
         split=split,
         data_path="data/",
+        text_token_budget=token_budget,
     )
     assert len(dataset) > 0
     for annotation in dataset.annos:
         count = len(annotation["boxes_info"]["bbox3d"])
-        assert count == 2 if args.dataset == "waymo-others-multi" else count in (2, 3)
-        assert annotation["pred_pos_map"].shape == (count, 256)
+        if args.dataset == "waymo-others-multi":
+            assert count == 2
+        elif args.dataset == "waymo-scene-multi":
+            assert 1 <= count <= 5
+        else:
+            assert count in (2, 3)
+        assert annotation["pred_pos_map"].shape == (count, token_budget)
         assert (annotation["pred_pos_map"].sum(axis=1) > 0).all()
         overlap = (annotation["pred_pos_map"] > 0).astype(np.int32)
         overlap = overlap @ overlap.T
@@ -36,7 +46,12 @@ for split in splits:
         assert np.unique(centers, axis=0).shape[0] == count
     item = dataset[0]
     item_count = int(item["box_label_mask"].sum())
-    assert item_count == 2 if args.dataset == "waymo-others-multi" else item_count in (2, 3)
+    if args.dataset == "waymo-others-multi":
+        assert item_count == 2
+    elif args.dataset == "waymo-scene-multi":
+        assert 1 <= item_count <= 5
+    else:
+        assert item_count in (2, 3)
     assert item["coordinate_frame"] == "source_lidar"
     instance_ids = set(item["point_instance_label"].astype(int).tolist()) - {-1}
     assert instance_ids <= set(range(item_count))

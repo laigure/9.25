@@ -58,6 +58,7 @@ class TrainTester(BaseTrainTester):
                 butd_cls=args.butd_cls,
                 augment_det=args.augment_det,
                 debug=args.debug,
+                text_token_budget=args.text_token_budget,
             )
         
         test_dataset = Joint3DDataset(
@@ -75,6 +76,7 @@ class TrainTester(BaseTrainTester):
             butd_gt=args.butd_gt,
             butd_cls=args.butd_cls,
             debug=args.debug,
+            text_token_budget=args.text_token_budget,
         )
         return train_dataset, test_dataset
 
@@ -87,7 +89,7 @@ class TrainTester(BaseTrainTester):
         if args.use_multiview:
             num_input_channel += 128
         if args.use_soft_token_loss:
-            num_class = 256
+            num_class = args.text_token_budget
         else:
             num_class = 19
         model = BeaUTyDETR(
@@ -101,6 +103,7 @@ class TrainTester(BaseTrainTester):
             butd=args.butd or args.butd_gt or args.butd_cls,
             pointnet_ckpt=args.pp_checkpoint,
             self_attend=args.self_attend,
+            text_token_budget=args.text_token_budget,
         )
         return model
 

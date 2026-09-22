@@ -61,6 +61,22 @@ def main() -> None:
     )
     assert analysis["qa_rows"] == 1638
     assert abs(analysis["end_to_end"]["accuracy"] - 0.5708180708180708) < 1e-12
+
+    scene_summary = json.loads((
+        ROOT / "artifacts/local_qa/scene_multi_data/summary.json"
+    ).read_text(encoding="utf-8"))
+    assert scene_summary["max_target_count"] == 5
+    assert scene_summary["splits"]["train"]["records"] == 2701
+    assert scene_summary["splits"]["val"]["records"] == 2708
+    assert scene_summary["counters"]["targets_total"] == 7481
+    scene_qa = ROOT / "artifacts/local_qa/scene_reasoning_qa_v1/qa.jsonl"
+    assert count_jsonl(scene_qa) == 5518
+    scene_qa_summary = json.loads((scene_qa.parent / "summary.json").read_text(
+        encoding="utf-8"))
+    assert scene_qa_summary["all_answers_one_sentence"] is True
+    oracle = json.loads((scene_qa.parent / "oracle_eval.json").read_text(
+        encoding="utf-8"))
+    assert oracle["strict_language_all_pass"] == 1.0
     print("release validation passed")
 
 

@@ -37,6 +37,9 @@ def parse_option():
     parser = argparse.ArgumentParser()
     # Model
     parser.add_argument("--num_target", type=int, default=256, help="Proposal number")
+    parser.add_argument("--text_token_budget", type=int, default=256,
+                        choices=[256, 512],
+                        help="RoBERTa/positive-map token budget; scene-level multi-target uses 512")
     parser.add_argument("--sampling", default="kps", type=str, help="Query points sampling method (kps, fps)")
 
     # Transformer
@@ -74,6 +77,8 @@ def parse_option():
                              "train is for exporting training-split tokens, never for reporting")
     parser.add_argument("--init_checkpoint_path", type=str, default="",
                         help="Initialize model weights only; start a fresh optimizer and epoch schedule")
+    parser.add_argument("--allow_partial_init", action="store_true",
+                        help="Copy compatible/overlapping checkpoint tensors when an output head was expanded")
     parser.add_argument("--max_epoch", type=int, default=400)
     parser.add_argument("--optimizer", type=str, default="adamW")
     parser.add_argument("--weight_decay", type=float, default=0.0005)
@@ -396,8 +401,36 @@ class BaseTrainTester:
         # Initialize a new training run from pretrained weights without resuming its epoch.
         if args.init_checkpoint_path:
             checkpoint = torch.load(args.init_checkpoint_path, map_location="cpu")
-            model.load_state_dict(checkpoint["model"], strict=True)
-            self.logger.info("Initialized model weights from '%s'", args.init_checkpoint_path)
+            if args.allow_partial_init:
+                current = model.state_dict()
+                source = checkpoint["model"]
+                copied, expanded, skipped = [], [], []
+                for key, target in current.items():
+                    if key not in source:
+                        skipped.append(key)
+                        continue
+                    value = source[key]
+                    if value.shape == target.shape:
+                        current[key] = value
+                        copied.append(key)
+                    elif value.ndim == target.ndim:
+                        merged = target.clone()
+                        slices = tuple(slice(0, min(a, b))
+                                       for a, b in zip(value.shape, target.shape))
+                        merged[slices] = value[slices]
+                        current[key] = merged
+                        expanded.append((key, tuple(value.shape), tuple(target.shape)))
+                    else:
+                        skipped.append(key)
+                model.load_state_dict(current, strict=True)
+                self.logger.info(
+                    "Partially initialized from '%s': %d exact, %d expanded, %d skipped",
+                    args.init_checkpoint_path, len(copied), len(expanded), len(skipped))
+                for item in expanded:
+                    self.logger.info("Expanded checkpoint tensor: %s %s -> %s", *item)
+            else:
+                model.load_state_dict(checkpoint["model"], strict=True)
+                self.logger.info("Initialized model weights from '%s'", args.init_checkpoint_path)
             del checkpoint
 
         # Check for a checkpoint

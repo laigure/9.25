@@ -378,10 +378,14 @@ class GroundingEvaluator:
         # Temperature 0.07: common parameter in contrastive learning
         # softmax: normalize to probability distribution
         
-        # Pad to fixed dimension 256
-        sem_scores = torch.zeros(sem_scores_.size(0), sem_scores_.size(1), 256)  # (B=8, Q=256, 256)
+        # Pad to the dataset's configured positive-map token budget.  Scene
+        # multi-target training uses 512; legacy checkpoints use 256.
+        sem_scores = torch.zeros(
+            sem_scores_.size(0), sem_scores_.size(1), positive_map.shape[-1]
+        )
         sem_scores = sem_scores.to(sem_scores_.device)
-        sem_scores[:, : sem_scores_.size(1), : sem_scores_.size(2)] = sem_scores_
+        copy_tokens = min(sem_scores_.size(2), sem_scores.size(2))
+        sem_scores[:, :, :copy_tokens] = sem_scores_[:, :, :copy_tokens]
 
         # ============ 4. Evaluate per sample ============
         for bid in range(len(positive_map)):  # iterate over each sample in batch

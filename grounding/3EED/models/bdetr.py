@@ -53,6 +53,7 @@ class BeaUTyDETR(nn.Module):
         butd=True,
         pointnet_ckpt=None,
         self_attend=True,
+        text_token_budget=256,
     ):
         """Initialize layers."""
         super().__init__()
@@ -62,6 +63,7 @@ class BeaUTyDETR(nn.Module):
         self.self_position_embedding = self_position_embedding
         self.contrastive_align_loss = contrastive_align_loss
         self.butd = butd
+        self.text_token_budget = text_token_budget
 
         # Visual encoder
         # ipdb.set_trace()
@@ -132,7 +134,10 @@ class BeaUTyDETR(nn.Module):
         end_points["seed_xyz"] = end_points["fp2_xyz"]
         end_points["seed_features"] = end_points["fp2_features"]
         # Text encoder
-        tokenized = self.tokenizer.batch_encode_plus(inputs["text"], padding="longest", return_tensors="pt").to(inputs["point_clouds"].device)
+        tokenized = self.tokenizer.batch_encode_plus(
+            inputs["text"], padding="longest", truncation=True,
+            max_length=self.text_token_budget, return_tensors="pt"
+        ).to(inputs["point_clouds"].device)
         encoded_text = self.text_encoder(**tokenized)
         text_feats = self.text_projector(encoded_text.last_hidden_state)
         # Invert attention mask that we get from huggingface

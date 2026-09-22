@@ -1,0 +1,42 @@
+{
+  "method": "all released ground_info targets in each frame",
+  "target_count_is_variable": true,
+  "max_target_count": 5,
+  "splits": {
+    "train": {
+      "records": 2701,
+      "targets": 3687,
+      "target_count_distribution": {
+        "1": 1858,
+        "2": 709,
+        "3": 125,
+        "4": 9
+      },
+      "scenes": 2701,
+      "sequences": 94
+    },
+    "val": {
+      "records": 2708,
+      "targets": 3794,
+      "target_count_distribution": {
+        "1": 1798,
+        "2": 773,
+        "3": 106,
+        "4": 23,
+        "5": 8
+      },
+      "scenes": 2708,
+      "sequences": 93
+    }
+  },
+  "counters": {
+    "frames_seen": 5409,
+    "targets_1": 3656,
+    "targets_total": 7481,
+    "targets_2": 1482,
+    "targets_3": 231,
+    "targets_4": 32,
+    "missing_sequences": 10,
+    "targets_5": 8
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "rows": 5518,
+  "splits": {
+    "train": 2656,
+    "val": 2862
+  },
+  "scenarios": {
+    "distractor_pair_relation": 3506,
+    "local_path_planning": 1470,
+    "rank_then_relation": 271,
+    "two_step_relation_chain": 271
+  },
+  "all_answers_one_sentence": true,
+  "planning_scope": "deterministic local obstacle avoidance to a fixed forward goal",
+  "full_route_planning": false
+}

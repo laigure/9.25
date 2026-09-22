@@ -12,6 +12,14 @@
 
 详细数字、失败实验和解释见 [docs/EXPERIMENT_REPORT.md](docs/EXPERIMENT_REPORT.md)。
 
+## 场景级 v5（进行中）
+
+- Grounding 数据已从固定双目标升级为每帧 **1–5 个**有真实 caption 的目标：train 2,701 帧/3,687 目标，val 2,708 帧/3,794 目标。
+- RoBERTa、positive map 和 soft-token head 从 256 扩展到 512 token；真实 4 目标 GPU forward/loss/backward smoke 已通过。
+- 新增 5,518 条高难一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划。
+- 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确。
+- 可变目标 Grounding 正在 4090 上训练；新结果出来前，上文 40.38%/80.00%/57.08% 仍属于旧双目标 v4，不得当作 v5 指标。
+
 ## 目录
 
 | 路径 | 内容 |
@@ -20,6 +28,8 @@
 | `grounding/annotations/others_linked_data/` | 从 `ground_info[].others` 构建的 train/val 双目标标注 |
 | `qa_pipeline/` | QA 数据生成、token 接入、Projector/LoRA 训练和评测代码 |
 | `artifacts/local_qa/` | v2/v3 及早期 QA 数据、token 和诊断产物 |
+| `artifacts/local_qa/scene_multi_data/` | 场景级 1–5 目标 Grounding 标注 |
+| `artifacts/local_qa/scene_reasoning_qa_v1/` | 高难一句话 QA、局部规划和 oracle 评测 |
 | `artifacts/remote/others_linked_tokens/` | 最终 Grounding train/val 全量 token 导出 |
 | `artifacts/remote/qa_correct_others_v4_contrastive/` | 双目标均 IoU≥0.25 的 token 能力诊断 QA |
 | `artifacts/remote/qa_all_others_v4_contrastive/` | 不做 IoU 筛选的端到端 QA |

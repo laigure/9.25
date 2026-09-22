@@ -456,7 +456,7 @@
 
 ## 52. 新服务器环境搭建 + 第 2 步小数据训练与 query 唯一性验证（2026-09-21）
 
-### 环境（新 AutoDL 实例，RTX 4090 24G，connect.bjb1.seetacloud.com:42828）
+### 环境（新 AutoDL 实例，RTX 4090 24G，<remote-training-host>）
 
 1. 免密登录：本地 `~/.ssh/id_ed25519.pub` 写入 `/root/.ssh/authorized_keys`（密码不进任何工作区文件）。
 2. 仓库同步到 `/root/3eedqa/3EED`；编译三个 CUDA 扩展（`pointnet2/_ext`、`ops/teed_pointnet/pointnet2_batch/teed_pointnet`、`ops/teed_pointnet/roiaware_pool3d`，CUDA 12.1，`-D_GLIBCXX_USE_CXX11_ABI=0`），全部 in-place 导入验证通过。
@@ -699,3 +699,30 @@
 
 1. 当前完整链路在可对齐 QA 子集上的真实结果为 **57.08%**；此前 80.00% 应明确标为“Grounding 正确条件下的 token QA 上限实验”。
 2. 下一项数据工作应直接从 1,300 个 val multi-grounding pair 的 GT box 与两条 caption 生成同结构 QA，使所有 pair 都进入端到端分母，而不是继续依赖只覆盖 508 个 pair 的旧 QA v3 交集。
+
+## 63. 场景级可变目标、高难 QA 与严格评测新要求（2026-09-22）
+
+### 用户确认的新目标
+
+1. Grounding 数据从每条固定 2 个目标改为场景级可变目标数，数量由当前场景的真实标注决定。
+2. QA 升级为多目标、多步空间推理，每条答案必须是一个完整句子。
+3. 除空间关系和距离外，加入车辆行驶路径规划问题。
+4. 最终主指标使用严格合取：关系关键词、严格 `(A, relation, B)` 三元组、完整标准句、A/B 交换反转、Grounding 条件能力和无 GT 筛选端到端能力必须分别统计；一条样本只有所有适用项同时通过才算正确。
+
+### 数据与架构审计
+
+1. 全量 Waymo 公开 metadata 共 5,409 帧，`ground_info` 目标数分布为：1 目标 3,656 帧、2 目标 1,482 帧、3 目标 231 帧、4 目标 32 帧、5 目标 8 帧；最大值为 5。
+2. 现有 Hungarian loss、`box_label_mask`、多目标 evaluator 和 token 导出已按 `target_count` 工作；当前主要硬限制是组合文本/positive map 固定 256 token，QA role embedding 固定最多 3 个角色。
+3. 多目标组合 caption 最长约 237 个英文词，256 个 RoBERTa subword 可能截断后面目标。新场景模型将文本/soft-token head/positive map 统一扩展到 512，并对每个目标的 positive span 做非空断言。
+4. 3EED metadata 有当前点云、物体框、caption 和 pose，但没有唯一导航终点、HD lane graph、交通规则或完整动态轨迹条件。因此仅依赖 3EED 可生成“固定局部前向目标 + 当前障碍物”的决定性局部避障路径；不将它冒充为完整道路路线规划。完整规划需补 Waymo Motion/Map、ego 历史状态和导航 goal。
+5. “场景目标数”第一版严格定义为当帧所有有独立 caption 的 `ground_info` 目标。`others` 中未匹配的 context box 没有自己的 referring expression，不伪造文本监督；后续可作为无语言的 detector context token 单独加入。
+
+### 已实现与实测
+
+1. 新增 `build_scene_multi_grounding.py`，在服务器全量生成 `waymo_scene_multi_{train,val}_info.pkl`；train 2,701 帧/3,687 目标，val 2,708 帧/3,794 目标，全部 5,409 帧和 7,481 个有 caption 目标均进入数据，数量范围 1–5。
+2. 3EED 新增 `waymo-scene-multi` loader，文本 tokenizer、positive map 和 soft-token head 统一可配置为 512；Grounding evaluator 取消 contrastive 评测中写死的 256 padding。
+3. 真实数据 loader smoke 通过：train/val 全量 positive span 非空且不重叠，目标数 1–5，多实例点标签、侧向 LiDAR 坐标旋转和 val 确定性通过。
+4. 新增 `smoke_scene_model.py`，对真实 4 目标样本完成一次 GPU forward + Hungarian/contrastive loss + backward；`positive_map=(1,132,512)`、`sem_scores=(1,256,512)`、`query_features=(1,256,288)`，loss 83.6046，4090 峰值显存约 1,936 MB。
+5. 新增 `build_scene_reasoning_qa.py`，生成 5,518 条一句话 QA：train 2,656 / val 2,862；含 3,506 条多干扰物 A/B 关系题、271 条两步关系链、271 条距离排序后关系题和 1,470 条局部路径规划题。
+6. 新增 `strict_scene_qa_eval.py`，只有关系关键词集、全部严格三元组集、完整标准句、一句话结构、规划动作、A/B swap 全通过才计 `language_all_ok`；端到端还要求所有被引用目标 Grounding 通过。
+7. 用 5,518 条 canonical answer 作 oracle prediction 时，关键词、三元组、完整句、一句话、规划动作、A/B swap 和严格合取指标均为 100%，证明数据生成与评测器自洽；Grounding 条件/端到端指标需等新模型 token 导出后才有真实数值。

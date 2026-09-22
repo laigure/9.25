@@ -67,6 +67,14 @@ question text + implicit grounded object tokens
 
 QA 输入不包含 GT/pred box、center、coordinate 或 distance 数值。
 
-## 5. 三个及以上目标
+## 5. 场景级可变目标
 
-导出器、mask 和 QA role 结构可扩展到三个及以上 token，但当前最终数据和实验只训练、验证了两目标。要宣称稳定输出三个以上目标 token，还需要有每个目标的文本和 GT box 的三目标标注，并重新训练与评测 joint accuracy。
+v5 数据已使用每帧全部 `ground_info`，目标数为 1–5。`target_count`、`box_label_mask`、Hungarian matching、distinct query assignment 和 token 导出都按实际数量工作。组合 caption 可超过旧 256 subword 预算，因此新训练把 tokenizer、positive map 和 semantic token head 统一扩展到 512。
+
+QA relation projector 保留逐样本可变序列，role embedding 上限提高到 16；当前公开数据实际最多使用 A–E 五个角色。
+
+`others` 中未匹配 context box 没有独立 referring expression，因此没有伪造它们的语言 positive span。后续如要让规划看到全部障碍物，应新增无语言 detector context token 分支。
+
+## 6. 路径规划边界
+
+现有 v5 规划题是 ego 坐标系下以 20 m 前向为固定局部目标，在左/中/右候选走廊中根据 GT 物体框决定避障动作。它可验证多物体 token 能否支持局部决策，不是完整道路路线规划。完整规划需加入 Waymo HD map/lane graph、ego 历史状态、动态 agent 轨迹和导航终点。

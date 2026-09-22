@@ -199,7 +199,8 @@ def main():
     ap.add_argument("--eval-splits", default="val,test")
     ap.add_argument("--relation-layers", type=int, default=1)
     ap.add_argument("--relation-heads", type=int, default=8)
-    ap.add_argument("--max-object-roles", type=int, default=3)
+    ap.add_argument("--max-object-roles", type=int, default=16,
+                    help="Maximum variable-cardinality scene object set")
     args = ap.parse_args()
     args.geom = "none"
     args.no_tokens = False

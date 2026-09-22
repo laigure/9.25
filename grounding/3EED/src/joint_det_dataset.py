@@ -110,10 +110,12 @@ class Joint3DDataset(Dataset):
         butd_cls=False,
         augment_det=False,
         debug=False,
+        text_token_budget=256,
     ):
         """Initialize dataset (here for ReferIt3D utterances)."""
         # Basic configuration
         self.debug = debug
+        self.text_token_budget = text_token_budget
         self.dataset_dict = dataset_dict
         self.test_dataset = test_dataset
         self.split = split
@@ -202,6 +204,7 @@ class Joint3DDataset(Dataset):
             "quad": lambda: self.load_3eed_annos(dataset="quad"),
             "waymo-multi": lambda: self.waymo_multi_annos(dataset="waymo-multi"),
             "waymo-others-multi": lambda: self.waymo_multi_annos(dataset="waymo-others-multi"),
+            "waymo-scene-multi": lambda: self.waymo_multi_annos(dataset="waymo-scene-multi"),
         }
         annos = loaders[dset]()
         if self.overfit:
@@ -217,7 +220,10 @@ class Joint3DDataset(Dataset):
         annos = []
         split = self.split if self.split in ("train", "val", "test") else "val"
 
-        file_prefix = "waymo_others_multi" if dataset == "waymo-others-multi" else "waymo_multi"
+        file_prefix = {
+            "waymo-others-multi": "waymo_others_multi",
+            "waymo-scene-multi": "waymo_scene_multi",
+        }.get(dataset, "waymo_multi")
         data_file = os.path.join(self.data_path, f"{file_prefix}_{split}_info.pkl")
         print(f"Loading {data_file}")
         assert os.path.exists(data_file), f"file not exist: {data_file}"
@@ -290,8 +296,11 @@ class Joint3DDataset(Dataset):
                 self._log_error(f"match failed: {utterance}", class_names=class_names, dataset="waymo-multi")
                 continue
             # caption
-            tokenized = self.tokenizer.batch_encode_plus([self._format_caption(utterance)], padding="longest", return_tensors="pt")
-            gt_map = get_positive_map(tokenized, all_positive)  # MARK positive map for multi-object
+            tokenized = self.tokenizer.batch_encode_plus(
+                [self._format_caption(utterance)], padding="longest", truncation=True,
+                max_length=self.text_token_budget, return_tensors="pt")
+            gt_map = get_positive_map(
+                tokenized, all_positive, map_length=self.text_token_budget)
             if len(gt_map) != len(box_info["bbox3d"]) or (gt_map.sum(1) == 0).any():
                 raise ValueError(f"Unaligned or truncated target spans: {frame_key}")
             anno_dict = {
@@ -304,6 +313,7 @@ class Joint3DDataset(Dataset):
                 "boxes_info": box_info,
                 "object_ids_json": json.dumps(frame_info.get("object_ids", [])),
                 "coordinate_frame": frame_info.get("coordinate_frame", "unknown"),
+                "target_count": len(box_info["bbox3d"]),
             }
             annos.append(anno_dict)
 
@@ -723,7 +733,8 @@ class Joint3DDataset(Dataset):
         # Read annotation
         anno = self.annos[index]
 
-        if anno["dataset"] in ("waymo-multi", "waymo-others-multi"):
+        if anno["dataset"] in ("waymo-multi", "waymo-others-multi",
+                                "waymo-scene-multi"):
             return self.getitem_waymo_multi(index)
 
         if self.debug:
@@ -745,8 +756,9 @@ class Joint3DDataset(Dataset):
             point_cloud[:, :3] = xyz
             gt_bboxes[0] = target_box[0]
 
-        positive_map = np.zeros((MAX_NUM_OBJ, 256))  #  1, 256
-        positive_map_ = np.array(anno["pred_pos_map"]).reshape(-1, 256)
+        positive_map = np.zeros((MAX_NUM_OBJ, self.text_token_budget))
+        positive_map_ = np.array(anno["pred_pos_map"]).reshape(
+            -1, self.text_token_budget)
         positive_map[: len(positive_map_)] = positive_map_
 
         # Return
@@ -793,8 +805,9 @@ class Joint3DDataset(Dataset):
             )
             point_cloud[:, :3] = xyz
             gt_bboxes[:num_obj] = target_boxes
-        positive_map = np.zeros((MAX_NUM_OBJ, 256))  #  1, 256
-        positive_map_ = np.array(anno["pred_pos_map"]).reshape(-1, 256)
+        positive_map = np.zeros((MAX_NUM_OBJ, self.text_token_budget))
+        positive_map_ = np.array(anno["pred_pos_map"]).reshape(
+            -1, self.text_token_budget)
         positive_map[: len(positive_map_)] = positive_map_
         _labels = np.zeros(MAX_NUM_OBJ)  # 132
         ret_dict = {
@@ -832,9 +845,9 @@ class Joint3DDataset(Dataset):
 
 
 # ==================== Utility Functions ====================
-def get_positive_map(tokenized, tokens_positive):
+def get_positive_map(tokenized, tokens_positive, map_length=256):
     """Construct a map of box-token associations."""
-    positive_map = torch.zeros((len(tokens_positive), 256), dtype=torch.float)
+    positive_map = torch.zeros((len(tokens_positive), map_length), dtype=torch.float)
     for j, tok_list in enumerate(tokens_positive):
         (beg, end) = tok_list
         beg = int(beg)
