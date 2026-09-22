@@ -736,3 +736,30 @@
 2. `strict_end_to_end_ok = language_all_ok ∧ all_referenced_targets_grounded`；任何一个被问题引用的目标定位失败，整条样本即失败。
 3. Grounding 条件准确率只在所有被引用目标均定位正确的子集上计算，用于定位 QA 后端能力；端到端准确率在完整数据上计算，作为真实系统主结果。
 4. 3EED 当前只支持基于当帧障碍物和固定前向终点的局部避障动作。完整道路路线规划还需要 Waymo Motion/Map、ego 历史状态和导航终点，不能从现有 3EED 标注可靠生成。
+
+## 64. 场景级 Grounding 训练中途审计（2026-09-22）
+
+### 当前实际训练内容
+
+1. 当前运行只训练 3EED Grounding，不训练 QA、LoRA 或路径规划。输入是一个场景的点云和该场景 1–5 个目标各自的真实 referring expression；模型产生 256 个候选 query，通过 Hungarian matching 同时监督所有目标的中心、尺寸、GIoU、soft-token 分类和 query/text contrastive alignment。
+2. 每个被匹配目标最终对应一个不同的 288 维 decoder query feature；后续训练结束后才导出这些 token，并接入 Projector + LLM QA。
+
+### 运行状态与中期结果
+
+1. 审计时训练运行至 epoch 28/100，RTX 4090 占用约 12.7/24.6 GB、GPU 利用率约 86%、温度 57°C；日志中无 OOM、NaN、Traceback 或进程退出。
+2. epoch 10→20 的验证指标均提高：PerTarget Contrastive Acc@0.25 从 71.56% 到 73.38%，Acc@0.5 从 41.70% 到 43.41%；JointAll Contrastive Acc@0.25 从 50.88% 到 55.38%，Acc@0.5 从 21.32% 到 25.71%。因此训练没有出现立即发散。
+3. 数据结构检查通过：train/val 场景无交叉，全部 target span 合法，没有重复 object ID 或重复目标框。
+4. 数据盘剩余约 4.6 GB；当前 run 的日志、TensorBoard 和 prediction 文件约 16 MB，预计最终两个约 738 MB checkpoint 可以保存，但需避免同时产生大量历史 checkpoint。
+
+### 已发现的问题
+
+1. 目标数严重不平衡。train 中 N=1/2/3/4 分别为 1,858/709/125/9，N=5 为 0；val 中 N=1/2/3/4/5 为 1,798/773/106/23/8。当前架构能够处理五目标，但训练集没有任何五目标监督，不能声称已学会五目标 Grounding。
+2. epoch 20 的 contrastive joint 结果也反映该问题：`car+car` Acc@0.25 为 73.20%，`car+car+car` 为 36.73%，`car+car+car+car` 为 5.88%，`car+car+car+car+car` 为 0%。四/五目标样本数很少，单次百分比波动也很大。
+3. 当前总体 JointAll 会受到大量单目标场景主导，必须在最终离线评测中同时报告 N=1…5 分组指标。分组 evaluator 已写入磁盘，但正在运行的 Python 进程在修改前已加载旧类，因此要在 checkpoint 上重新执行一次评测才会显示新指标。
+4. 当前 `save_freq=100`，运行期间在 epoch 100 前没有恢复 checkpoint；若主机中断会丢失中途训练，而且不能选择 epoch 20/30 等可能更好的模型。当前进程不重启以免丢失已有进度，后续训练入口需改成保留一个滚动 latest checkpoint 和一个 best checkpoint。
+5. 当前评测使用标注中的 target text span 选择相应 query，衡量的是“给定 referring expression/span 的多目标 Grounding”。面向任意自然语言 QA 的完整系统还需要问题解析或无需 GT span 的 query 选择，不能把当前指标直接当作自由问答端到端结果。
+
+### 处理决定
+
+1. 当前 100 epoch 运行继续作为不均衡数据上的场景级基线，因为 epoch 10→20 仍在稳定提升；不在没有 checkpoint 的 epoch 28 强制中断。
+2. 最终 checkpoint 必须补做 N=1…5 分组评测并导出 token。随后建立目标数平衡的训练版本：按 N 分层采样或过采样 N=3/4/5，并重新划分少量五目标场景到 train，同时保证 scene/sequence 不泄漏；该版本与当前自然分布基线分开报告。
