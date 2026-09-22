@@ -12,3 +12,4 @@ checkpoints/
 qa_pipeline/artifacts/scene_multi_audit/raw/
 qa_pipeline/artifacts/scene_multi_audit/*_annotated.jpg
 qa_pipeline/artifacts/scene_multi_audit_20260922/
+artifacts/local_qa/scene_multi_audit_examples/

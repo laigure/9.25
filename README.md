@@ -15,7 +15,7 @@
 ## 场景级 v5（进行中）
 
 - Grounding 数据已从固定双目标升级为每帧 **1–5 个**有真实 caption 的目标：train 2,701 帧/3,687 目标，val 2,708 帧/3,794 目标。
-- 全部 7,481 条 caption/class/3D box 已逐项回查原始 `meta_info.json`；修正版 positive span 审计为 0 个来源错配、0 个明确环境物体词误选。N=1…5 的原图抽查见 [`qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md`](qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md)。
+- 全部 7,481 条 caption/class/3D box 已逐项回查原始 `meta_info.json`；修正版 positive span 审计为 0 个复制错配、0 个明确环境物体词误选。这只能证明转换忠于发布标注，不能证明发布文字本身都正确；额外 RGB 抽查已发现至少一条疑似原始 caption 与目标框不一致。N=1…5 正例和负例见 [`qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md`](qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md)。
 - RoBERTa、positive map 和 soft-token head 从 256 扩展到 512 token；真实 4 目标 GPU forward/loss/backward smoke 已通过。
 - 新增 5,518 条高难一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划。
 - 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确，并按目标数 N=1…5 分别报告全部目标同时定位正确的准确率。

@@ -783,3 +783,5 @@
 
 1. 保存 N=1、2、3、4、5 各一个原始场景，并将原始 `bbox_2d_proj` 直接画在 RGB 上，以 A–E 标出目标；完整原始 caption、2D box、3D box 见 `qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md`。
 2. 人工查看所选五张图：N=1 行人、N=2 两名行人、N=3 两名行人加一辆车、N=4 四辆 SUV、N=5 五辆并排车辆的框、类别、颜色和相对排列均与对应 caption 基本一致。
+3. 扩大抽查时发现一条明确的疑似原始标注噪声：`waymo/8133434654699693993_1162_020_1182_020/0060_0` 的 Object B 投影框圈中黑色 pickup，但同一条原始 `ground_info` caption 的主语是 `white sedan`，并把 black pickup 写成环境中的 behind 对象。转换器没有串行，它忠实复制了这组原始 caption/box；问题来自发布标注本身或其生成过程。
+4. 因此“7,481 条 caption/class/box 零字段不一致”只能证明来源复制正确，不能宣称 7,481 条语义全部正确。下一轮平衡训练前必须先对全部多目标场景做 RGB 语义质量筛查，把疑似 caption-box 不一致样本加入 quarantine；当前已完成的 baseline 需标注为含原始标注噪声。

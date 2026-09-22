@@ -2,6 +2,11 @@
 
 Boxes and captions below are read directly from each original `meta_info.json`; A–E follow the original `ground_info` order.
 
+The five cardinality examples below are visually plausible positive checks. Exact
+agreement with `meta_info.json` proves provenance only. It does not prove that
+the released caption describes the boxed pixels correctly. A manually found
+negative candidate is included after the N=5 example.
+
 ## N1: 1 target(s)
 
 - Split: `train`
@@ -136,3 +141,23 @@ This is a small black car with the front part visible, located slightly to the l
 
 - 2D box: `[138, 249, 468, 410]`
 - 3D box: `[-5.129082227822892, 21.92122376563566, 0.8303147698948123, 4.681782195992031, 2.021995680101796, 1.3999999999999773, -1.5623503988022978]`
+
+## Negative review candidate: released caption may not match its target box
+
+- Split: `val`
+- Scene: `waymo/8133434654699693993_1162_020_1182_020/0060_0`
+- Local annotated image: `D:\大三上\asc\3eedQA\grounding_QA_publish_http1\qa_pipeline\artifacts\scene_multi_audit\suspect_n2_annotated.jpg`
+
+The original frame contains two `ground_info` entries. Object A's box encloses
+the foreground white sedan and its caption is visually consistent. Object B's
+projected box encloses the black pickup, but its released caption begins:
+
+> This is a white sedan located slightly left of center in the view, with a
+> white sedan in front and a black pickup truck behind.
+
+The main subject says *white sedan*, while the Object B box visibly selects the
+black pickup. This is therefore a likely source annotation error, rather than a
+conversion error: our record copied Object B's caption and box from the same
+original `ground_info` entry. The sample must be quarantined for manual review.
+It also proves that the zero field-mismatch audit must not be described as zero
+semantic annotation noise.

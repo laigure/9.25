@@ -16,6 +16,15 @@
     "manual_review_candidates": 0,
     "definition": "definite_context_span_errors selects a noun after a released 'There is/There are' surrounding-object clause"
   },
+  "semantic_visual_audit": {
+    "all_records_visually_verified": false,
+    "positive_cardinality_examples_checked": 5,
+    "additional_suspect_examples_found": 1,
+    "suspect_scene": "waymo/8133434654699693993_1162_020_1182_020/0060_0",
+    "suspect_target": "Object B",
+    "reason": "The projected target box encloses a black pickup, while the released caption's main subject is a white sedan.",
+    "interpretation": "Zero provenance mismatches do not imply zero semantic noise in the released captions."
+  },
   "cardinality": {
     "train_N1": 1858,
     "train_N2": 709,
@@ -27,5 +36,7 @@
     "val_N4": 23,
     "val_N5": 8
   },
-  "error_examples": []
+  "error_examples": [
+    "waymo/8133434654699693993_1162_020_1182_020/0060_0#ObjectB"
+  ]
 }
