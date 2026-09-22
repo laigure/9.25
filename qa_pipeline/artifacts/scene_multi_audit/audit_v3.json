@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "train_scenes_n1": 1858,
+    "train_scenes_n2": 709,
+    "train_scenes_n3": 125,
+    "train_scenes_n4": 9,
+    "train_targets": 3687,
+    "val_scenes_n1": 1798,
+    "val_scenes_n2": 773,
+    "val_scenes_n3": 106,
+    "val_scenes_n4": 23,
+    "val_scenes_n5": 8,
+    "val_targets": 3794
+  },
+  "mismatches": {},
+  "duplicate_caption_scenes": [],
+  "inserted_positive_span_count": 0,
+  "inserted_positive_spans": [],
+  "exact_source_alignment_pass": true
+}

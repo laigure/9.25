@@ -763,3 +763,23 @@
 
 1. 当前 100 epoch 运行继续作为不均衡数据上的场景级基线，因为 epoch 10→20 仍在稳定提升；不在没有 checkpoint 的 epoch 28 强制中断。
 2. 最终 checkpoint 必须补做 N=1…5 分组评测并导出 token。随后建立目标数平衡的训练版本：按 N 分层采样或过采样 N=3/4/5，并重新划分少量五目标场景到 train，同时保证 scene/sequence 不泄漏；该版本与当前自然分布基线分开报告。
+
+## 65. 多目标文字标注来源与 positive span 复核（2026-09-22）
+
+### 原始标注是否真的包含多个目标描述
+
+1. 重新读取全部原始 `meta_info.json`：5,409 个场景的 `ground_info` 合计包含 7,481 条独立目标记录；每条记录各自带有 `class`、`caption`、`bbox_3d`、`bbox_2d_proj` 和 `others`。因此 N=2…5 不是从一条描述复制出来的，而是同一帧本来就有多条独立 `ground_info`。
+2. 构建记录与原始文件逐项比较：5,409/5,409 场景存在，目标数量、7,481 条 caption、class、3D box 均为 0 个不一致；场景内没有重复 caption。
+3. 机器核对证明“我们没有改写或串错原始 caption/box”；原始 caption 本身的颜色、朝向等语义仍只能通过人工看 RGB 抽查，不能用字段相等自动证明。
+
+### 找到并修复的真实问题
+
+1. v1 的 caption/box 来源虽然正确，但 positive noun span 抽取不完全正确：至少 68 条选择了 `There is/There are ...` 后面的环境物体词，另有 17 条因词表未覆盖而插入了类别词。例如目标描述开头是 `silver truck`、数据类别为 `car` 时，旧词表可能选择后文环境中的 `sedan`。
+2. 扩充 released target noun 词表，覆盖 `range rover`、`truck`、`tool cart`、`MPV`、`Jeep`、`loader`、`excavator`、`camper van` 等原始用词；`license plate` 保留为部件式 referring expression 的目标 span。
+3. 重新生成 v3 并用两套审计器复查：7,481/7,481 均使用原文里的 target noun span，人工插入类别 0 条，`There is/There are` 后的明确环境词误选 0 条，caption/class/box 不一致仍为 0。v1→v3 共改变 165 个 span，其中至少 68 个是明确环境词误选、17 个是人工类别 span，其余主要是将 `vehicle` 等宽泛词换为原文更早、更具体的 `Range Rover/truck/...`。
+4. v3 已替换仓库和服务器磁盘上的后续数据文件。正在运行的旧进程在启动时已经把 v1 annotations 加载到内存，因此当前自然分布 baseline 仍包含上述旧 span；运行已到 epoch 92，不中断，完成后明确标为 v1 baseline，后续平衡训练使用 v3。
+
+### 可视化抽查
+
+1. 保存 N=1、2、3、4、5 各一个原始场景，并将原始 `bbox_2d_proj` 直接画在 RGB 上，以 A–E 标出目标；完整原始 caption、2D box、3D box 见 `qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md`。
+2. 人工查看所选五张图：N=1 行人、N=2 两名行人、N=3 两名行人加一辆车、N=4 四辆 SUV、N=5 五辆并排车辆的框、类别、颜色和相对排列均与对应 caption 基本一致。

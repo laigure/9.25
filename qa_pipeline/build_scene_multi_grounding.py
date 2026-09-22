@@ -18,7 +18,8 @@ from pathlib import Path
 SYNONYMS = {
     "car": ["pickup truck", "utility truck", "delivery truck", "automobile",
             "convertible", "hatchback", "minivan", "vehicle", "sedan",
-            "coupe", "pickup", "taxi", "cab", "suv", "car", "van"],
+            "license plate", "range rover", "tool cart", "coupe", "pickup",
+            "taxi", "cab", "suv", "mpv", "jeep", "car", "truck", "van"],
     "pedestrian": ["pedestrian", "passerby", "individual", "person", "woman",
                    "people", "walker", "worker", "child", "adult", "lady",
                    "girl", "boy", "man", "guy"],
@@ -27,7 +28,8 @@ SYNONYMS = {
               "lorry", "truck"],
     "bus": ["public transport", "school bus", "minibus", "shuttle", "coach",
             "bus"],
-    "othervehicle": ["machinery", "tractor", "trailer", "vehicle", "jeep"],
+    "othervehicle": ["camper van", "excavator", "machinery", "tractor",
+                     "trailer", "loader", "truck", "vehicle", "jeep"],
     "cyclist": ["person riding", "bike rider", "bicycle", "cyclist", "biker",
                 "rider", "bike"],
 }

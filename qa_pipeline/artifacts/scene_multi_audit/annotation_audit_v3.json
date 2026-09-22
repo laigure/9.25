@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "raw_scenes_with_ground_info": 5409,
+    "records_checked": 5409,
+    "targets_checked": 7481,
+    "missing_raw_scene": 0,
+    "count_mismatch": 0,
+    "caption_mismatch": 0,
+    "class_mismatch": 0,
+    "box_mismatch": 0
+  },
+  "positive_span_audit": {
+    "raw_noun_spans": 7481,
+    "synthetic_category_spans": 0,
+    "definite_context_span_errors": 0,
+    "manual_review_candidates": 0,
+    "definition": "definite_context_span_errors selects a noun after a released 'There is/There are' surrounding-object clause"
+  },
+  "cardinality": {
+    "train_N1": 1858,
+    "train_N2": 709,
+    "train_N3": 125,
+    "train_N4": 9,
+    "val_N1": 1798,
+    "val_N2": 773,
+    "val_N3": 106,
+    "val_N4": 23,
+    "val_N5": 8
+  },
+  "error_examples": []
+}
