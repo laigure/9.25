@@ -1,0 +1,29 @@
+{
+  "status": "complete_baseline",
+  "training_annotations": "scene multi v1 loaded at process startup",
+  "evaluation_annotations": "corrected scene multi v3",
+  "checkpoint": "ckpt_epoch_100.pth",
+  "checkpoint_bytes": 744484438,
+  "per_target_contrastive": {
+    "acc_0.25": 0.7543,
+    "acc_0.5": 0.4649,
+    "miou": 0.4494
+  },
+  "joint_all_contrastive": {
+    "acc_0.25": 0.5549,
+    "acc_0.5": 0.2615
+  },
+  "joint_all_contrastive_by_target_count": {
+    "1": {"samples": 1798, "acc_0.25": 0.7820, "acc_0.5": 0.4572},
+    "2": {"samples": 773, "acc_0.25": 0.5951, "acc_0.5": 0.2781},
+    "3": {"samples": 106, "acc_0.25": 0.4245, "acc_0.5": 0.2170},
+    "4": {"samples": 23, "acc_0.25": 0.0, "acc_0.5": 0.0},
+    "5": {"samples": 8, "acc_0.25": 0.0, "acc_0.5": 0.0}
+  },
+  "limitations": [
+    "The training process had already loaded v1 annotations before positive-span corrections were written to disk.",
+    "The natural training split has only 9 four-target scenes and no five-target scenes.",
+    "Released captions contain semantic annotation noise; at least one caption-box mismatch was found by RGB review.",
+    "Query selection during evaluation uses the annotated target text span."
+  ]
+}

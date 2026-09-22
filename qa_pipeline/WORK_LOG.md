@@ -785,3 +785,12 @@
 2. 人工查看所选五张图：N=1 行人、N=2 两名行人、N=3 两名行人加一辆车、N=4 四辆 SUV、N=5 五辆并排车辆的框、类别、颜色和相对排列均与对应 caption 基本一致。
 3. 扩大抽查时发现一条明确的疑似原始标注噪声：`waymo/8133434654699693993_1162_020_1182_020/0060_0` 的 Object B 投影框圈中黑色 pickup，但同一条原始 `ground_info` caption 的主语是 `white sedan`，并把 black pickup 写成环境中的 behind 对象。转换器没有串行，它忠实复制了这组原始 caption/box；问题来自发布标注本身或其生成过程。
 4. 因此“7,481 条 caption/class/box 零字段不一致”只能证明来源复制正确，不能宣称 7,481 条语义全部正确。下一轮平衡训练前必须先对全部多目标场景做 RGB 语义质量筛查，把疑似 caption-box 不一致样本加入 quarantine；当前已完成的 baseline 需标注为含原始标注噪声。
+
+## 66. 场景级 Grounding 第一轮训练完成与 v3 复评（2026-09-22）
+
+1. 自然分布 baseline 已完成 100 epoch 并正常退出，无 OOM、NaN 或 Traceback；成功保存 `ckpt_epoch_100.pth`（744,484,438 bytes）和 `ckpt_epoch_last.pth`（744,487,298 bytes）。
+2. 训练进程启动时已把 v1 annotations 载入内存，所以该 checkpoint 的训练监督仍含旧 positive-span 问题。训练完成后使用磁盘上的修正 v3 val annotations 和新版 evaluator 独立复评同一 `ckpt_epoch_100.pth`。
+3. v3 复评总体结果：PerTarget Contrastive Acc@0.25 **75.43%**、Acc@0.5 **46.49%**、mIoU **44.94%**；要求场景内全部目标同时正确的 JointAll Contrastive Acc@0.25 **55.49%**、Acc@0.5 **26.15%**。
+4. contrastive Joint 分目标数结果（Acc@0.25/0.5）：N=1 **78.20%/45.72%**（1,798）；N=2 **59.51%/27.81%**（773）；N=3 **42.45%/21.70%**（106）；N=4 **0%/0%**（23）；N=5 **0%/0%**（8）。
+5. 结论：模型已证明同一次 forward 可监督和输出不同数量目标，对一至三目标有可测能力；四、五目标尚未学会。总体 55.49% 被大量 N=1 场景明显抬高，不能用该总体值声称多目标任务已经解决。
+6. 可复现摘要保存为 `artifacts/results/scene_multi_v1_train_v3_eval.json`。下一轮应在完成 caption-box 语义筛查后，使用 v3、按目标数量分层采样，并确保 train 中包含足够 N=4/5 场景。
