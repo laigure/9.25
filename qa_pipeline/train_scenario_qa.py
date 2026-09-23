@@ -1,6 +1,7 @@
 """Train/evaluate implicit-token scenario QA with Qwen2.5-7B LoRA.
 
-The model sees only question text and 1-3 projected 288D Grounding tokens.
+The model sees only generic role/task text and 1-5 projected 288D Grounding
+tokens.  Referring expressions and GT geometry remain outside the prompt.
 GT geometry and answer keys are loaded only by the post-generation evaluator.
 """
 
@@ -87,6 +88,10 @@ class ScenarioTrainer(QATrainer):
     def pieces(self, record, with_answer):
         # This is the complete model input. No GT or predicted coordinate,
         # bounding box, distance, or relation field is read here.
+        if record.get("input_policy") == "implicit_grounding_tokens_only":
+            assert all(not any(key in obj for key in (
+                "description", "category", "bbox", "center"))
+                for obj in record["object_refs"]), record["qa_id"]
         pieces = [("text", self.encode(PROMPT_PREFIX), False),
                   ("text", self.encode(record["question"]), False)]
         tokens, _ = self.token_arrays(record)

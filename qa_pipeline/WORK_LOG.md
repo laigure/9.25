@@ -794,3 +794,21 @@
 4. contrastive Joint 分目标数结果（Acc@0.25/0.5）：N=1 **78.20%/45.72%**（1,798）；N=2 **59.51%/27.81%**（773）；N=3 **42.45%/21.70%**（106）；N=4 **0%/0%**（23）；N=5 **0%/0%**（8）。
 5. 结论：模型已证明同一次 forward 可监督和输出不同数量目标，对一至三目标有可测能力；四、五目标尚未学会。总体 55.49% 被大量 N=1 场景明显抬高，不能用该总体值声称多目标任务已经解决。
 6. 可复现摘要保存为 `artifacts/results/scene_multi_v1_train_v3_eval.json`。下一轮应在完成 caption-box 语义筛查后，使用 v3、按目标数量分层采样，并确保 train 中包含足够 N=4/5 场景。
+
+## 67. 远程 PKL 可读 JSON 预览（2026-09-22）
+
+1. 将当前生效的 v3 `waymo_scene_multi_{train,val}_info.pkl` 转成四个可直接用编辑器查看的 JSON 文件，保存在远程 `/root/3eedqa/3EED/data/scene_multi_previews/`。
+2. `waymo_scene_multi_train_preview_50.json` 和 `waymo_scene_multi_val_preview_50.json` 分别包含各 split 前 50 条完整记录。
+3. `examples_N1_to_N5.json` 保存 N=1、2、3、4、5 各一条完整记录；`examples_N1_to_N5_compact.json` 是便于人工阅读的精简版，仅保留 split、scene、组合 caption、各目标原始描述、类别、positive span/word 和 3D box。
+4. 四个文件均重新用 JSON parser 读取验证通过，记录数分别为 50、50、5、5。
+
+## 68. QA 直接位置文本泄漏修复（2026-09-23）
+
+1. 用户人工查看后指出旧 QA 问题直接出现目标相对位置。本次逐条检查确认：`scene_reasoning_qa_v1` 的 5,518/5,518 条 `question` 都拼入了原始 3EED caption，并至少命中一个 `left/right/front/behind/lower/upper/located/positioned/situated/middle` 类空间提示；公开 `object_refs` 也全部带 `description`。因此 v1 不能作为隐式 token 空间推理证据。
+2. 进一步发现两个角色顺序泄漏：`rank_then_relation` 把第二近目标固定重排为 A，`local_path_planning` 把最近障碍物固定重排为 A。即使删除 caption，大模型也可能靠角色位置猜答案。
+3. 修改 `build_scene_reasoning_qa.py`：公开问题只保留 A–E 角色和通用任务模板，公开 `object_refs` 只保留 role 与用于 token 对齐的 opaque object ID；caption、category 和 GT geometry 全部移到 private GT。角色顺序由 scene ID 稳定打乱，并按真实角色生成排序和规划答案，不再把正确对象提前放到 A。
+4. 生成 `artifacts/local_qa/scene_reasoning_qa_v2_noleak/`，仍为 5,518 条：train 2,656、val 2,862；题型数量与 v1 相同。自动审计为：公开 caption 命中 0、公开禁用字段 0、坐标格式 0、left/right/front/behind 提示词 0。
+5. 排序题答案角色分布为 A/B/C/D/E = 76/93/87/13/2；规划最近障碍物角色分布为 687/703/75/4/1，不再是固定 A。少数 D/E 来自四、五目标场景本身很少。
+6. 用 canonical answer 作为 oracle prediction 回灌 `strict_scene_qa_eval.py`：关系关键词、严格三元组、完整句、一句话、规划动作、A/B 交换和严格语言合取均为 100%。Grounding 条件与端到端结果仍为空，因为尚未把新场景 checkpoint 的真实预测 token 对齐到 v2。
+7. v2 修复了 LLM prompt 的直接文本泄漏，但最终 288 维 decoder token 仍是语言条件化特征。正式结论前需做当前 caption token、中性 caption token、同 query 视觉特征、同类别打乱 token 和无 token 消融，避免把编码进 token 的 caption 位置词误判为点云几何推理。
+8. `build_scene_token_qa.py` 的同类别打乱对照已改为从 private `grounding_inputs` 读取 category；公开 `object_refs` 不再为打乱实验暴露类别，训练代码仍只读取 token、role 和通用 question。

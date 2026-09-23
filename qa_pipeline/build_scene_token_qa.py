@@ -112,8 +112,16 @@ def main():
 
     vectors, object_ids, object_splits, object_categories = [], [], [], []
     index = {}
-    category_by_id = {ref["object_id"]: ref.get("category", "unknown")
-                      for row, _, _ in matched for ref in row["object_refs"]}
+    # Category is private metadata used only to construct the same-class
+    # shuffled-token control.  It is intentionally absent from public
+    # object_refs and never enters ScenarioTrainer.pieces().
+    category_by_id = {}
+    for row, _, _ in matched:
+        for item in private[row["qa_id"]].get("grounding_inputs", []):
+            category_by_id[item["object_id"]] = item["category"]
+        for ref in row["object_refs"]:
+            category_by_id.setdefault(
+                ref["object_id"], ref.get("category", "unknown"))
     split_by_key = {key: row["qa_split"] for row, _, key in matched}
     for key, group in sorted(used_groups.items(), key=lambda item: sorted(item[0])):
         for local_index, object_id in enumerate(group["ids"]):

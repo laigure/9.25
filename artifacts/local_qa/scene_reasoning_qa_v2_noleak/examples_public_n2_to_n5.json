@@ -1,0 +1,182 @@
+[
+  {
+    "target_count": 2,
+    "scenario": "distractor_pair_relation",
+    "qa_id": "ad35e699fc2c8235",
+    "question": "Grounding tokens are provided for Objects A, B. Considering all grounded objects, where is Object A relative to Object B? Answer in exactly one sentence.",
+    "answer": "Object A is to the left of Object B.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2#g1"
+      }
+    ]
+  },
+  {
+    "target_count": 2,
+    "scenario": "local_path_planning",
+    "qa_id": "cd0c40ca30baec20",
+    "question": "Grounding tokens are provided for Objects A, B. Identify the nearest grounded obstacle ahead and give the safest local maneuver toward the fixed forward goal; answer in exactly one sentence.",
+    "answer": "Object A is to the right of and in front of the ego vehicle, so the ego vehicle should steer left and continue forward while passing to the left of Object A.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2#g1"
+      }
+    ]
+  },
+  {
+    "target_count": 3,
+    "scenario": "two_step_relation_chain",
+    "qa_id": "0e7935d2e2890c4c",
+    "question": "Grounding tokens are provided for Objects A, B, C. State both where Object A is relative to Object B and where Object C is relative to Object A, using exactly one sentence.",
+    "answer": "Object A is to the left of and behind Object B; Object C is to the left of and in front of Object A.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g2"
+      }
+    ]
+  },
+  {
+    "target_count": 3,
+    "scenario": "rank_then_relation",
+    "qa_id": "9aeacfc537ede416",
+    "question": "Grounding tokens are provided for Objects A, B, C. Which object is second closest to the ego vehicle, and where is it relative to the closest object? Answer in exactly one sentence.",
+    "answer": "Object A is the second closest object to the ego vehicle and is to the left of and behind Object B.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g2"
+      }
+    ]
+  },
+  {
+    "target_count": 3,
+    "scenario": "local_path_planning",
+    "qa_id": "5f23fb838a5d362b",
+    "question": "Grounding tokens are provided for Objects A, B, C. Identify the nearest grounded obstacle ahead and give the safest local maneuver toward the fixed forward goal; answer in exactly one sentence.",
+    "answer": "Object C is to the left of and in front of the ego vehicle, so the ego vehicle should steer right and continue forward while passing to the right of Object C.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0125_3#g2"
+      }
+    ]
+  },
+  {
+    "target_count": 4,
+    "scenario": "distractor_pair_relation",
+    "qa_id": "2be6baef0216a6c4",
+    "question": "Grounding tokens are provided for Objects A, B, C, D. Considering all grounded objects, where is Object A relative to Object B? Answer in exactly one sentence.",
+    "answer": "Object A is behind Object B.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/10448102132863604198_472_000_492_000/0154_1#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/10448102132863604198_472_000_492_000/0154_1#g3"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/10448102132863604198_472_000_492_000/0154_1#g1"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/10448102132863604198_472_000_492_000/0154_1#g2"
+      }
+    ]
+  },
+  {
+    "target_count": 5,
+    "scenario": "distractor_pair_relation",
+    "qa_id": "0613814ee466c6ae",
+    "question": "Grounding tokens are provided for Objects A, B, C, D, E. Considering all grounded objects, where is Object A relative to Object B? Answer in exactly one sentence.",
+    "answer": "Object A is in front of Object B.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g2"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g4"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g0"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g1"
+      },
+      {
+        "role": "E",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g3"
+      }
+    ]
+  },
+  {
+    "target_count": 5,
+    "scenario": "local_path_planning",
+    "qa_id": "a4883284ac3c6f9e",
+    "question": "Grounding tokens are provided for Objects A, B, C, D, E. Identify the nearest grounded obstacle ahead and give the safest local maneuver toward the fixed forward goal; answer in exactly one sentence.",
+    "answer": "Object A is to the left of and in front of the ego vehicle, so the ego vehicle should steer right and continue forward while passing to the right of Object A.",
+    "public_object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g2"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g4"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g0"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g1"
+      },
+      {
+        "role": "E",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0049_3#g3"
+      }
+    ]
+  }
+]

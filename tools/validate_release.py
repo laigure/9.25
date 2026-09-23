@@ -17,6 +17,11 @@ def count_jsonl(path: Path) -> int:
         return sum(1 for line in handle if line.strip())
 
 
+def read_jsonl(path: Path):
+    with path.open("r", encoding="utf-8") as handle:
+        return [json.loads(line) for line in handle if line.strip()]
+
+
 def main() -> None:
     expected = {
         "artifacts/remote/qa_correct_others_v4_contrastive/joint/qa.jsonl": 4225,
@@ -77,6 +82,25 @@ def main() -> None:
     oracle = json.loads((scene_qa.parent / "oracle_eval.json").read_text(
         encoding="utf-8"))
     assert oracle["strict_language_all_pass"] == 1.0
+
+    noleak = ROOT / "artifacts/local_qa/scene_reasoning_qa_v2_noleak"
+    public_rows = read_jsonl(noleak / "qa.jsonl")
+    assert len(public_rows) == 5518
+    assert all(row["input_policy"] == "implicit_grounding_tokens_only"
+               for row in public_rows)
+    assert all(not any(key in ref for key in (
+        "description", "category", "bbox", "center"))
+        for row in public_rows for ref in row["object_refs"])
+    noleak_summary = json.loads((noleak / "summary.json").read_text(
+        encoding="utf-8"))
+    leakage = noleak_summary["leakage_audit"]
+    assert leakage["public_source_caption_hits"] == 0
+    assert leakage["public_forbidden_object_fields"] == 0
+    assert leakage["public_coordinate_pattern_hits"] == 0
+    assert leakage["public_answer_relation_label_hits"] == 0
+    noleak_oracle = json.loads((noleak / "oracle_eval.json").read_text(
+        encoding="utf-8"))
+    assert noleak_oracle["strict_language_all_pass"] == 1.0
     print("release validation passed")
 
 

@@ -6,9 +6,9 @@
 
 - 多目标 Grounding 不是把两个 token 简单合并。每条数据有两个真实目标，每个目标有独立 caption、positive span、GT box、instance ID 和匹配 query。
 - 最终 Grounding token 是 Transformer decoder/query feature，每个目标一个 288 维 token；两个目标使用不同 query 索引。
-- QA 公开输入只含问题文本和隐式 token，不向 LLM 输入 box、center、coordinate 或 distance。GT 几何只用来生成标签和私有诊断。
-- Grounding 正确条件下，v4 QA 准确率为 **80.00%**；打乱 token 降至 **36.91%**。
-- 不使用 GT IoU 筛选的端到端 QA 准确率为 **57.08%**，多数类基线为 **35.29%**。
+- 新的 `scene_reasoning_qa_v2_noleak` 严格输入只含通用任务文字和按 A–E 排列的隐式 token；原始 referring expression、类别、box、center、coordinate 和 distance 均不进入 LLM prompt。
+- 旧 `scene_reasoning_qa_v1` 会把含空间词的原始 3EED caption 拼进问题，已标记为有直接文本泄漏，不能用于证明 token 空间推理。
+- 历史 v4 的 Grounding 正确条件准确率为 **80.00%**，打乱 token 为 **36.91%**；无 GT IoU 筛选端到端准确率为 **57.08%**。其问题仍含经过空间词清洗的目标外观描述，不符合现在的“仅隐式 Grounding 信息”口径，因此只保留为历史基线。
 
 详细数字、失败实验和解释见 [docs/EXPERIMENT_REPORT.md](docs/EXPERIMENT_REPORT.md)。
 
@@ -17,7 +17,7 @@
 - Grounding 数据已从固定双目标升级为每帧 **1–5 个**有真实 caption 的目标：train 2,701 帧/3,687 目标，val 2,708 帧/3,794 目标。
 - 全部 7,481 条 caption/class/3D box 已逐项回查原始 `meta_info.json`；修正版 positive span 审计为 0 个复制错配、0 个明确环境物体词误选。这只能证明转换忠于发布标注，不能证明发布文字本身都正确；额外 RGB 抽查已发现至少一条疑似原始 caption 与目标框不一致。N=1…5 正例和负例见 [`qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md`](qa_pipeline/artifacts/scene_multi_audit/EXAMPLES.md)。
 - RoBERTa、positive map 和 soft-token head 从 256 扩展到 512 token；真实 4 目标 GPU forward/loss/backward smoke 已通过。
-- 新增 5,518 条高难一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划。
+- 已生成 5,518 条无直接文本泄漏的一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划；公开问题不再出现原始 caption、坐标或 left/right/front/behind 答案提示词。
 - 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确，并按目标数 N=1…5 分别报告全部目标同时定位正确的准确率。
 - 第一轮可变目标 Grounding 已在 4090 上完成 100 epoch。修正 v3 标注上的 contrastive Joint Acc@0.25 按 N=1/2/3/4/5 分别为 78.20%/59.51%/42.45%/0%/0%；它是含旧 span 训练噪声和严重目标数不平衡的 baseline，不能作为最终 v5 模型。上文 40.38%/80.00%/57.08% 仍属于旧双目标 v4。
 
@@ -30,7 +30,8 @@
 | `qa_pipeline/` | QA 数据生成、token 接入、Projector/LoRA 训练和评测代码 |
 | `artifacts/local_qa/` | v2/v3 及早期 QA 数据、token 和诊断产物 |
 | `artifacts/local_qa/scene_multi_data/` | 场景级 1–5 目标 Grounding 标注 |
-| `artifacts/local_qa/scene_reasoning_qa_v1/` | 高难一句话 QA、局部规划和 oracle 评测 |
+| `artifacts/local_qa/scene_reasoning_qa_v1/` | 已废弃的直接文本泄漏版本，仅供追溯 |
+| `artifacts/local_qa/scene_reasoning_qa_v2_noleak/` | 仅角色文字 + 隐式 token 的场景 QA、私有 GT、审计和样例 |
 | `artifacts/remote/others_linked_tokens/` | 最终 Grounding train/val 全量 token 导出 |
 | `artifacts/remote/qa_correct_others_v4_contrastive/` | 双目标均 IoU≥0.25 的 token 能力诊断 QA |
 | `artifacts/remote/qa_all_others_v4_contrastive/` | 不做 IoU 筛选的端到端 QA |

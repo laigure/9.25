@@ -18,7 +18,8 @@
 | `artifacts/local_qa/qa_v3` | 多参照 QA 和后续对齐源 | 见各目录 summary | 见各目录 summary |
 | `qa_correct_others_v4_contrastive` | 只保留两目标均 IoU≥0.25，测 token 能力上限 | 3,610 | 615 |
 | `qa_all_others_v4_contrastive` | 不做 IoU 筛选，端到端评测 | - | 1,638 |
-| `scene_reasoning_qa_v1` | 1–5 目标、高难一句话推理与局部规划 | 2,656 | 2,862 |
+| `scene_reasoning_qa_v1` | 已废弃：原始 caption 进入问题，存在直接位置文本泄漏 | 2,656 | 2,862 |
+| `scene_reasoning_qa_v2_noleak` | 1–5 目标、仅角色文字 + 隐式 token 的推理与局部规划 | 2,656 | 2,862 |
 
 ### 场景级 Grounding v5
 
@@ -27,7 +28,7 @@
 | train | 2,701 | 3,687 | 1:1858, 2:709, 3:125, 4:9 |
 | val | 2,708 | 3,794 | 1:1798, 2:773, 3:106, 4:23, 5:8 |
 
-5,518 条 QA 由 3,506 条多干扰物关系题、271 条两步关系链、271 条距离排序后关系题和 1,470 条局部避障规划题组成。
+5,518 条 v2 QA 由 3,506 条多干扰物关系题、271 条两步关系链、271 条距离排序后关系题和 1,470 条局部避障规划题组成。`qa.jsonl` 中的自然语言输入只有 A–E 角色和任务模板；opaque `object_id` 只用于把角色对齐到 token，不会由 `train_scenario_qa.py` 编码进 LLM。原始 caption、类别和 GT box 只在 `private_gt.jsonl` 中。
 
 v4 包含三类问题：
 

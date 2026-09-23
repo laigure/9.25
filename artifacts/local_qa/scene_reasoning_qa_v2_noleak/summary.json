@@ -1,0 +1,44 @@
+{
+  "rows": 5518,
+  "splits": {
+    "train": 2656,
+    "val": 2862
+  },
+  "scenarios": {
+    "distractor_pair_relation": 3506,
+    "local_path_planning": 1470,
+    "rank_then_relation": 271,
+    "two_step_relation_chain": 271
+  },
+  "all_answers_one_sentence": true,
+  "planning_scope": "deterministic local obstacle avoidance to a fixed forward goal",
+  "full_route_planning": false,
+  "dataset_version": "scene_reasoning_qa_v2_noleak",
+  "input_policy": "implicit_grounding_tokens_only",
+  "leakage_audit": {
+    "public_source_caption_hits": 0,
+    "public_forbidden_object_fields": 0,
+    "public_coordinate_pattern_hits": 0,
+    "public_answer_relation_label_hits": 0,
+    "rank_answer_role_distribution": {
+      "A": 76,
+      "B": 93,
+      "C": 87,
+      "D": 13,
+      "E": 2
+    },
+    "planning_blocker_role_distribution": {
+      "A": 687,
+      "B": 703,
+      "C": 75,
+      "E": 1,
+      "D": 4
+    },
+    "model_text_input_fields": [
+      "question"
+    ],
+    "model_non_text_input_fields": [
+      "ordered_288d_grounding_tokens"
+    ]
+  }
+}
