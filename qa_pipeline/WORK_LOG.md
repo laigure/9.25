@@ -824,3 +824,13 @@
 7. train/val token 导出分别完成 901/903 个 NPZ：train 2,701 场景/3,687 目标，val 2,708 场景/3,794 目标；1–5 目标、soft/contrastive token 形状、有限值、object ID 数量和场景内 query 唯一性检查均通过。
 8. 第一次构建 token QA 时统计为 5,347 而非 5,518 条，由此发现稳定打乱角色后的 A/B swap 仍误用旧固定索引 `[1,0]`。171 条 swap 无法对齐，部分双目标 swap 还会出现同顺序反转标签。Projector 在 epoch 1 的早期 step 立即停止，未产生可用 checkpoint，错误 run 不作为结果。
 9. 修复为 `[order[1], order[0]] + order[2:]`，并在生成器审计中新增 1,753 个 swap pair 的完整断言：swap 后 object ID 必须恰好交换前两个角色、其余角色顺序不变。数据版本标记为 `scene_reasoning_qa_v2.1_noleak_swapfix`；oracle 严格指标重新验证为 100%。后续使用新的 `*_swapfix` 运行目录，避免误读早期无效产物。
+
+## 70. 无泄漏场景 QA 第一轮结果与评测口径修正（2026-09-23）
+
+1. 修正版关系 Projector 和 LoRA 均完成 3 epoch。Projector 严格语言合取 15.44%、Grounding 正确条件 17.15%、端到端 9.08%；LoRA 相应为 24.67%、26.39%、13.98%。LoRA 对 Projector 有提升，但绝对结果仍低。
+2. LoRA 分题型严格合取：双目标关系 20.77%、局部规划 37.76%、距离排序后关系 13.14%、两步关系链 14.60%。按目标数：N=2/3/4/5 为 26.70%/21.12%/9.57%/2.50%，目标数增加时明显下降。
+3. 汇总器原 `planning_action_accuracy` 把非规划题的 `planning_ok=True` 一起计入分母，得到误导性的 84.98%。仅对 768 条 val 规划题计算时，真实规划动作准确率为 44.01%。`strict_scene_qa_eval.py` 已增加 `planning_applicable`、`planning_action_n` 和 CLI `--split`，规划指标只使用适用样本且离线重评只纳入指定 split；已保存逐条预测直接重算，无需重新生成。
+4. LoRA 其余完整 val 指标：关系关键词 45.91%、严格三元组 34.21%、标准句匹配 32.98%、一句话格式 100%、A/B 交换一致性 20.77%。当前主要瓶颈是多目标关系、严格句子和交换一致性。
+5. 同类别打乱 token 评测完成：关系关键词 35.39%、严格三元组 17.19%、标准句 16.91%、规划动作 21.74%、swap 8.24%、严格语言合取 10.52%、Grounding 条件 10.69%、端到端 5.66%。相对正确 token，严格语言合取下降 14.15 个百分点、Grounding 条件下降 15.70 个百分点、端到端下降 8.32 个百分点，说明模型确实使用了正确 token，但打乱后仍有约 10.5% 模板/标签先验。
+6. 正确 token 下 LoRA 分目标数严格语言合取：N=2 26.70%、N=3 21.12%、N=4 9.57%、N=5 2.50%。四/五目标结果很弱，与 Grounding 的 N=4/5 Joint Acc@0.25 为 0% 以及训练样本稀少一致。
+7. 全流程于 2026-09-23 14:40 正常写入 `ALL_DONE`，无 OOM、NaN 或 Traceback，GPU 进程退出。可用 checkpoint 为 `runs/scene_qa_v2_projector_swapfix/best.pt` 和 `runs/scene_qa_v2_lora_swapfix/best.pt`；早期错误 run 已明确重命名为 `scene_qa_v2_projector_INVALID_SWAP_BUG`。

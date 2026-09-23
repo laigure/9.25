@@ -101,6 +101,17 @@ def main() -> None:
     noleak_oracle = json.loads((noleak / "oracle_eval.json").read_text(
         encoding="utf-8"))
     assert noleak_oracle["strict_language_all_pass"] == 1.0
+    assert noleak_oracle["planning_action_n"] == 1470
+
+    final_scene = json.loads((
+        ROOT / "artifacts/results/scene_qa_v2_noleak/final_metrics.json"
+    ).read_text(encoding="utf-8"))
+    lora_scene = final_scene["runs"]["lora"]["metrics"]
+    shuffled_scene = final_scene["runs"]["shuffled"]["metrics"]
+    assert lora_scene["n"] == shuffled_scene["n"] == 2862
+    assert lora_scene["planning_action_n"] == 768
+    assert abs(lora_scene["strict_language_all_pass"] - 0.246680642907058) < 1e-12
+    assert abs(shuffled_scene["strict_language_all_pass"] - 0.10517120894479386) < 1e-12
     print("release validation passed")
 
 

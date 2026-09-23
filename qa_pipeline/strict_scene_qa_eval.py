@@ -86,6 +86,7 @@ def evaluate(qa_rows, predictions, private_rows):
         triple_ok = parsed_triples == expected_triples
         sentence_ok = norm(text) == norm(gt["canonical_answer"])
         one_sentence_ok = one_sentence(text)
+        planning_applicable = gt.get("planning_key") is not None
         plan_ok = planning_key(text, gt.get("planning_key"))
         if plan_ok is None:
             plan_ok = True
@@ -94,6 +95,7 @@ def evaluate(qa_rows, predictions, private_rows):
             "prediction": text, "keyword_ok": keyword_ok,
             "triple_ok": triple_ok, "sentence_ok": sentence_ok,
             "one_sentence_ok": one_sentence_ok, "planning_ok": plan_ok,
+            "planning_applicable": planning_applicable,
             "parsed_triples": sorted(parsed_triples),
             "expected_triples": sorted(expected_triples),
             "swap_pair_id": gt.get("swap_pair_id"),
@@ -129,6 +131,7 @@ def evaluate(qa_rows, predictions, private_rows):
     n = len(details)
     grounding_rows = [x for x in details if x["grounding_pass"] is True]
     known_grounding = [x for x in details if x["grounding_pass"] is not None]
+    planning_rows = [x for x in details if x["planning_applicable"]]
     rate = lambda key, values=details: (sum(x[key] for x in values) / len(values)
                                         if values else None)
     result = {
@@ -137,7 +140,8 @@ def evaluate(qa_rows, predictions, private_rows):
         "strict_triple_accuracy": rate("triple_ok"),
         "complete_sentence_match_rate": rate("sentence_ok"),
         "one_sentence_rate": rate("one_sentence_ok"),
-        "planning_action_accuracy": rate("planning_ok"),
+        "planning_action_n": len(planning_rows),
+        "planning_action_accuracy": rate("planning_ok", planning_rows),
         "ab_swap_consistency": (sum(swap_ok_by_id.values()) / len(swap_ok_by_id)
                                 if swap_ok_by_id else None),
         "strict_language_all_pass": rate("language_all_ok"),
@@ -160,9 +164,16 @@ def main():
     parser.add_argument("--predictions", required=True,
                         help="JSONL rows with qa_id and prediction")
     parser.add_argument("--out", required=True)
+    parser.add_argument("--split", default=None,
+                        help="Optional qa_split filter, for example val")
     args = parser.parse_args()
-    result = evaluate(read_jsonl(args.qa), read_predictions(args.predictions),
-                      read_jsonl(args.private_gt))
+    qa_rows = read_jsonl(args.qa)
+    if args.split:
+        qa_rows = [row for row in qa_rows if row.get("qa_split") == args.split]
+    keep = {row["qa_id"] for row in qa_rows}
+    private_rows = [row for row in read_jsonl(args.private_gt)
+                    if row["qa_id"] in keep]
+    result = evaluate(qa_rows, read_predictions(args.predictions), private_rows)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     print(json.dumps({k: v for k, v in result.items() if k != "rows"},

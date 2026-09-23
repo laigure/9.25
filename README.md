@@ -20,6 +20,7 @@
 - 已生成 5,518 条无直接文本泄漏的一句话 QA，包含多干扰物关系、两步关系链、排序后推理和 1,470 条局部避障规划；公开问题不再出现原始 caption、坐标或 left/right/front/behind 答案提示词。
 - 新严格评测要求关键词、全部三元组、标准完整句、A/B 交换、规划动作和 Grounding 同时正确，并按目标数 N=1…5 分别报告全部目标同时定位正确的准确率。
 - 第一轮可变目标 Grounding 已在 4090 上完成 100 epoch。修正 v3 标注上的 contrastive Joint Acc@0.25 按 N=1/2/3/4/5 分别为 78.20%/59.51%/42.45%/0%/0%；它是含旧 span 训练噪声和严重目标数不平衡的 baseline，不能作为最终 v5 模型。上文 40.38%/80.00%/57.08% 仍属于旧双目标 v4。
+- 无泄漏 QA v2.1 的 Projector→LoRA 训练已完成。完整 val 2,862 条上，LoRA 的关系关键词/严格三元组/标准句/规划动作/swap/严格语言合取/端到端分别为 **45.91%/34.21%/32.98%/44.01%/20.77%/24.67%/13.98%**；同类别打乱 token 后严格语言合取降至 **10.52%**、端到端降至 **5.66%**。模型使用了正确 token，但多目标关系和交换一致性仍是主要瓶颈。
 
 ## 目录
 
@@ -37,6 +38,7 @@
 | `artifacts/remote/qa_all_others_v4_contrastive/` | 不做 IoU 筛选的端到端 QA |
 | `artifacts/models/` | 关系 Projector 和 LoRA 最佳权重 |
 | `artifacts/results/` | Grounding、打乱 token、A/B swap 和端到端评测 |
+| `artifacts/results/scene_qa_v2_noleak/` | 无泄漏场景 QA 的 Projector、LoRA、打乱 token 严格结果 |
 
 ## 架构
 
