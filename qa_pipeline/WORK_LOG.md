@@ -812,3 +812,12 @@
 6. 用 canonical answer 作为 oracle prediction 回灌 `strict_scene_qa_eval.py`：关系关键词、严格三元组、完整句、一句话、规划动作、A/B 交换和严格语言合取均为 100%。Grounding 条件与端到端结果仍为空，因为尚未把新场景 checkpoint 的真实预测 token 对齐到 v2。
 7. v2 修复了 LLM prompt 的直接文本泄漏，但最终 288 维 decoder token 仍是语言条件化特征。正式结论前需做当前 caption token、中性 caption token、同 query 视觉特征、同类别打乱 token 和无 token 消融，避免把编码进 token 的 caption 位置词误判为点云几何推理。
 8. `build_scene_token_qa.py` 的同类别打乱对照已改为从 private `grounding_inputs` 读取 category；公开 `object_refs` 不再为打乱实验暴露类别，训练代码仍只读取 token、role 和通用 question。
+
+## 69. 无泄漏场景 QA 正式训练启动（2026-09-23）
+
+1. 用户确认开始训练。远程 RTX 4090 空闲，Qwen2.5-7B-Instruct、场景 Grounding `ckpt_epoch_100.pth` 和 v2 无泄漏 QA 均存在；启动前数据盘剩余约 3.2 GB。
+2. 检查发现场景级 1–5 目标的 288 维 token 尚未导出，不能直接训练 Projector/LoRA。新增可恢复的一键任务 `run_scene_qa_v2_noleak.sh`：依次导出 train/val token、校验、构建 token QA、训练关系 Projector、训练 LoRA、评测同类别打乱 token。每阶段成功后写 `.done`，中断后可从未完成阶段继续。
+3. `verify_multi_export.py` 已扩展为支持 1–5 目标、单目标 batch 的无 target 轴格式、soft/contrastive 两套 token、行内 query 唯一性和 288 维有限值检查；在旧双目标 train 导出 1,137 场景/2,274 目标上回归通过。
+4. 修复 `train_scenario_qa.py` 的评测入口：检测到 private GT 含 `canonical_answer` 时，改用 `strict_scene_qa_eval.py`，输出关系关键词、严格三元组、完整标准句、一句话、规划动作、A/B 交换、Grounding 条件和端到端严格指标；旧 QA 仍使用原解析器。
+5. 远程代码完成 `py_compile`、严格评测器 import 和 shell 语法检查。后台任务 PID 2966，于 2026-09-23 12:55 启动；状态目录 `/root/autodl-tmp/3eed_data/multi_grounding/scene_qa_v2_status/`。首阶段为 train split token 导出，共 2,701 场景、901 batch；启动后 GPU 进程正常，占用约 1.56 GB，无即时异常。
+6. 本次训练只使用 `scene_reasoning_qa_v2_noleak` 的通用问题文字和 A–E 隐式 token。原始 caption、类别、GT box/center 和关系标签不进入 LLM prompt；GT 几何仅保留在 private 文件用于标签与评测。

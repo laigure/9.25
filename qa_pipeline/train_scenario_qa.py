@@ -18,6 +18,7 @@ import torch.nn as nn
 
 from train_qa import (QATrainer, TokenProjector, PROMPT_PREFIX,
                       ASSISTANT_PREFIX, ASSISTANT_SUFFIX)
+from strict_scene_qa_eval import evaluate as evaluate_scene_strict
 
 
 class RelationalTokenProjector(nn.Module):
@@ -217,7 +218,8 @@ def main():
     args.tokens_root = args.tokens_root or os.path.dirname(os.path.dirname(args.data))
     os.makedirs(args.out_dir, exist_ok=True)
     all_rows = read_jsonl(args.data)
-    private = {x["qa_id"]: x for x in read_jsonl(args.private_gt)}
+    private_rows = read_jsonl(args.private_gt)
+    private = {x["qa_id"]: x for x in private_rows}
     assert {x["qa_id"] for x in all_rows} == set(private)
     split = {name: [r for r in all_rows if r["qa_split"] == name]
              for name in ("train", "val", "test")}
@@ -235,7 +237,14 @@ def main():
         records = select_eval(split[name], args)
         print("GENERATE", name, len(records), flush=True)
         predictions = trainer.generate(records)
-        result = evaluate(records, predictions, private)
+        if records and "canonical_answer" in private[records[0]["qa_id"]]:
+            prediction_rows = [{"qa_id": row["qa_id"], "prediction": prediction}
+                               for row, prediction in zip(records, predictions)]
+            result = evaluate_scene_strict(
+                records, prediction_rows,
+                [private[row["qa_id"]] for row in records])
+        else:
+            result = evaluate(records, predictions, private)
         with open(os.path.join(args.out_dir, "eval_{}.json".format(name)), "w", encoding="utf-8") as f:
             json.dump(result, f, ensure_ascii=False, indent=2)
         print(name, json.dumps({k: v for k, v in result.items() if k != "rows"}), flush=True)
