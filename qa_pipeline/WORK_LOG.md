@@ -867,3 +867,14 @@
 8. 用 canonical answer 回灌全部数据，关系关键词、严格三元组、标准句、单句格式、规划动作、A/B 交换和严格语言合取均为 100%。严格评测器现单独报告 `by_question_category` 和 `by_target_count`，关系指标只统计真正要求空间三元组的样本。
 9. Grounding epoch 15 的 JointAll-bbf@0.25 为 55.93%，N2/N3/N4 为 60.41%/38.68%/4.35%；epoch 20 为 54.62%，N2/N3/N4 为 58.47%/42.45%/0%。新增 checkpoint 选择器，在训练结束后只比较实际保留的 epoch 15 与 final，并按 N2–N4 Joint@0.25 宏平均选择后续 token 导出权重，避免无条件使用较差的 final。
 10. 原只等待 final 的 watcher 已停止；新 v3 watcher PID 13158 正在等待 Grounding PID 10097，之后自动执行“选择 checkpoint → 导出 token → 构建 v3 token QA → pairwise Projector → LoRA → 打乱 token 对照”。
+
+## 74. v3 Pairwise Projector 完成、LoRA 运行中（2026-09-23）
+
+1. 平衡 Grounding 没有完成预定的 30 epoch：epoch 25 验证到 336/339 时进程收到 SIGHUP 并退出，因此没有 final checkpoint。epoch 15 checkpoint 完整可读；自动选择器只能在实际保留的候选中选择 epoch 15，不能把该运行写成“30 epoch 正常完成”。
+2. 选中 epoch 15 的 Grounding 指标：JointAll-bbf Acc@0.25 为 55.93%，N2/N3/N4/N5 为 60.41%/38.68%/4.35%/0%；其 N2–N4 宏平均为 34.48%。相对自然分布 baseline 的宏平均 33.99% 仅提高约 0.49 个百分点，主要改善 N2/N4，N3 仍下降。
+3. 使用 epoch 15 成功导出并验证 train/val 场景 token，随后将 v3 的 33,846 条全部对齐：train 16,356、val 17,490；Grounding 场景 5,409，全部目标 IoU≥0.25 的场景为 4,606。正确 token 与同类别打乱 token 均已构建。
+4. Pairwise Projector 完成 3 epoch，无 OOM、NaN 或 Traceback。val loss 为 epoch 1/2/3 = 0.6122/0.6668/0.6582，因此 `best.pt` 正确保留 epoch 1（25,245,052 bytes），未使用过拟合更重的末轮。
+5. Projector 完整 val（17,490 条）：严格语言合取 56.17%、Grounding 正确条件 62.93%、端到端 27.55%；关系关键词 33.05%、严格三元组 27.91%、完整标准句 57.55%、一句话 99.69%、规划动作 74.12%、A/B 交换 24.51%。
+6. 按问题类别严格合取：方位 23.26%（6,454）、距离 76.49%（7,964）、避障 72.62%（3,072）。整体 56.17% 受较容易的距离和避障题影响，不能用整体值代表方位推理能力。
+7. 按目标数严格合取：N2 69.44%、N3 49.15%、N4 34.03%、N5 28.95%。三目标以上仍随目标数增加而下降，但已能在四/五目标 QA 上产生非零严格结果。
+8. LoRA 于 20:35 启动，使用 pairwise Projector 的 epoch-1 `best.pt` 初始化；20:40 检查运行到 epoch 1 step 400/2045，GPU 约 21.1/24.6 GB，loss 有限，日志中无 OOM、NaN、CUDA error 或 Traceback。LoRA 尚无 checkpoint，必须等 epoch 1 完成验证后才有首个可用 `best.pt`。
