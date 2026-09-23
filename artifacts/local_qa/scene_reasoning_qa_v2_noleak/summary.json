@@ -13,7 +13,7 @@
   "all_answers_one_sentence": true,
   "planning_scope": "deterministic local obstacle avoidance to a fixed forward goal",
   "full_route_planning": false,
-  "dataset_version": "scene_reasoning_qa_v2_noleak",
+  "dataset_version": "scene_reasoning_qa_v2.1_noleak_swapfix",
   "input_policy": "implicit_grounding_tokens_only",
   "leakage_audit": {
     "public_source_caption_hits": 0,
@@ -34,6 +34,7 @@
       "E": 1,
       "D": 4
     },
+    "ab_swap_pairs_checked": 1753,
     "model_text_input_fields": [
       "question"
     ],

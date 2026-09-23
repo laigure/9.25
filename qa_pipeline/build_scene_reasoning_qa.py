@@ -20,6 +20,7 @@ from pathlib import Path
 
 
 ROLES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+DATASET_VERSION = "scene_reasoning_qa_v2.1_noleak_swapfix"
 INVERSE = {"left": "right", "right": "left", "front": "behind",
            "behind": "front"}
 
@@ -93,6 +94,7 @@ def add_row(rows, private, record, split, scenario, suffix, order,
         "question": role_preamble(object_refs) + " " + question_tail,
         "answer": answer,
         "object_refs": object_refs,
+        "dataset_version": DATASET_VERSION,
         "input_policy": "implicit_grounding_tokens_only",
         "answer_format": "exactly_one_complete_sentence",
         "task_scope": ("local_obstacle_avoidance" if planning_key else
@@ -169,7 +171,7 @@ def build_record(record, split, rows, private):
             "Object B? Answer in exactly one sentence.", answer,
             triples("A", atoms, "B"), swap_pair_id=pair_id)
 
-    swapped_order = [1, 0] + order[2:]
+    swapped_order = [order[1], order[0]] + order[2:]
     swapped_atoms = [INVERSE[x] for x in atoms]
     swapped_answer = relation_phrase("A", swapped_atoms, "B") + "."
     add_row(rows, private, record, split, "distractor_pair_relation", "swap",
@@ -235,6 +237,7 @@ def audit(rows, private):
     direct_relation_label_hits = 0
     rank_roles = {}
     planning_roles = {}
+    swap_groups = {}
     for row in rows:
         gt = private[row["qa_id"]]
         forbidden_public_fields += sum(
@@ -254,12 +257,20 @@ def audit(rows, private):
         if row["scenario"] == "local_path_planning":
             role = gt["planning_key"]["blocker_role"]
             planning_roles[role] = planning_roles.get(role, 0) + 1
+        if gt["swap_pair_id"]:
+            swap_groups.setdefault(gt["swap_pair_id"], []).append(row)
     assert source_caption_hits == 0
     assert forbidden_public_fields == 0
     assert coordinate_hits == 0
     assert direct_relation_label_hits == 0
     assert len(rank_roles) > 1, rank_roles
     assert len(planning_roles) > 1, planning_roles
+    for pair_id, pair in swap_groups.items():
+        assert len(pair) == 2, (pair_id, len(pair))
+        base, swapped = pair
+        base_ids = [item["object_id"] for item in base["object_refs"]]
+        swapped_ids = [item["object_id"] for item in swapped["object_refs"]]
+        assert swapped_ids == [base_ids[1], base_ids[0]] + base_ids[2:], pair_id
     return {
         "public_source_caption_hits": source_caption_hits,
         "public_forbidden_object_fields": forbidden_public_fields,
@@ -267,6 +278,7 @@ def audit(rows, private):
         "public_answer_relation_label_hits": direct_relation_label_hits,
         "rank_answer_role_distribution": rank_roles,
         "planning_blocker_role_distribution": planning_roles,
+        "ab_swap_pairs_checked": len(swap_groups),
         "model_text_input_fields": ["question"],
         "model_non_text_input_fields": ["ordered_288d_grounding_tokens"],
     }
@@ -302,7 +314,7 @@ def main():
                                         and r["answer"].endswith(".") for r in rows),
         "planning_scope": "deterministic local obstacle avoidance to a fixed forward goal",
         "full_route_planning": False,
-        "dataset_version": "scene_reasoning_qa_v2_noleak",
+        "dataset_version": DATASET_VERSION,
         "input_policy": "implicit_grounding_tokens_only",
         "leakage_audit": audit_result,
     }

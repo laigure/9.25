@@ -821,3 +821,6 @@
 4. 修复 `train_scenario_qa.py` 的评测入口：检测到 private GT 含 `canonical_answer` 时，改用 `strict_scene_qa_eval.py`，输出关系关键词、严格三元组、完整标准句、一句话、规划动作、A/B 交换、Grounding 条件和端到端严格指标；旧 QA 仍使用原解析器。
 5. 远程代码完成 `py_compile`、严格评测器 import 和 shell 语法检查。后台任务 PID 2966，于 2026-09-23 12:55 启动；状态目录 `/root/autodl-tmp/3eed_data/multi_grounding/scene_qa_v2_status/`。首阶段为 train split token 导出，共 2,701 场景、901 batch；启动后 GPU 进程正常，占用约 1.56 GB，无即时异常。
 6. 本次训练只使用 `scene_reasoning_qa_v2_noleak` 的通用问题文字和 A–E 隐式 token。原始 caption、类别、GT box/center 和关系标签不进入 LLM prompt；GT 几何仅保留在 private 文件用于标签与评测。
+7. train/val token 导出分别完成 901/903 个 NPZ：train 2,701 场景/3,687 目标，val 2,708 场景/3,794 目标；1–5 目标、soft/contrastive token 形状、有限值、object ID 数量和场景内 query 唯一性检查均通过。
+8. 第一次构建 token QA 时统计为 5,347 而非 5,518 条，由此发现稳定打乱角色后的 A/B swap 仍误用旧固定索引 `[1,0]`。171 条 swap 无法对齐，部分双目标 swap 还会出现同顺序反转标签。Projector 在 epoch 1 的早期 step 立即停止，未产生可用 checkpoint，错误 run 不作为结果。
+9. 修复为 `[order[1], order[0]] + order[2:]`，并在生成器审计中新增 1,753 个 swap pair 的完整断言：swap 后 object ID 必须恰好交换前两个角色、其余角色顺序不变。数据版本标记为 `scene_reasoning_qa_v2.1_noleak_swapfix`；oracle 严格指标重新验证为 100%。后续使用新的 `*_swapfix` 运行目录，避免误读早期无效产物。

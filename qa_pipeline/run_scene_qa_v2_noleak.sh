@@ -10,9 +10,9 @@ SOURCE_QA=$DATA/scene_reasoning_qa_v2_noleak
 TOKENS=$DATA/scene_multi_tokens
 QA_OUT=$DATA/scene_qa_v2_tokens
 RUNS=$DATA/runs
-PROJECTOR_OUT=$RUNS/scene_qa_v2_projector
-LORA_OUT=$RUNS/scene_qa_v2_lora
-SHUFFLED_OUT=$RUNS/scene_qa_v2_shuffled
+PROJECTOR_OUT=$RUNS/scene_qa_v2_projector_swapfix
+LORA_OUT=$RUNS/scene_qa_v2_lora_swapfix
+SHUFFLED_OUT=$RUNS/scene_qa_v2_shuffled_swapfix
 STAGE=$DATA/scene_qa_v2_status
 
 export PATH=/root/miniconda3/envs/agiclass/bin:$PATH
