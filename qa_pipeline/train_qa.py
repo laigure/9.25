@@ -459,14 +459,22 @@ class QATrainer:
         return embeds, labels, mask
 
     # -------------------------------------------------------------- compute
+    def additional_loss(self, records):
+        """Optional task-specific loss added by specialised QA trainers."""
+        return None
+
     def forward_loss(self, records, batch_size):
         total_loss, total_tokens = 0.0, 0
         for batch in chunks(records, batch_size):
             embeds, labels, mask = self.batch_tensors(batch, True)
             out = self.model(inputs_embeds=embeds, attention_mask=mask,
                              labels=labels)
+            loss = out.loss
+            extra = self.additional_loss(batch)
+            if extra is not None:
+                loss = loss + extra
             tokens = int((labels != -100).sum())
-            total_loss += float(out.loss) * tokens
+            total_loss += float(loss) * tokens
             total_tokens += tokens
         return total_loss / max(total_tokens, 1)
 
@@ -543,8 +551,12 @@ class QATrainer:
                 embeds, labels, mask = self.batch_tensors(batch_records, True)
                 out = self.model(inputs_embeds=embeds, attention_mask=mask,
                                  labels=labels)
-                (out.loss / self.args.grad_accum).backward()
-                window.append(float(out.loss))
+                loss = out.loss
+                extra = self.additional_loss(batch_records)
+                if extra is not None:
+                    loss = loss + extra
+                (loss / self.args.grad_accum).backward()
+                window.append(float(loss))
                 accum += 1
                 if accum == self.args.grad_accum:
                     trainable = [p for p in self.model.parameters() if p.requires_grad]

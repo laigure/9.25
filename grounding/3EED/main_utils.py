@@ -19,7 +19,7 @@ import time
 import numpy as np
 import torch
 import torch.optim as optim
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Sampler
 from torch.utils.data.distributed import DistributedSampler
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel
@@ -30,6 +30,75 @@ from tqdm import tqdm
 import shutil
 from torch.utils.tensorboard import SummaryWriter
 import ipdb
+
+
+class DistributedTargetCountSampler(Sampler):
+    """Draw an exact per-epoch quota for each scene target count.
+
+    Minority groups are cycled through shuffled permutations before any item
+    is repeated, so all scarce N=3/4 scenes receive comparable exposure.
+    The combined roster is then shuffled and partitioned across DDP ranks.
+    """
+
+    def __init__(self, dataset, samples_per_count, seed=0,
+                 num_replicas=None, rank=None):
+        if num_replicas is None:
+            num_replicas = dist.get_world_size()
+        if rank is None:
+            rank = dist.get_rank()
+        self.dataset = dataset
+        self.samples_per_count = {
+            count: int(value)
+            for count, value in enumerate(samples_per_count, 1)
+            if int(value) > 0
+        }
+        self.seed = int(seed)
+        self.num_replicas = int(num_replicas)
+        self.rank = int(rank)
+        self.epoch = 0
+        self.groups = {}
+        for index, anno in enumerate(dataset.annos):
+            count = int(anno.get("target_count", len(
+                anno.get("boxes_info", {}).get("bbox3d", []))))
+            self.groups.setdefault(count, []).append(index)
+        missing = [count for count in self.samples_per_count
+                   if not self.groups.get(count)]
+        if missing:
+            raise ValueError(f"balanced sampler requested empty target groups: {missing}")
+        requested = sum(self.samples_per_count.values())
+        self.num_samples = int(np.ceil(requested / self.num_replicas))
+        self.total_size = self.num_samples * self.num_replicas
+        if self.rank == 0:
+            print("Balanced target-count sampler | source {} | epoch quotas {} | "
+                  "total {} | per rank {}".format(
+                      {k: len(v) for k, v in sorted(self.groups.items())},
+                      self.samples_per_count, requested, self.num_samples),
+                  flush=True)
+
+    def __iter__(self):
+        generator = torch.Generator()
+        generator.manual_seed(self.seed + self.epoch)
+        roster = []
+        for count, wanted in sorted(self.samples_per_count.items()):
+            source = torch.as_tensor(self.groups[count], dtype=torch.long)
+            selected = []
+            while len(selected) < wanted:
+                order = torch.randperm(len(source), generator=generator)
+                take = min(wanted - len(selected), len(source))
+                selected.extend(source[order[:take]].tolist())
+            roster.extend(selected)
+        order = torch.randperm(len(roster), generator=generator).tolist()
+        roster = [roster[index] for index in order]
+        if len(roster) < self.total_size:
+            roster += roster[:self.total_size - len(roster)]
+        assert len(roster) == self.total_size
+        return iter(roster[self.rank:self.total_size:self.num_replicas])
+
+    def __len__(self):
+        return self.num_samples
+
+    def set_epoch(self, epoch):
+        self.epoch = int(epoch)
 
 
 def parse_option():
@@ -69,6 +138,11 @@ def parse_option():
     parser.add_argument("--butd_cls", action="store_true")
     parser.add_argument("--augment_det", action="store_true")
     parser.add_argument("--num_workers", type=int, default=4)
+    parser.add_argument("--balance_target_counts", action="store_true",
+                        help="Use exact per-epoch quotas grouped by scene target count")
+    parser.add_argument("--target_count_samples", type=int, nargs=5,
+                        default=[0, 0, 0, 0, 0], metavar=("N1", "N2", "N3", "N4", "N5"),
+                        help="Per-epoch samples for scenes with 1..5 targets")
 
     # Training
     parser.add_argument("--start_epoch", type=int, default=1)
@@ -306,7 +380,12 @@ class BaseTrainTester:
         if args.eval or train_dataset is None:
             train_loader = None
         else:
-            train_sampler = DistributedSampler(train_dataset)
+            if args.balance_target_counts:
+                train_sampler = DistributedTargetCountSampler(
+                    train_dataset, args.target_count_samples,
+                    seed=args.rng_seed)
+            else:
+                train_sampler = DistributedSampler(train_dataset)
             train_loader = DataLoader(
                 train_dataset,
                 batch_size=args.batch_size,

@@ -15,6 +15,7 @@ import re
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from train_qa import (QATrainer, TokenProjector, PROMPT_PREFIX,
                       ASSISTANT_PREFIX, ASSISTANT_SUFFIX)
@@ -46,6 +47,71 @@ class RelationalTokenProjector(nn.Module):
         return self.projector(token)
 
 
+class PairwiseRelationalTokenProjector(nn.Module):
+    """Represent every directed object pair before LLM projection.
+
+    The Grounding vectors are the only model inputs.  GT geometry is never
+    read here; it is used separately to create training-only relation labels.
+    """
+
+    def __init__(self, token_dim, projector_hidden, llm_hidden,
+                 max_roles=16, layers=2, heads=8):
+        super().__init__()
+        self.token_dim = token_dim
+        self.role_embedding = nn.Embedding(max_roles, token_dim)
+        self.pair_mlp = nn.Sequential(
+            nn.Linear(token_dim * 4, token_dim * 2),
+            nn.GELU(),
+            nn.Linear(token_dim * 2, token_dim),
+            nn.LayerNorm(token_dim))
+        self.pair_merge = nn.Sequential(
+            nn.Linear(token_dim * 2, token_dim),
+            nn.GELU(),
+            nn.LayerNorm(token_dim))
+        layer = nn.TransformerEncoderLayer(
+            d_model=token_dim, nhead=heads,
+            dim_feedforward=token_dim * 2, dropout=0.0,
+            activation="gelu", batch_first=True, norm_first=True)
+        self.relation_encoder = nn.TransformerEncoder(
+            layer, num_layers=layers, norm=nn.LayerNorm(token_dim))
+        self.lateral_head = nn.Linear(token_dim, 3)
+        self.longitudinal_head = nn.Linear(token_dim, 3)
+        self.projector = TokenProjector(token_dim, projector_hidden, llm_hidden)
+
+    def encode_group(self, tokens, role_indices):
+        base = tokens + self.role_embedding(role_indices)
+        count = base.shape[0]
+        source = base[:, None, :].expand(count, count, -1)
+        target = base[None, :, :].expand(count, count, -1)
+        pair_features = torch.cat(
+            [source, target, source - target, source * target], dim=-1)
+        pair_hidden = self.pair_mlp(pair_features)
+        if count > 1:
+            mask = ~torch.eye(count, dtype=torch.bool, device=tokens.device)
+            pair_sum = (pair_hidden * mask.unsqueeze(-1)).sum(dim=1)
+            pair_aggregate = pair_sum / float(count - 1)
+        else:
+            mask = torch.zeros((count, count), dtype=torch.bool,
+                               device=tokens.device)
+            pair_aggregate = torch.zeros_like(base)
+        merged = self.pair_merge(torch.cat([base, pair_aggregate], dim=-1))
+        contextual = self.relation_encoder(merged.unsqueeze(0)).squeeze(0)
+        return contextual, pair_hidden, mask
+
+    def forward_group(self, tokens, role_indices):
+        contextual, _, _ = self.encode_group(tokens, role_indices)
+        return self.projector(contextual)
+
+    def auxiliary_logits(self, tokens, role_indices):
+        _, pair_hidden, mask = self.encode_group(tokens, role_indices)
+        directed_pairs = pair_hidden[mask]
+        return (self.lateral_head(directed_pairs),
+                self.longitudinal_head(directed_pairs), mask)
+
+    def forward(self, token):
+        return self.projector(token)
+
+
 class ScenarioTrainer(QATrainer):
     def __init__(self, args):
         # The base class constructs the LLM and shared training machinery.
@@ -54,17 +120,24 @@ class ScenarioTrainer(QATrainer):
         args.init_projector = None
         super().__init__(args)
         args.init_projector = deferred
-        self.projector = RelationalTokenProjector(
+        projector_class = (PairwiseRelationalTokenProjector
+                           if args.relation_arch == "pairwise"
+                           else RelationalTokenProjector)
+        self.projector = projector_class(
             token_dim=288, projector_hidden=1024,
             llm_hidden=self.hidden_size,
             max_roles=args.max_object_roles,
             layers=args.relation_layers,
             heads=args.relation_heads).to(self.device)
         relation_params = sum(p.numel() for p in self.projector.parameters())
+        self.private = {}
         print("relational projector params", relation_params,
+              "| architecture", args.relation_arch,
               "| relation layers", args.relation_layers,
               "| heads", args.relation_heads,
-              "| max roles", args.max_object_roles, flush=True)
+              "| max roles", args.max_object_roles,
+              "| auxiliary relation weight", args.aux_relation_weight,
+              flush=True)
         if deferred:
             self.load_checkpoint(deferred)
 
@@ -112,6 +185,61 @@ class ScenarioTrainer(QATrainer):
             pieces += [("text", self.encode(record["answer"]), True),
                        ("text", self.encode(ASSISTANT_SUFFIX), True)]
         return pieces
+
+    def additional_loss(self, records):
+        """Supervise directed left/right and front/behind pair relations.
+
+        Geometry is accessed only in this training-only label path.  It is not
+        appended to a Grounding token, projected into the LLM, or serialized in
+        a public QA prompt.
+        """
+        if (self.args.relation_arch != "pairwise" or
+                self.args.aux_relation_weight <= 0):
+            return None
+        lateral_logits = []
+        longitudinal_logits = []
+        lateral_labels = []
+        longitudinal_labels = []
+        deadband = 1.0
+        for record in records:
+            token_array, _ = self.token_arrays(record)
+            tokens = torch.stack([
+                torch.as_tensor(token_array[obj["token_index"]],
+                                dtype=torch.float32, device=self.device)
+                for obj in record["object_refs"]])
+            roles = torch.arange(len(record["object_refs"]), device=self.device)
+            lat, lon, mask = self.projector.auxiliary_logits(tokens, roles)
+            geometry = self.private[record["qa_id"]]["gt_geometry"]
+            count = len(geometry)
+            lat_target = []
+            lon_target = []
+            for source in range(count):
+                for target in range(count):
+                    if source == target:
+                        continue
+                    dx = float(geometry[source][0]) - float(geometry[target][0])
+                    dy = float(geometry[source][1]) - float(geometry[target][1])
+                    # 0=right/behind, 1=deadband, 2=left/front.
+                    lat_target.append(2 if dy >= deadband else
+                                      0 if dy <= -deadband else 1)
+                    lon_target.append(2 if dx >= deadband else
+                                      0 if dx <= -deadband else 1)
+            assert lat.shape[0] == int(mask.sum()) == len(lat_target)
+            lateral_logits.append(lat)
+            longitudinal_logits.append(lon)
+            lateral_labels.extend(lat_target)
+            longitudinal_labels.extend(lon_target)
+        if not lateral_labels:
+            return None
+        lat_logits = torch.cat(lateral_logits, dim=0)
+        lon_logits = torch.cat(longitudinal_logits, dim=0)
+        lat_labels = torch.tensor(lateral_labels, dtype=torch.long,
+                                  device=self.device)
+        lon_labels = torch.tensor(longitudinal_labels, dtype=torch.long,
+                                  device=self.device)
+        auxiliary = F.cross_entropy(lat_logits, lat_labels)
+        auxiliary = auxiliary + F.cross_entropy(lon_logits, lon_labels)
+        return auxiliary * self.args.aux_relation_weight
 
 
 def read_jsonl(path):
@@ -203,8 +331,12 @@ def main():
     ap.add_argument("--eval-per-scenario", type=int, default=0,
                     help="Deterministic cap per question type; 0 uses full split")
     ap.add_argument("--eval-splits", default="val,test")
+    ap.add_argument("--relation-arch", choices=["transformer", "pairwise"],
+                    default="transformer")
     ap.add_argument("--relation-layers", type=int, default=1)
     ap.add_argument("--relation-heads", type=int, default=8)
+    ap.add_argument("--aux-relation-weight", type=float, default=0.0,
+                    help="Training-only GT pair-relation loss weight")
     ap.add_argument("--max-object-roles", type=int, default=16,
                     help="Maximum variable-cardinality scene object set")
     args = ap.parse_args()
@@ -226,6 +358,7 @@ def main():
     seq = {name: {r["sequence"] for r in records} for name, records in split.items()}
     assert not (seq["train"] & seq["val"] or seq["train"] & seq["test"] or seq["val"] & seq["test"])
     trainer = ScenarioTrainer(args)
+    trainer.private = private
     trainer.check_token_identity(all_rows)
     if args.mode in ("projector", "lora"):
         train = split["train"][:args.max_train] if args.max_train else split["train"]

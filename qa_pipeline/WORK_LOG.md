@@ -834,3 +834,20 @@
 5. 同类别打乱 token 评测完成：关系关键词 35.39%、严格三元组 17.19%、标准句 16.91%、规划动作 21.74%、swap 8.24%、严格语言合取 10.52%、Grounding 条件 10.69%、端到端 5.66%。相对正确 token，严格语言合取下降 14.15 个百分点、Grounding 条件下降 15.70 个百分点、端到端下降 8.32 个百分点，说明模型确实使用了正确 token，但打乱后仍有约 10.5% 模板/标签先验。
 6. 正确 token 下 LoRA 分目标数严格语言合取：N=2 26.70%、N=3 21.12%、N=4 9.57%、N=5 2.50%。四/五目标结果很弱，与 Grounding 的 N=4/5 Joint Acc@0.25 为 0% 以及训练样本稀少一致。
 7. 全流程于 2026-09-23 14:40 正常写入 `ALL_DONE`，无 OOM、NaN 或 Traceback，GPU 进程退出。可用 checkpoint 为 `runs/scene_qa_v2_projector_swapfix/best.pt` 和 `runs/scene_qa_v2_lora_swapfix/best.pt`；早期错误 run 已明确重命名为 `scene_qa_v2_projector_INVALID_SWAP_BUG`。
+
+## 71. 按目标数平衡的 Grounding 微调启动（2026-09-23）
+
+1. 全量 5,409 场景按 sequence 复核后发现：8 个 N=5 帧全部来自同一个 sequence `12940710315541930162_2660_000_2680_000`。因此无法在保持 sequence 隔离的同时让真实 N=5 同时进入 train 和 val；主实验保留该 sequence 在 val，把 N=5 明确作为零样本泛化评测，不拆相邻帧制造泄漏。
+2. 新增 `DistributedTargetCountSampler`，不修改原始 PKL 和 split。每个 epoch 从原 train 的 N=1/2/3/4 场景精确抽取 900/800/600/300；少数组按随机排列循环后再重复，保证 9 个 N=4 场景曝光次数接近，而不是每轮随机遗漏；合并 roster 再随机打乱并按 DDP rank 切分。
+3. 合成数据单元测试两轮均得到精确 quota；真实 `waymo_scene_multi_train_info.pkl` 测试得到 2,600 条，分布严格为 900/800/600/300，原始来源分布仍为 1858/709/125/9。
+4. 新增 `scripts_multi/train_scene_multi_balanced.sh`：从自然分布 baseline 的 epoch-100 checkpoint 完整初始化，微调 30 epoch；base/backbone/text LR 分别为 `5e-5/2e-5/5e-6`，每 5 epoch 验证，epoch 15 与最终 checkpoint 保留，最终重复的 epoch-30 文件自动删除以控制磁盘占用。
+5. 远程任务 PID 10097，于 2026-09-23 16:47 启动；run 为 `scene_multi_balanced_run/.../0923_1647`。首个 75/325 batch 已正常完成，GPU 约 12.4/24.6 GB、利用率 96%，无 OOM/NaN/Traceback。
+
+## 72. 成对多 token 关系建模与后续流水线（2026-09-23）
+
+1. 原关系 Projector 只用 Transformer 混合 1–5 个 Grounding token，没有对任意两个 token 的方向关系提供直接监督。新增 `PairwiseRelationalTokenProjector`：对所有有向物体对 `(i,j)` 构造 `[t_i,t_j,t_i-t_j,t_i*t_j]`，经 MLP 得到 pair feature，再按源物体聚合并送入两层关系 Transformer，最后映射到 LLM hidden dimension。
+2. 新增训练期辅助头，分别预测每个有向物体对的 `right/deadband/left` 和 `behind/deadband/front` 三分类；标签只由 private GT geometry 生成，权重默认关闭，新实验设为 0.2。GT 坐标不拼入 token、不进入问题文本，也不进入 LLM embedding，推理时仅需要 Grounding token。
+3. 通用 `QATrainer` 增加可选 `additional_loss` 钩子；旧 `transformer` 架构和历史 checkpoint 的默认行为保持不变。新命令行参数为 `--relation-arch pairwise --relation-layers 2 --aux-relation-weight 0.2`。
+4. `eval_scene_multi.sh` 增加可选导出根目录，避免覆盖自然分布 baseline 的 token。新增可恢复脚本 `run_scene_qa_pairwise_balanced.sh`，按“平衡 Grounding checkpoint → train/val token 导出与校验 → 无泄漏 QA 对齐 → pairwise Projector → LoRA → 同类别打乱 token 对照”执行，每阶段使用 `.done` 标记。
+5. 2026-09-23 16:55 检查平衡 Grounding 已运行到 epoch 5，loss 有限，GPU 约 12.4 GB，无 OOM、NaN 或 Traceback；第一个正式验证将在 epoch 5 训练结束后执行。
+6. 远程 CPU 集成测试覆盖 N=1/2/3/5：LLM soft token 输出分别为 `N×64`，有向 pair 数严格为 `N(N-1)`，前向值和输入梯度均有限；再从真实 QA/token 文件各取一条 N=2/3/4/5 样本，辅助损失为有限正数，左右与前后两个分类头均成功获得梯度。
