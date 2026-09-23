@@ -193,6 +193,10 @@ def main():
         "grounding_all_targets_correct": sum(x["pass"] for x in groups.values()),
         "qa_rows": len(joint_rows),
         "qa_split_counts": dict(Counter(x["qa_split"] for x in joint_rows)),
+        "qa_category_counts": dict(Counter(
+            x.get("question_category", "legacy") for x in joint_rows)),
+        "qa_target_count_counts": dict(Counter(
+            x.get("target_count", len(x["object_refs"])) for x in joint_rows)),
         "qa_scenario_counts": dict(Counter(x["scenario"] for x in joint_rows)),
         "token_entries": len(vectors), "shuffled_qa_rows": len(shuffled_rows),
     }

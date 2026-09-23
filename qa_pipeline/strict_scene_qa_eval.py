@@ -63,6 +63,10 @@ def planning_key(text, gt):
     if not gt:
         return None
     value = norm(text)
+    if gt.get("kind") == "candidate_maneuver_safety":
+        safe = bool(re.search(r"\bis safe\b", value))
+        unsafe = bool(re.search(r"\bis unsafe\b", value))
+        return safe and not unsafe if gt["safe"] else unsafe
     if gt["steer"] == "stop":
         return bool(re.search(r"\bshould stop\b", value))
     steer = bool(re.search(rf"\bsteer {gt['steer']}\b", value))
@@ -92,8 +96,15 @@ def evaluate(qa_rows, predictions, private_rows):
             plan_ok = True
         details.append({
             "qa_id": row["qa_id"], "scenario": row["scenario"],
+            "question_category": row.get("question_category", "legacy"),
+            "target_count": row.get("target_count", len(row.get("object_refs", []))),
             "prediction": text, "keyword_ok": keyword_ok,
+            # Candidate maneuvers can contain words such as "left-steering"
+            # without expressing an object-object relation.  Count relation
+            # keyword accuracy only when a spatial triple is required.
+            "relation_keyword_applicable": bool(expected_triples),
             "triple_ok": triple_ok, "sentence_ok": sentence_ok,
+            "triple_applicable": bool(expected_triples),
             "one_sentence_ok": one_sentence_ok, "planning_ok": plan_ok,
             "planning_applicable": planning_applicable,
             "parsed_triples": sorted(parsed_triples),
@@ -132,12 +143,29 @@ def evaluate(qa_rows, predictions, private_rows):
     grounding_rows = [x for x in details if x["grounding_pass"] is True]
     known_grounding = [x for x in details if x["grounding_pass"] is not None]
     planning_rows = [x for x in details if x["planning_applicable"]]
+    relation_rows = [x for x in details if x["relation_keyword_applicable"]]
+    triple_rows = [x for x in details if x["triple_applicable"]]
     rate = lambda key, values=details: (sum(x[key] for x in values) / len(values)
                                         if values else None)
+    def grouped(field):
+        groups = collections.defaultdict(list)
+        for item in details:
+            groups[str(item[field])].append(item)
+        return {
+            key: {
+                "n": len(values),
+                "strict_language_all_pass": rate("language_all_ok", values),
+                "complete_sentence_match_rate": rate("sentence_ok", values),
+                "one_sentence_rate": rate("one_sentence_ok", values),
+            }
+            for key, values in sorted(groups.items())
+        }
     result = {
         "n": n,
-        "relation_keyword_accuracy": rate("keyword_ok"),
-        "strict_triple_accuracy": rate("triple_ok"),
+        "relation_keyword_n": len(relation_rows),
+        "relation_keyword_accuracy": rate("keyword_ok", relation_rows),
+        "strict_triple_n": len(triple_rows),
+        "strict_triple_accuracy": rate("triple_ok", triple_rows),
         "complete_sentence_match_rate": rate("sentence_ok"),
         "one_sentence_rate": rate("one_sentence_ok"),
         "planning_action_n": len(planning_rows),
@@ -149,6 +177,8 @@ def evaluate(qa_rows, predictions, private_rows):
         "grounding_conditional_accuracy": rate("language_all_ok", grounding_rows),
         "end_to_end_n": len(known_grounding),
         "end_to_end_accuracy": rate("end_to_end_ok", known_grounding),
+        "by_question_category": grouped("question_category"),
+        "by_target_count": grouped("target_count"),
         "pass_rule": ("keyword AND exact triples AND canonical sentence AND one sentence "
                       "AND planning action when applicable AND A/B swap when applicable; "
                       "end-to-end additionally requires all referenced Grounding targets"),

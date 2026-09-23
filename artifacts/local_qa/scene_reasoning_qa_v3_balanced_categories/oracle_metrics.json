@@ -1,0 +1,64 @@
+{
+  "n": 33846,
+  "relation_keyword_n": 13848,
+  "relation_keyword_accuracy": 1.0,
+  "strict_triple_n": 13848,
+  "strict_triple_accuracy": 1.0,
+  "complete_sentence_match_rate": 1.0,
+  "one_sentence_rate": 1.0,
+  "planning_action_n": 5880,
+  "planning_action_accuracy": 1.0,
+  "ab_swap_consistency": 1.0,
+  "strict_language_all_pass": 1.0,
+  "grounding_condition_n": 0,
+  "grounding_conditional_accuracy": null,
+  "end_to_end_n": 0,
+  "end_to_end_accuracy": null,
+  "by_question_category": {
+    "direction": {
+      "n": 12378,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    },
+    "distance": {
+      "n": 15588,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    },
+    "obstacle_avoidance": {
+      "n": 5880,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    }
+  },
+  "by_target_count": {
+    "2": {
+      "n": 15302,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    },
+    "3": {
+      "n": 15576,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    },
+    "4": {
+      "n": 2208,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    },
+    "5": {
+      "n": 760,
+      "strict_language_all_pass": 1.0,
+      "complete_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0
+    }
+  },
+  "pass_rule": "keyword AND exact triples AND canonical sentence AND one sentence AND planning action when applicable AND A/B swap when applicable; end-to-end additionally requires all referenced Grounding targets"
+}

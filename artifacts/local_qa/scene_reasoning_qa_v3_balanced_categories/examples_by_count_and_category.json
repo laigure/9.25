@@ -1,0 +1,302 @@
+[
+  {
+    "qa_id": "b1037225a33abdfe",
+    "qa_split": "val",
+    "target_count": 2,
+    "question_category": "distance",
+    "scenario": "ego_distance_rank",
+    "question": "Grounding tokens are provided for Objects A, B. Which grounded object is farthest from the ego vehicle? Answer in exactly one sentence.",
+    "answer": "Object A is the farthest grounded object from the ego vehicle.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g0"
+      }
+    ]
+  },
+  {
+    "qa_id": "9ce6b55e376e414b",
+    "qa_split": "val",
+    "target_count": 2,
+    "question_category": "direction",
+    "scenario": "pairwise_direction",
+    "question": "Grounding tokens are provided for Objects A, B. Considering all grounded objects, where is Object A relative to Object B? Answer in exactly one sentence.",
+    "answer": "Object A is to the right of and behind Object B.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g1"
+      }
+    ]
+  },
+  {
+    "qa_id": "9b193788b3660a10",
+    "qa_split": "val",
+    "target_count": 2,
+    "question_category": "obstacle_avoidance",
+    "scenario": "candidate_maneuver_safety",
+    "question": "Grounding tokens are provided for Objects A, B. Is the fixed right-steering candidate maneuver collision-safe when all grounded objects are considered? Answer in exactly one sentence.",
+    "answer": "The right-steering candidate maneuver is safe for the ego vehicle.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9472420603764812147_850_000_870_000/0024_1#g0"
+      }
+    ]
+  },
+  {
+    "qa_id": "6a0214423d0e6b5d",
+    "qa_split": "val",
+    "target_count": 3,
+    "question_category": "distance",
+    "scenario": "anchor_distance_extreme",
+    "question": "Grounding tokens are provided for Objects A, B, C. Among the remaining grounded objects, state which one is farthest from Object C, using exactly one sentence.",
+    "answer": "Object A is the farthest grounded object from Object C.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "61a4966f863fcaac",
+    "qa_split": "val",
+    "target_count": 3,
+    "question_category": "direction",
+    "scenario": "multi_reference_direction",
+    "question": "Grounding tokens are provided for Objects A, B, C. Describe Object C's spatial position with respect to all remaining grounded objects in exactly one sentence.",
+    "answer": "Object C is to the right of and in front of Object A; Object C is to the right of and in front of Object B.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "a2ef1c9b4a5fba6e",
+    "qa_split": "val",
+    "target_count": 3,
+    "question_category": "obstacle_avoidance",
+    "scenario": "candidate_maneuver_safety",
+    "question": "Grounding tokens are provided for Objects A, B, C. Is the fixed right-steering candidate maneuver collision-safe when all grounded objects are considered? Answer in exactly one sentence.",
+    "answer": "The right-steering candidate maneuver is safe for the ego vehicle.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g1"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0140_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "65f55d01b4ea623f",
+    "qa_split": "val",
+    "target_count": 4,
+    "question_category": "distance",
+    "scenario": "anchor_distance_extreme",
+    "question": "Grounding tokens are provided for Objects A, B, C, D. Taking Object D as the distance reference, identify the farthest from other object in exactly one sentence.",
+    "answer": "Object A is the farthest grounded object from Object D.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g3"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g1"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "299021ef656eb697",
+    "qa_split": "val",
+    "target_count": 4,
+    "question_category": "direction",
+    "scenario": "multi_reference_direction",
+    "question": "Grounding tokens are provided for Objects A, B, C, D. Taking Object D as the subject, report its directional relationship to each other grounded object in exactly one sentence.",
+    "answer": "Object D is to the left of and in front of Object A; Object D is to the left of Object B; Object D is to the right of and in front of Object C.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g3"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g1"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "4ce1703789316800",
+    "qa_split": "val",
+    "target_count": 4,
+    "question_category": "obstacle_avoidance",
+    "scenario": "candidate_maneuver_safety",
+    "question": "Grounding tokens are provided for Objects A, B, C, D. Is the fixed right-steering candidate maneuver collision-safe when all grounded objects are considered? Answer in exactly one sentence.",
+    "answer": "The right-steering candidate maneuver is safe for the ego vehicle.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g0"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g3"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g1"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/9243656068381062947_1297_428_1317_428/0139_0#g2"
+      }
+    ]
+  },
+  {
+    "qa_id": "3a98b42f30a44130",
+    "qa_split": "val",
+    "target_count": 5,
+    "question_category": "distance",
+    "scenario": "anchor_distance_extreme",
+    "question": "Grounding tokens are provided for Objects A, B, C, D, E. Taking Object E as the distance reference, identify the farthest from other object in exactly one sentence.",
+    "answer": "Object C is the farthest grounded object from Object E.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g4"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g3"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g2"
+      },
+      {
+        "role": "E",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g1"
+      }
+    ]
+  },
+  {
+    "qa_id": "be61dcc30ec9dc4f",
+    "qa_split": "val",
+    "target_count": 5,
+    "question_category": "direction",
+    "scenario": "multi_reference_direction",
+    "question": "Grounding tokens are provided for Objects A, B, C, D, E. Taking Object E as the subject, report its directional relationship to each other grounded object in exactly one sentence.",
+    "answer": "Object E is in front of Object A; Object E is in front of Object B; Object E is behind Object C; Object E is behind Object D.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g4"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g3"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g2"
+      },
+      {
+        "role": "E",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g1"
+      }
+    ]
+  },
+  {
+    "qa_id": "2f4fb8bbbaf69aa6",
+    "qa_split": "val",
+    "target_count": 5,
+    "question_category": "obstacle_avoidance",
+    "scenario": "candidate_maneuver_safety",
+    "question": "Grounding tokens are provided for Objects A, B, C, D, E. Is the fixed right-steering candidate maneuver collision-safe when all grounded objects are considered? Answer in exactly one sentence.",
+    "answer": "The right-steering candidate maneuver is safe for the ego vehicle.",
+    "object_refs": [
+      {
+        "role": "A",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g4"
+      },
+      {
+        "role": "B",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g0"
+      },
+      {
+        "role": "C",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g3"
+      },
+      {
+        "role": "D",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g2"
+      },
+      {
+        "role": "E",
+        "object_id": "waymo/12940710315541930162_2660_000_2680_000/0119_3#g1"
+      }
+    ]
+  }
+]

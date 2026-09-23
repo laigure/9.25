@@ -1,0 +1,100 @@
+{
+  "rows": 33846,
+  "splits": {
+    "train": 16356,
+    "val": 17490
+  },
+  "question_categories": {
+    "direction": 12378,
+    "distance": 15588,
+    "obstacle_avoidance": 5880
+  },
+  "target_counts": {
+    "2": 15302,
+    "3": 15576,
+    "4": 2208,
+    "5": 760
+  },
+  "split_target_counts": {
+    "train": {
+      "2": 7311,
+      "3": 8424,
+      "4": 621
+    },
+    "val": {
+      "2": 7991,
+      "3": 7152,
+      "4": 1587,
+      "5": 760
+    }
+  },
+  "unique_scenes": 1753,
+  "scene_target_counts": {
+    "train": {
+      "2": 709,
+      "3": 125,
+      "4": 9
+    },
+    "val": {
+      "2": 773,
+      "3": 106,
+      "4": 23,
+      "5": 8
+    }
+  },
+  "category_target_counts": {
+    "direction": {
+      "2": 4446,
+      "3": 6468,
+      "4": 1056,
+      "5": 408
+    },
+    "distance": {
+      "2": 5928,
+      "3": 8316,
+      "4": 1024,
+      "5": 320
+    },
+    "obstacle_avoidance": {
+      "2": 4928,
+      "3": 792,
+      "4": 128,
+      "5": 32
+    }
+  },
+  "scenarios": {
+    "anchor_distance_extreme": 4830,
+    "candidate_maneuver_safety": 4410,
+    "ego_distance_band": 5379,
+    "ego_distance_rank": 5379,
+    "local_path_plan": 1470,
+    "multi_reference_direction": 2415,
+    "pairwise_direction": 9963
+  },
+  "all_answers_one_sentence": true,
+  "distance_threshold_m": 10.0,
+  "planning_scope": "deterministic local obstacle avoidance to a fixed forward goal",
+  "full_route_planning": false,
+  "dataset_version": "scene_reasoning_qa_v3_balanced_categories",
+  "input_policy": "implicit_grounding_tokens_only",
+  "leakage_audit": {
+    "public_source_caption_hits": 0,
+    "public_forbidden_object_fields": 0,
+    "public_coordinate_pattern_hits": 0,
+    "public_answer_relation_label_hits_outside_planning": 0,
+    "subject_role_distribution": {
+      "A": 7905,
+      "B": 6152,
+      "C": 3188,
+      "D": 416,
+      "E": 96
+    },
+    "ab_swap_pairs_checked": 1753,
+    "model_text_input_fields": [
+      "question"
+    ],
+    "model_non_text_input_fields": [
+      "ordered_288d_grounding_tokens"
+    ]
+  }
+}
