@@ -851,3 +851,5 @@
 4. `eval_scene_multi.sh` 增加可选导出根目录，避免覆盖自然分布 baseline 的 token。新增可恢复脚本 `run_scene_qa_pairwise_balanced.sh`，按“平衡 Grounding checkpoint → train/val token 导出与校验 → 无泄漏 QA 对齐 → pairwise Projector → LoRA → 同类别打乱 token 对照”执行，每阶段使用 `.done` 标记。
 5. 2026-09-23 16:55 检查平衡 Grounding 已运行到 epoch 5，loss 有限，GPU 约 12.4 GB，无 OOM、NaN 或 Traceback；第一个正式验证将在 epoch 5 训练结束后执行。
 6. 远程 CPU 集成测试覆盖 N=1/2/3/5：LLM soft token 输出分别为 `N×64`，有向 pair 数严格为 `N(N-1)`，前向值和输入梯度均有限；再从真实 QA/token 文件各取一条 N=2/3/4/5 样本，辅助损失为有限正数，左右与前后两个分类头均成功获得梯度。
+7. 已启动后继 watcher（PID 11132）：等待平衡 Grounding PID 10097 正常结束并确认 `ckpt_epoch_last.pth` 存在后，自动执行 pairwise QA 流水线；若 checkpoint 缺失则记录错误并停止，不会使用不存在或半写入的权重。
+8. epoch 5 首次验证完成：PerTarget Contrastive Acc@0.25/0.5 为 **74.64%/45.55%**，JointAll-bbf Acc@0.25/0.5 为 **54.18%/25.05%**；分目标数 bbf Joint@0.25 为 N1 **77.53%**、N2 **57.96%**、N3 **42.45%**、N4/N5 **0%**。相比自然分布 baseline 的 75.43%/46.49%、55.49%/26.15%，当前整体尚未提升；继续到有可保留 checkpoint 的 epoch 15 再判断，不能把早期训练状态当作改进结果。
