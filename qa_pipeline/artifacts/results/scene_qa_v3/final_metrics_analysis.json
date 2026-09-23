@@ -1,0 +1,1572 @@
+{
+  "created_at": "2026-09-24T01:00:00+08:00",
+  "evaluation_split": "val",
+  "formal_checkpoint": "scene_qa_v3_pairwise_lora/best.pt (epoch 1)",
+  "run_status": "ALL_DONE at 2026-09-24 00:23:41 CST",
+  "metrics": {
+    "projector": {
+      "n": 17490,
+      "relation_keyword_n": 7222,
+      "relation_keyword_accuracy": 0.3305178620880643,
+      "strict_triple_n": 7222,
+      "strict_triple_accuracy": 0.2791470506784824,
+      "complete_sentence_match_rate": 0.5754716981132075,
+      "one_sentence_rate": 0.9969125214408233,
+      "planning_action_n": 3072,
+      "planning_action_accuracy": 0.7412109375,
+      "ab_swap_consistency": 0.24505494505494504,
+      "strict_language_all_pass": 0.5616923956546598,
+      "grounding_condition_n": 7658,
+      "grounding_conditional_accuracy": 0.6292765735178898,
+      "end_to_end_n": 17490,
+      "end_to_end_accuracy": 0.2755288736420812,
+      "by_question_category": {
+        "direction": {
+          "n": 6454,
+          "strict_language_all_pass": 0.2325689494886892,
+          "complete_sentence_match_rate": 0.26991013325069724,
+          "one_sentence_rate": 0.9916330957545708
+        },
+        "distance": {
+          "n": 7964,
+          "strict_language_all_pass": 0.7649422400803616,
+          "complete_sentence_match_rate": 0.7649422400803616,
+          "one_sentence_rate": 1.0
+        },
+        "obstacle_avoidance": {
+          "n": 3072,
+          "strict_language_all_pass": 0.7262369791666666,
+          "complete_sentence_match_rate": 0.7262369791666666,
+          "one_sentence_rate": 1.0
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 7991,
+          "strict_language_all_pass": 0.6944062069828557,
+          "complete_sentence_match_rate": 0.7203103491427857,
+          "one_sentence_rate": 1.0
+        },
+        "3": {
+          "n": 7152,
+          "strict_language_all_pass": 0.49147091722595077,
+          "complete_sentence_match_rate": 0.495665548098434,
+          "one_sentence_rate": 1.0
+        },
+        "4": {
+          "n": 1587,
+          "strict_language_all_pass": 0.34026465028355385,
+          "complete_sentence_match_rate": 0.3427851291745432,
+          "one_sentence_rate": 1.0
+        },
+        "5": {
+          "n": 760,
+          "strict_language_all_pass": 0.2894736842105263,
+          "complete_sentence_match_rate": 0.2894736842105263,
+          "one_sentence_rate": 0.9289473684210526
+        }
+      },
+      "pass_rule": "keyword AND exact triples AND canonical sentence AND one sentence AND planning action when applicable AND A/B swap when applicable; end-to-end additionally requires all referenced Grounding targets"
+    },
+    "lora_best_epoch1": {
+      "n": 17490,
+      "relation_keyword_n": 7222,
+      "relation_keyword_accuracy": 0.4206590972029909,
+      "strict_triple_n": 7222,
+      "strict_triple_accuracy": 0.35461091110495707,
+      "complete_sentence_match_rate": 0.6413379073756432,
+      "one_sentence_rate": 0.9996569468267581,
+      "planning_action_n": 3072,
+      "planning_action_accuracy": 0.763671875,
+      "ab_swap_consistency": 0.3,
+      "strict_language_all_pass": 0.6309319611206403,
+      "grounding_condition_n": 7658,
+      "grounding_conditional_accuracy": 0.6872551580047009,
+      "end_to_end_n": 17490,
+      "end_to_end_accuracy": 0.30091480846197827,
+      "by_question_category": {
+        "direction": {
+          "n": 6454,
+          "strict_language_all_pass": 0.3259993802293151,
+          "complete_sentence_match_rate": 0.35419894638983573,
+          "one_sentence_rate": 0.9990703439727301
+        },
+        "distance": {
+          "n": 7964,
+          "strict_language_all_pass": 0.8357609241587142,
+          "complete_sentence_match_rate": 0.8357609241587142,
+          "one_sentence_rate": 1.0
+        },
+        "obstacle_avoidance": {
+          "n": 3072,
+          "strict_language_all_pass": 0.7405598958333334,
+          "complete_sentence_match_rate": 0.7405598958333334,
+          "one_sentence_rate": 1.0
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 7991,
+          "strict_language_all_pass": 0.7080465523714179,
+          "complete_sentence_match_rate": 0.7279439369290451,
+          "one_sentence_rate": 1.0
+        },
+        "3": {
+          "n": 7152,
+          "strict_language_all_pass": 0.6105984340044742,
+          "complete_sentence_match_rate": 0.6125559284116331,
+          "one_sentence_rate": 1.0
+        },
+        "4": {
+          "n": 1587,
+          "strict_language_all_pass": 0.43667296786389415,
+          "complete_sentence_match_rate": 0.44045368620037806,
+          "one_sentence_rate": 1.0
+        },
+        "5": {
+          "n": 760,
+          "strict_language_all_pass": 0.41710526315789476,
+          "complete_sentence_match_rate": 0.42105263157894735,
+          "one_sentence_rate": 0.9921052631578947
+        }
+      },
+      "pass_rule": "keyword AND exact triples AND canonical sentence AND one sentence AND planning action when applicable AND A/B swap when applicable; end-to-end additionally requires all referenced Grounding targets"
+    },
+    "same_class_shuffled": {
+      "n": 17490,
+      "relation_keyword_n": 7222,
+      "relation_keyword_accuracy": 0.21877596233730268,
+      "strict_triple_n": 7222,
+      "strict_triple_accuracy": 0.14455829410135695,
+      "complete_sentence_match_rate": 0.4607775871926815,
+      "one_sentence_rate": 0.9993138936535163,
+      "planning_action_n": 3072,
+      "planning_action_accuracy": 0.7141927083333334,
+      "ab_swap_consistency": 0.09340659340659341,
+      "strict_language_all_pass": 0.45443110348770727,
+      "grounding_condition_n": 7658,
+      "grounding_conditional_accuracy": 0.488508749020632,
+      "end_to_end_n": 17490,
+      "end_to_end_accuracy": 0.21389365351629502,
+      "by_question_category": {
+        "direction": {
+          "n": 6454,
+          "strict_language_all_pass": 0.1193058568329718,
+          "complete_sentence_match_rate": 0.13650449333746514,
+          "one_sentence_rate": 0.9981406879454602
+        },
+        "distance": {
+          "n": 7964,
+          "strict_language_all_pass": 0.6292064289301859,
+          "complete_sentence_match_rate": 0.6292064289301859,
+          "one_sentence_rate": 1.0
+        },
+        "obstacle_avoidance": {
+          "n": 3072,
+          "strict_language_all_pass": 0.7054036458333334,
+          "complete_sentence_match_rate": 0.7054036458333334,
+          "one_sentence_rate": 1.0
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 7991,
+          "strict_language_all_pass": 0.5403579026404706,
+          "complete_sentence_match_rate": 0.5519959954949318,
+          "one_sentence_rate": 1.0
+        },
+        "3": {
+          "n": 7152,
+          "strict_language_all_pass": 0.39191834451901564,
+          "complete_sentence_match_rate": 0.3938758389261745,
+          "one_sentence_rate": 1.0
+        },
+        "4": {
+          "n": 1587,
+          "strict_language_all_pass": 0.3295526149968494,
+          "complete_sentence_match_rate": 0.33081285444234404,
+          "one_sentence_rate": 1.0
+        },
+        "5": {
+          "n": 760,
+          "strict_language_all_pass": 0.4,
+          "complete_sentence_match_rate": 0.4026315789473684,
+          "one_sentence_rate": 0.9842105263157894
+        }
+      },
+      "pass_rule": "keyword AND exact triples AND canonical sentence AND one sentence AND planning action when applicable AND A/B swap when applicable; end-to-end additionally requires all referenced Grounding targets"
+    }
+  },
+  "deltas": {
+    "lora_minus_projector": {
+      "relation_keyword_accuracy": 0.09014123511492661,
+      "strict_triple_accuracy": 0.07546386042647468,
+      "complete_sentence_match_rate": 0.0658662092624357,
+      "planning_action_accuracy": 0.0224609375,
+      "ab_swap_consistency": 0.054945054945054944,
+      "strict_language_all_pass": 0.06923956546598053,
+      "grounding_conditional_accuracy": 0.05797858448681115,
+      "end_to_end_accuracy": 0.025385934819897094
+    },
+    "lora_minus_same_class_shuffled": {
+      "relation_keyword_accuracy": 0.2018831348656882,
+      "strict_triple_accuracy": 0.21005261700360012,
+      "complete_sentence_match_rate": 0.1805603201829617,
+      "planning_action_accuracy": 0.04947916666666663,
+      "ab_swap_consistency": 0.20659340659340658,
+      "strict_language_all_pass": 0.17650085763293305,
+      "grounding_conditional_accuracy": 0.19874640898406892,
+      "end_to_end_accuracy": 0.08702115494568324
+    }
+  },
+  "scenario_metrics": {
+    "projector": {
+      "anchor_distance_extreme": {
+        "n": 2436,
+        "strict_language": {
+          "n": 2436,
+          "accuracy": 0.5053366174055829
+        },
+        "sentence": {
+          "n": 2436,
+          "accuracy": 0.5053366174055829
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.5610079575596817,
+        "end_to_end_accuracy": 0.17364532019704434
+      },
+      "candidate_maneuver_safety": {
+        "n": 2304,
+        "strict_language": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "sentence": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.8470588235294118,
+        "end_to_end_accuracy": 0.46875
+      },
+      "ego_distance_band": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.933068017366136
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.933068017366136
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.9450800915331807,
+        "end_to_end_accuracy": 0.4482633863965268
+      },
+      "ego_distance_rank": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.8256150506512301
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.8256150506512301
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.9252479023646072,
+        "end_to_end_accuracy": 0.4388567293777135
+      },
+      "local_path_plan": {
+        "n": 768,
+        "strict_language": {
+          "n": 768,
+          "accuracy": 0.2916666666666667
+        },
+        "sentence": {
+          "n": 768,
+          "accuracy": 0.2916666666666667
+        },
+        "keyword": {
+          "n": 768,
+          "accuracy": 0.7591145833333334
+        },
+        "triple": {
+          "n": 768,
+          "accuracy": 0.3567708333333333
+        },
+        "planning": {
+          "n": 768,
+          "accuracy": 0.3515625
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.2847058823529412,
+        "end_to_end_accuracy": 0.15755208333333334
+      },
+      "multi_reference_direction": {
+        "n": 1218,
+        "strict_language": {
+          "n": 1218,
+          "accuracy": 0.03694581280788178
+        },
+        "sentence": {
+          "n": 1218,
+          "accuracy": 0.03694581280788178
+        },
+        "keyword": {
+          "n": 1218,
+          "accuracy": 0.08538587848932677
+        },
+        "triple": {
+          "n": 1218,
+          "accuracy": 0.03694581280788178
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.05305039787798409,
+        "end_to_end_accuracy": 0.016420361247947456
+      },
+      "pairwise_direction": {
+        "n": 5236,
+        "strict_language": {
+          "n": 5236,
+          "accuracy": 0.27807486631016043
+        },
+        "sentence": {
+          "n": 5236,
+          "accuracy": 0.32410236822001526
+        },
+        "keyword": {
+          "n": 5236,
+          "accuracy": 0.3246753246753247
+        },
+        "triple": {
+          "n": 5236,
+          "accuracy": 0.32410236822001526
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.42112299465240643,
+        "grounding_conditional_accuracy": 0.32789115646258504,
+        "end_to_end_accuracy": 0.13808250572956454
+      }
+    },
+    "lora_best_epoch1": {
+      "anchor_distance_extreme": {
+        "n": 2436,
+        "strict_language": {
+          "n": 2436,
+          "accuracy": 0.6087848932676518
+        },
+        "sentence": {
+          "n": 2436,
+          "accuracy": 0.6087848932676518
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.6763925729442971,
+        "end_to_end_accuracy": 0.20935960591133004
+      },
+      "candidate_maneuver_safety": {
+        "n": 2304,
+        "strict_language": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "sentence": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.8470588235294118,
+        "end_to_end_accuracy": 0.46875
+      },
+      "ego_distance_band": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.9500723589001447
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.9500723589001447
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.9549961861174676,
+        "end_to_end_accuracy": 0.45296671490593343
+      },
+      "ego_distance_rank": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.9214905933429812
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.9214905933429812
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.9839816933638444,
+        "end_to_end_accuracy": 0.4667149059334298
+      },
+      "local_path_plan": {
+        "n": 768,
+        "strict_language": {
+          "n": 768,
+          "accuracy": 0.3489583333333333
+        },
+        "sentence": {
+          "n": 768,
+          "accuracy": 0.3489583333333333
+        },
+        "keyword": {
+          "n": 768,
+          "accuracy": 0.8333333333333334
+        },
+        "triple": {
+          "n": 768,
+          "accuracy": 0.3580729166666667
+        },
+        "planning": {
+          "n": 768,
+          "accuracy": 0.44140625
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.3411764705882353,
+        "end_to_end_accuracy": 0.18880208333333334
+      },
+      "multi_reference_direction": {
+        "n": 1218,
+        "strict_language": {
+          "n": 1218,
+          "accuracy": 0.1568144499178982
+        },
+        "sentence": {
+          "n": 1218,
+          "accuracy": 0.1568144499178982
+        },
+        "keyword": {
+          "n": 1218,
+          "accuracy": 0.24876847290640394
+        },
+        "triple": {
+          "n": 1218,
+          "accuracy": 0.1568144499178982
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.259946949602122,
+        "end_to_end_accuracy": 0.08045977011494253
+      },
+      "pairwise_direction": {
+        "n": 5236,
+        "strict_language": {
+          "n": 5236,
+          "accuracy": 0.36535523300229183
+        },
+        "sentence": {
+          "n": 5236,
+          "accuracy": 0.40011459129106186
+        },
+        "keyword": {
+          "n": 5236,
+          "accuracy": 0.40011459129106186
+        },
+        "triple": {
+          "n": 5236,
+          "accuracy": 0.40011459129106186
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.42112299465240643,
+        "grounding_conditional_accuracy": 0.40272108843537413,
+        "end_to_end_accuracy": 0.16959511077158135
+      }
+    },
+    "same_class_shuffled": {
+      "anchor_distance_extreme": {
+        "n": 2436,
+        "strict_language": {
+          "n": 2436,
+          "accuracy": 0.49220032840722494
+        },
+        "sentence": {
+          "n": 2436,
+          "accuracy": 0.49220032840722494
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.5702917771883289,
+        "end_to_end_accuracy": 0.17651888341543515
+      },
+      "candidate_maneuver_safety": {
+        "n": 2304,
+        "strict_language": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "sentence": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 2304,
+          "accuracy": 0.87109375
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.8470588235294118,
+        "end_to_end_accuracy": 0.46875
+      },
+      "ego_distance_band": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.9522431259044862
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.9522431259044862
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.958047292143402,
+        "end_to_end_accuracy": 0.4544138929088278
+      },
+      "ego_distance_rank": {
+        "n": 2764,
+        "strict_language": {
+          "n": 2764,
+          "accuracy": 0.426917510853835
+        },
+        "sentence": {
+          "n": 2764,
+          "accuracy": 0.426917510853835
+        },
+        "keyword": {
+          "n": 0,
+          "accuracy": null
+        },
+        "triple": {
+          "n": 0,
+          "accuracy": null
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.47431259044862517,
+        "grounding_conditional_accuracy": 0.45537757437070936,
+        "end_to_end_accuracy": 0.21599131693198265
+      },
+      "local_path_plan": {
+        "n": 768,
+        "strict_language": {
+          "n": 768,
+          "accuracy": 0.20833333333333334
+        },
+        "sentence": {
+          "n": 768,
+          "accuracy": 0.20833333333333334
+        },
+        "keyword": {
+          "n": 768,
+          "accuracy": 0.8333333333333334
+        },
+        "triple": {
+          "n": 768,
+          "accuracy": 0.21223958333333334
+        },
+        "planning": {
+          "n": 768,
+          "accuracy": 0.24348958333333334
+        },
+        "grounding_pass_rate": 0.5533854166666666,
+        "grounding_conditional_accuracy": 0.18352941176470589,
+        "end_to_end_accuracy": 0.1015625
+      },
+      "multi_reference_direction": {
+        "n": 1218,
+        "strict_language": {
+          "n": 1218,
+          "accuracy": 0.022167487684729065
+        },
+        "sentence": {
+          "n": 1218,
+          "accuracy": 0.022167487684729065
+        },
+        "keyword": {
+          "n": 1218,
+          "accuracy": 0.07060755336617405
+        },
+        "triple": {
+          "n": 1218,
+          "accuracy": 0.022167487684729065
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.30952380952380953,
+        "grounding_conditional_accuracy": 0.03713527851458886,
+        "end_to_end_accuracy": 0.011494252873563218
+      },
+      "pairwise_direction": {
+        "n": 5236,
+        "strict_language": {
+          "n": 5236,
+          "accuracy": 0.1419022154316272
+        },
+        "sentence": {
+          "n": 5236,
+          "accuracy": 0.16310160427807488
+        },
+        "keyword": {
+          "n": 5236,
+          "accuracy": 0.16310160427807488
+        },
+        "triple": {
+          "n": 5236,
+          "accuracy": 0.16310160427807488
+        },
+        "planning": {
+          "n": 0,
+          "accuracy": null
+        },
+        "grounding_pass_rate": 0.42112299465240643,
+        "grounding_conditional_accuracy": 0.12970521541950114,
+        "end_to_end_accuracy": 0.0546218487394958
+      }
+    }
+  },
+  "scenario_token_gain": {
+    "anchor_distance_extreme": 0.1165845648604269,
+    "candidate_maneuver_safety": 0.0,
+    "ego_distance_band": -0.0021707670043414895,
+    "ego_distance_rank": 0.4945730824891462,
+    "local_path_plan": 0.14062499999999997,
+    "multi_reference_direction": 0.13464696223316913,
+    "pairwise_direction": 0.22345301757066463
+  },
+  "validation_label_distribution": {
+    "anchor_distance_extreme": {
+      "n": 2436,
+      "unique_answer_keys": 39,
+      "unique_exact_answers": 39,
+      "majority_answer_key_rate": 0.08210180623973727,
+      "majority_exact_answer_rate": 0.08210180623973727,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "anchor": "C",
+            "extreme": "farthest",
+            "role": "A",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 200,
+          "rate": 0.08210180623973727
+        },
+        {
+          "answer_key": {
+            "anchor": "B",
+            "extreme": "closest",
+            "role": "C",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 197,
+          "rate": 0.08087027914614121
+        },
+        {
+          "answer_key": {
+            "anchor": "A",
+            "extreme": "farthest",
+            "role": "C",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 196,
+          "rate": 0.08045977011494253
+        },
+        {
+          "answer_key": {
+            "anchor": "C",
+            "extreme": "closest",
+            "role": "B",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 194,
+          "rate": 0.07963875205254516
+        },
+        {
+          "answer_key": {
+            "anchor": "A",
+            "extreme": "closest",
+            "role": "B",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 192,
+          "rate": 0.07881773399014778
+        },
+        {
+          "answer_key": {
+            "anchor": "B",
+            "extreme": "farthest",
+            "role": "A",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 189,
+          "rate": 0.07758620689655173
+        },
+        {
+          "answer_key": {
+            "anchor": "B",
+            "extreme": "farthest",
+            "role": "C",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 165,
+          "rate": 0.06773399014778325
+        },
+        {
+          "answer_key": {
+            "anchor": "B",
+            "extreme": "closest",
+            "role": "A",
+            "type": "anchor_distance_extreme"
+          },
+          "count": 163,
+          "rate": 0.06691297208538588
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object A is the farthest grounded object from Object C.",
+          "count": 200,
+          "rate": 0.08210180623973727
+        },
+        {
+          "answer": "Object C is the closest grounded object to Object B.",
+          "count": 197,
+          "rate": 0.08087027914614121
+        },
+        {
+          "answer": "Object C is the farthest grounded object from Object A.",
+          "count": 196,
+          "rate": 0.08045977011494253
+        },
+        {
+          "answer": "Object B is the closest grounded object to Object C.",
+          "count": 194,
+          "rate": 0.07963875205254516
+        },
+        {
+          "answer": "Object B is the closest grounded object to Object A.",
+          "count": 192,
+          "rate": 0.07881773399014778
+        }
+      ]
+    },
+    "candidate_maneuver_safety": {
+      "n": 2304,
+      "unique_answer_keys": 6,
+      "unique_exact_answers": 6,
+      "majority_answer_key_rate": 0.3012152777777778,
+      "majority_exact_answer_rate": 0.3012152777777778,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "maneuver": "right",
+            "safe": true,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 694,
+          "rate": 0.3012152777777778
+        },
+        {
+          "answer_key": {
+            "maneuver": "left",
+            "safe": true,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 686,
+          "rate": 0.2977430555555556
+        },
+        {
+          "answer_key": {
+            "maneuver": "straight",
+            "safe": true,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 627,
+          "rate": 0.2721354166666667
+        },
+        {
+          "answer_key": {
+            "maneuver": "straight",
+            "safe": false,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 141,
+          "rate": 0.061197916666666664
+        },
+        {
+          "answer_key": {
+            "maneuver": "left",
+            "safe": false,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 82,
+          "rate": 0.035590277777777776
+        },
+        {
+          "answer_key": {
+            "maneuver": "right",
+            "safe": false,
+            "type": "candidate_maneuver_safety"
+          },
+          "count": 74,
+          "rate": 0.03211805555555555
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "The right-steering candidate maneuver is safe for the ego vehicle.",
+          "count": 694,
+          "rate": 0.3012152777777778
+        },
+        {
+          "answer": "The left-steering candidate maneuver is safe for the ego vehicle.",
+          "count": 686,
+          "rate": 0.2977430555555556
+        },
+        {
+          "answer": "The straight candidate maneuver is safe for the ego vehicle.",
+          "count": 627,
+          "rate": 0.2721354166666667
+        },
+        {
+          "answer": "The straight candidate maneuver is unsafe for the ego vehicle.",
+          "count": 141,
+          "rate": 0.061197916666666664
+        },
+        {
+          "answer": "The left-steering candidate maneuver is unsafe for the ego vehicle.",
+          "count": 82,
+          "rate": 0.035590277777777776
+        }
+      ]
+    },
+    "ego_distance_band": {
+      "n": 2764,
+      "unique_answer_keys": 9,
+      "unique_exact_answers": 9,
+      "majority_answer_key_rate": 0.3950795947901592,
+      "majority_exact_answer_rate": 0.3950795947901592,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "subject": "B",
+            "type": "ego_distance_band",
+            "within_10m": false
+          },
+          "count": 1092,
+          "rate": 0.3950795947901592
+        },
+        {
+          "answer_key": {
+            "subject": "A",
+            "type": "ego_distance_band",
+            "within_10m": false
+          },
+          "count": 1090,
+          "rate": 0.394356005788712
+        },
+        {
+          "answer_key": {
+            "subject": "C",
+            "type": "ego_distance_band",
+            "within_10m": false
+          },
+          "count": 375,
+          "rate": 0.13567293777134587
+        },
+        {
+          "answer_key": {
+            "subject": "A",
+            "type": "ego_distance_band",
+            "within_10m": true
+          },
+          "count": 63,
+          "rate": 0.022793053545586108
+        },
+        {
+          "answer_key": {
+            "subject": "B",
+            "type": "ego_distance_band",
+            "within_10m": true
+          },
+          "count": 61,
+          "rate": 0.02206946454413893
+        },
+        {
+          "answer_key": {
+            "subject": "D",
+            "type": "ego_distance_band",
+            "within_10m": false
+          },
+          "count": 60,
+          "rate": 0.02170767004341534
+        },
+        {
+          "answer_key": {
+            "subject": "E",
+            "type": "ego_distance_band",
+            "within_10m": false
+          },
+          "count": 16,
+          "rate": 0.005788712011577424
+        },
+        {
+          "answer_key": {
+            "subject": "C",
+            "type": "ego_distance_band",
+            "within_10m": true
+          },
+          "count": 5,
+          "rate": 0.001808972503617945
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object B is farther than 10 meters from the ego vehicle.",
+          "count": 1092,
+          "rate": 0.3950795947901592
+        },
+        {
+          "answer": "Object A is farther than 10 meters from the ego vehicle.",
+          "count": 1090,
+          "rate": 0.394356005788712
+        },
+        {
+          "answer": "Object C is farther than 10 meters from the ego vehicle.",
+          "count": 375,
+          "rate": 0.13567293777134587
+        },
+        {
+          "answer": "Object A is within 10 meters of the ego vehicle.",
+          "count": 63,
+          "rate": 0.022793053545586108
+        },
+        {
+          "answer": "Object B is within 10 meters of the ego vehicle.",
+          "count": 61,
+          "rate": 0.02206946454413893
+        }
+      ]
+    },
+    "ego_distance_rank": {
+      "n": 2764,
+      "unique_answer_keys": 31,
+      "unique_exact_answers": 24,
+      "majority_answer_key_rate": 0.18921852387843704,
+      "majority_exact_answer_rate": 0.18921852387843704,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "label": "closest",
+            "rank": 0,
+            "role": "A",
+            "type": "ego_distance_rank"
+          },
+          "count": 523,
+          "rate": 0.18921852387843704
+        },
+        {
+          "answer_key": {
+            "label": "closest",
+            "rank": 0,
+            "role": "B",
+            "type": "ego_distance_rank"
+          },
+          "count": 513,
+          "rate": 0.18560057887120116
+        },
+        {
+          "answer_key": {
+            "label": "farthest",
+            "rank": 1,
+            "role": "B",
+            "type": "ego_distance_rank"
+          },
+          "count": 396,
+          "rate": 0.14327062228654125
+        },
+        {
+          "answer_key": {
+            "label": "farthest",
+            "rank": 1,
+            "role": "A",
+            "type": "ego_distance_rank"
+          },
+          "count": 377,
+          "rate": 0.13639652677279304
+        },
+        {
+          "answer_key": {
+            "label": "second closest",
+            "rank": 1,
+            "role": "B",
+            "type": "ego_distance_rank"
+          },
+          "count": 133,
+          "rate": 0.04811866859623734
+        },
+        {
+          "answer_key": {
+            "label": "farthest",
+            "rank": 2,
+            "role": "C",
+            "type": "ego_distance_rank"
+          },
+          "count": 123,
+          "rate": 0.044500723589001444
+        },
+        {
+          "answer_key": {
+            "label": "farthest",
+            "rank": 2,
+            "role": "A",
+            "type": "ego_distance_rank"
+          },
+          "count": 120,
+          "rate": 0.04341534008683068
+        },
+        {
+          "answer_key": {
+            "label": "second closest",
+            "rank": 1,
+            "role": "C",
+            "type": "ego_distance_rank"
+          },
+          "count": 120,
+          "rate": 0.04341534008683068
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object A is the closest grounded object to the ego vehicle.",
+          "count": 523,
+          "rate": 0.18921852387843704
+        },
+        {
+          "answer": "Object B is the closest grounded object to the ego vehicle.",
+          "count": 513,
+          "rate": 0.18560057887120116
+        },
+        {
+          "answer": "Object A is the farthest grounded object from the ego vehicle.",
+          "count": 513,
+          "rate": 0.18560057887120116
+        },
+        {
+          "answer": "Object B is the farthest grounded object from the ego vehicle.",
+          "count": 493,
+          "rate": 0.17836468885672938
+        },
+        {
+          "answer": "Object B is the second closest grounded object to the ego vehicle.",
+          "count": 133,
+          "rate": 0.04811866859623734
+        }
+      ]
+    },
+    "local_path_plan": {
+      "n": 768,
+      "unique_answer_keys": 15,
+      "unique_exact_answers": 21,
+      "majority_answer_key_rate": 0.25390625,
+      "majority_exact_answer_rate": 0.20442708333333334,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "blocker_role": "A",
+            "pass_side": "right",
+            "steer": "right",
+            "type": "local_path_plan"
+          },
+          "count": 195,
+          "rate": 0.25390625
+        },
+        {
+          "answer_key": {
+            "blocker_role": "B",
+            "pass_side": "right",
+            "steer": "right",
+            "type": "local_path_plan"
+          },
+          "count": 184,
+          "rate": 0.23958333333333334
+        },
+        {
+          "answer_key": {
+            "blocker_role": "B",
+            "pass_side": "left",
+            "steer": "left",
+            "type": "local_path_plan"
+          },
+          "count": 175,
+          "rate": 0.22786458333333334
+        },
+        {
+          "answer_key": {
+            "blocker_role": "A",
+            "pass_side": "left",
+            "steer": "left",
+            "type": "local_path_plan"
+          },
+          "count": 155,
+          "rate": 0.20182291666666666
+        },
+        {
+          "answer_key": {
+            "blocker_role": "C",
+            "pass_side": "right",
+            "steer": "right",
+            "type": "local_path_plan"
+          },
+          "count": 23,
+          "rate": 0.029947916666666668
+        },
+        {
+          "answer_key": {
+            "blocker_role": "C",
+            "pass_side": "left",
+            "steer": "left",
+            "type": "local_path_plan"
+          },
+          "count": 17,
+          "rate": 0.022135416666666668
+        },
+        {
+          "answer_key": {
+            "blocker_role": "A",
+            "pass_side": "left",
+            "steer": "straight",
+            "type": "local_path_plan"
+          },
+          "count": 5,
+          "rate": 0.006510416666666667
+        },
+        {
+          "answer_key": {
+            "blocker_role": "D",
+            "pass_side": "right",
+            "steer": "right",
+            "type": "local_path_plan"
+          },
+          "count": 3,
+          "rate": 0.00390625
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object A is to the left of and in front of the ego vehicle, so the ego vehicle should steer right and continue forward while passing to the right of Object A.",
+          "count": 157,
+          "rate": 0.20442708333333334
+        },
+        {
+          "answer": "Object B is to the left of and in front of the ego vehicle, so the ego vehicle should steer right and continue forward while passing to the right of Object B.",
+          "count": 149,
+          "rate": 0.19401041666666666
+        },
+        {
+          "answer": "Object B is to the right of and in front of the ego vehicle, so the ego vehicle should steer left and continue forward while passing to the left of Object B.",
+          "count": 147,
+          "rate": 0.19140625
+        },
+        {
+          "answer": "Object A is to the right of and in front of the ego vehicle, so the ego vehicle should steer left and continue forward while passing to the left of Object A.",
+          "count": 134,
+          "rate": 0.17447916666666666
+        },
+        {
+          "answer": "Object A is in front of the ego vehicle, so the ego vehicle should steer right and continue forward while passing to the right of Object A.",
+          "count": 38,
+          "rate": 0.049479166666666664
+        }
+      ]
+    },
+    "multi_reference_direction": {
+      "n": 1218,
+      "unique_answer_keys": 5,
+      "unique_exact_answers": 204,
+      "majority_answer_key_rate": 0.31198686371100165,
+      "majority_exact_answer_rate": 0.03694581280788178,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "subject": "A",
+            "type": "multi_directed_relation"
+          },
+          "count": 380,
+          "rate": 0.31198686371100165
+        },
+        {
+          "answer_key": {
+            "subject": "B",
+            "type": "multi_directed_relation"
+          },
+          "count": 380,
+          "rate": 0.31198686371100165
+        },
+        {
+          "answer_key": {
+            "subject": "C",
+            "type": "multi_directed_relation"
+          },
+          "count": 380,
+          "rate": 0.31198686371100165
+        },
+        {
+          "answer_key": {
+            "subject": "D",
+            "type": "multi_directed_relation"
+          },
+          "count": 62,
+          "rate": 0.05090311986863711
+        },
+        {
+          "answer_key": {
+            "subject": "E",
+            "type": "multi_directed_relation"
+          },
+          "count": 16,
+          "rate": 0.013136288998357963
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object C is to the left of and in front of Object A; Object C is to the left of and in front of Object B.",
+          "count": 45,
+          "rate": 0.03694581280788178
+        },
+        {
+          "answer": "Object A is to the left of and in front of Object B; Object A is to the left of and in front of Object C.",
+          "count": 36,
+          "rate": 0.029556650246305417
+        },
+        {
+          "answer": "Object C is to the right of and in front of Object A; Object C is to the right of and in front of Object B.",
+          "count": 36,
+          "rate": 0.029556650246305417
+        },
+        {
+          "answer": "Object C is to the right of and behind Object A; Object C is to the right of and behind Object B.",
+          "count": 27,
+          "rate": 0.022167487684729065
+        },
+        {
+          "answer": "Object B is to the left of and behind Object A; Object B is to the left of and behind Object C.",
+          "count": 27,
+          "rate": 0.022167487684729065
+        }
+      ]
+    },
+    "pairwise_direction": {
+      "n": 5236,
+      "unique_answer_keys": 102,
+      "unique_exact_answers": 102,
+      "majority_answer_key_rate": 0.07563025210084033,
+      "majority_exact_answer_rate": 0.07563025210084033,
+      "top_answer_keys": [
+        {
+          "answer_key": {
+            "reference": "B",
+            "relations": [
+              "left",
+              "front"
+            ],
+            "subject": "A",
+            "type": "directed_relation"
+          },
+          "count": 396,
+          "rate": 0.07563025210084033
+        },
+        {
+          "answer_key": {
+            "reference": "B",
+            "relations": [
+              "right",
+              "behind"
+            ],
+            "subject": "A",
+            "type": "directed_relation"
+          },
+          "count": 372,
+          "rate": 0.07104660045836517
+        },
+        {
+          "answer_key": {
+            "reference": "B",
+            "relations": [
+              "right",
+              "front"
+            ],
+            "subject": "A",
+            "type": "directed_relation"
+          },
+          "count": 355,
+          "rate": 0.06779984721161192
+        },
+        {
+          "answer_key": {
+            "reference": "B",
+            "relations": [
+              "left",
+              "behind"
+            ],
+            "subject": "A",
+            "type": "directed_relation"
+          },
+          "count": 352,
+          "rate": 0.06722689075630252
+        },
+        {
+          "answer_key": {
+            "reference": "A",
+            "relations": [
+              "right",
+              "behind"
+            ],
+            "subject": "B",
+            "type": "directed_relation"
+          },
+          "count": 214,
+          "rate": 0.040870893812070284
+        },
+        {
+          "answer_key": {
+            "reference": "A",
+            "relations": [
+              "left",
+              "front"
+            ],
+            "subject": "B",
+            "type": "directed_relation"
+          },
+          "count": 209,
+          "rate": 0.03991596638655462
+        },
+        {
+          "answer_key": {
+            "reference": "A",
+            "relations": [
+              "left",
+              "behind"
+            ],
+            "subject": "B",
+            "type": "directed_relation"
+          },
+          "count": 209,
+          "rate": 0.03991596638655462
+        },
+        {
+          "answer_key": {
+            "reference": "B",
+            "relations": [
+              "behind"
+            ],
+            "subject": "A",
+            "type": "directed_relation"
+          },
+          "count": 208,
+          "rate": 0.03972498090145149
+        }
+      ],
+      "top_exact_answers": [
+        {
+          "answer": "Object A is to the left of and in front of Object B.",
+          "count": 396,
+          "rate": 0.07563025210084033
+        },
+        {
+          "answer": "Object A is to the right of and behind Object B.",
+          "count": 372,
+          "rate": 0.07104660045836517
+        },
+        {
+          "answer": "Object A is to the right of and in front of Object B.",
+          "count": 355,
+          "rate": 0.06779984721161192
+        },
+        {
+          "answer": "Object A is to the left of and behind Object B.",
+          "count": 352,
+          "rate": 0.06722689075630252
+        },
+        {
+          "answer": "Object B is to the right of and behind Object A.",
+          "count": 214,
+          "rate": 0.040870893812070284
+        }
+      ]
+    }
+  },
+  "grounding": {
+    "selected_checkpoint": "scene_multi_balanced_run/.../0923_1647/ckpt_epoch_15.pth",
+    "joint_all_bbf_acc_025": 0.5593,
+    "joint_by_target_count_acc_025": {
+      "N1": 0.7798,
+      "N2": 0.6041,
+      "N3": 0.3868,
+      "N4": 0.0435,
+      "N5": 0.0
+    },
+    "n2_n4_macro": 0.3448,
+    "natural_baseline_n2_n4_macro_approx": 0.3399,
+    "training_note": "Planned 30 epochs; interrupted by SIGHUP during epoch-25 validation at 336/339. Epoch 15 is the retained complete checkpoint."
+  },
+  "interpretation": [
+    "LoRA improves strict language by 6.92 percentage points over projector and 17.65 points over same-class shuffled tokens.",
+    "Strong token evidence appears in ego_distance_rank, pairwise_direction, multi_reference_direction, anchor_distance_extreme, and local_path_plan.",
+    "ego_distance_band is label-imbalanced: 95.22% is achieved with shuffled tokens, slightly above the correct-token model.",
+    "candidate_maneuver_safety is label-imbalanced: safe is 87.11% and correct-token, shuffled-token, and projector accuracy are all 87.11%.",
+    "Aggregate obstacle and distance scores overstate spatial reasoning because the two biased scenarios dominate their categories.",
+    "N5 QA language accuracy cannot be treated as end-to-end N5 competence because Grounding JointAll@0.25 for N5 is 0%.",
+    "The main useful headline is end-to-end strict accuracy 30.09%; direction strict accuracy is 32.60%; A/B swap consistency remains 30.00%."
+  ],
+  "epoch3_last_checkpoint_eval": "A later ad-hoc evaluation of last.pt reached GENERATE val 17490 but produced no eval_val.json and is not used."
+}
