@@ -908,3 +908,19 @@
 5. QA 第二阶段从 Projector 最佳权重初始化，冻结 Qwen 原始参数，同时联合更新 Projector 与注意力层 LoRA。LoRA 配置为 r=16、alpha=32、dropout=0.05，仅作用于 q/k/v/o projection，bias=none。
 6. 两阶段均使用 AdamW；Projector 与 LoRA 学习率均为 1e-4、weight decay 0.01、3 epoch、3% warmup、cosine schedule、梯度裁剪 1.0，batch size 2、gradient accumulation 4，有效 batch size 8。checkpoint 按 val loss 选择；当前正式 LoRA 为 epoch-1 `best.pt`。
 7. 完整模型输入只有通用问题文字、A–E 角色标记和 1–5 个隐式 Grounding token；caption、类别、box、center、距离和关系标签均不进入推理输入。
+
+## 78. 原生单-caption 多目标方案重建（2026-09-25）
+
+1. 按用户的新要求停止使用拼接多个 caption 的场景级 Grounding 标注。本轮一条记录严格来自一个公开 `ground_info`：保留主目标，以及同一句公开 caption 中能够与 `others` 框无歧义对应的目标；所有 N=1 记录都丢弃。
+2. 审计公开 Waymo 原始数据：7,481 条 `ground_info` 全部带 `others`，共 28,823 个上下文框，原始框数量可到 29；但 `others` 经常包含 caption 没有提到的上下文目标，不能把全部框直接当语言监督。要求所有框都有名词时只有 1,941 条可用，证明“`others` 等于 caption 中全部目标”的假设不成立。
+3. 第一版保守规则仍会把主目标的重复称呼误当成另一个目标，例如 `a truck ... the truck ...`。规则已收紧：`others` 名词必须由 `there is/are`、`with`、`another` 或新实体并列结构引入；关系动词或介词之后再次出现的主目标名词不算新实体。收紧后有 1,461 条候选、2,987 个目标：train N2/N3 = 673/28，val N2/N3 = 723/37；原生可确认数据没有 N≥4，后续结果必须表述为可变 2–3 目标。
+4. Grounding 数据生成器进一步去掉 103 条无法得到不同非空间自然描述的记录，避免 QA 用相同文本指代两个同类目标。最终 1,358 条：train 644（N2=622、N3=22），val 714（N2=683、N3=31），共 2,769 个目标。每个对象保存原始框、类别、object ID、目标名词 span、无空间词的自然描述与视角；caption 保持公开原句，不拼接、不改写多目标关系。
+5. 修复 positive span 的一字符偏移：`Joint3DDataset._format_caption()` 会在 caption 前增加空格，新标注的每个 span 统一加 1，并逐条断言格式化字符串切片正好等于目标名词。新增数据类型 `waymo-native-multi` 和 N=2/3 smoke 检查。
+6. 新 Grounding 从公开 `ckpt_6384.pth` 初始化，使用 256 文本 token budget，完全放弃 N=1，每轮按 N2/N3 = 600/300 分层抽样，计划 30 epoch；保留 epoch 15 与 final，并按验证集 N2/N3 JointAll-bbf@0.25 宏平均选 token 导出 checkpoint。
+7. 新自然 QA 使用目标的非空间外观描述和视角，不出现 Object A/B、坐标、box、center 或多选字母。题型分为普通方位、绝对/相对距离、ego 运动推理、object 运动推理；答案是一个完整标准句。由 34,309 条候选按 split、目标数和类别稳定抽样为 22,680 条，train 10,584、val 12,096；四类各 5,670 条，减少模板数量形成的标签捷径。
+8. 严格评测要求标准完整句、单句格式及 private 主语—关系—宾语/数值同时正确；另报反向关系成对一致率、Grounding 正确条件准确率和含定位错误的端到端准确率。合成三目标数据的 oracle 回灌全部为 100%。
+9. Pairwise Projector/Qwen LoRA 设两条完整对照：`pairwise_noaux` 的辅助关系权重为 0，`pairwise_aux` 的权重为 0.2。GT 坐标仅在 aux 训练分支生成左右/前后标签，不拼接到 Grounding token、不进入问题、Qwen embedding 或推理。两组都评测正确 token 与同类别打乱 token。
+10. 远程实例当前没有 `/dev/nvidia0`，AutoDL 显示 GPU 为空，因此尚不能宣称训练已经启动。数据盘原只剩 1.7 GB；删除了两组可重建的 smoke checkpoint（保留日志/预测）及与 epoch-100 重复的场景 baseline `last`，精确释放 5,174,120,448 bytes，现有约 6.6 GB 可用。正式 Grounding、Projector、LoRA 与评测结果均保留。
+11. 新增可恢复总脚本 `run_native_multi_natural_qa.sh`：数据构建与 smoke 可在 CPU 完成；若无 GPU 会明确写 `GPU_REQUIRED` 并退出；GPU 恢复后从 `.done` 继续 Grounding、checkpoint 选择、token 导出/校验、自然 QA 对齐、两组 Projector/LoRA 与打乱 token 对照。
+12. 用户指定最终推送仓库改为 `https://github.com/laigure/9.25.git`。完成后推送代码、schema、审计与实验摘要；超出 GitHub 大小限制的完整数据和模型权重保留远程目录，并提交生成脚本、样例、校验摘要和路径说明。
+13. CPU 数据阶段已正式跑完：真实 train/val loader 分别载入 644/714 条，16,384 点采样后均观察到目标实例 0 和 1，侧视角 GT 框旋转与验证集确定性检查通过。完整 QA 与 private GT 单文件均小于 GitHub 100 MB，已复制进 `qa_pipeline/artifacts/native_single_caption_v1/`，逐文件 SHA-256、QA ID 一一对应、split 隔离、positive span、四类平衡和泄漏检查全部通过。

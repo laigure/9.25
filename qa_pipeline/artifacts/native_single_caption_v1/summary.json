@@ -1,0 +1,96 @@
+{
+  "dataset_version": "native_natural_qa_v1",
+  "source_grounding_records": {
+    "train_N2": 622,
+    "train_N3": 22,
+    "val_N2": 683,
+    "val_N3": 31
+  },
+  "rows": 22680,
+  "rows_before_category_balance": 34309,
+  "category_balance": {
+    "train_N2": {
+      "quota_per_category": 2388,
+      "before": {
+        "spatial_relation": 2388,
+        "distance": 2488,
+        "ego_motion": 4976,
+        "object_motion": 4976
+      }
+    },
+    "train_N3": {
+      "quota_per_category": 258,
+      "before": {
+        "spatial_relation": 260,
+        "distance": 258,
+        "ego_motion": 264,
+        "object_motion": 528
+      }
+    },
+    "val_N2": {
+      "quota_per_category": 2656,
+      "before": {
+        "spatial_relation": 2656,
+        "distance": 2732,
+        "ego_motion": 5464,
+        "object_motion": 5464
+      }
+    },
+    "val_N3": {
+      "quota_per_category": 368,
+      "before": {
+        "spatial_relation": 368,
+        "distance": 371,
+        "ego_motion": 372,
+        "object_motion": 744
+      }
+    }
+  },
+  "motion_meters": 5.0,
+  "public_input": "natural non-spatial descriptions + view names + ordered implicit Grounding tokens; no Object-A/B aliases and no explicit geometry",
+  "answer_format": "one canonical complete sentence with private SVO key",
+  "audit": {
+    "counts": {
+      "rows": 22680,
+      "split:train": 10584,
+      "category:ego_motion": 5670,
+      "scenario:ego_motion_reasoning": 5670,
+      "N:2": 20176,
+      "category:spatial_relation": 5670,
+      "scenario:cardinal_relation": 5670,
+      "category:object_motion": 5670,
+      "scenario:object_motion_reasoning": 5670,
+      "category:distance": 5670,
+      "scenario:object_absolute_distance": 1425,
+      "scenario:ego_relative_distance": 1414,
+      "scenario:ego_absolute_distance": 2679,
+      "N:3": 2504,
+      "scenario:object_relative_distance": 152,
+      "split:val": 12096
+    },
+    "motion_label_distribution": {
+      "ego_motion_reasoning|backward|does_not_get_closer_to": 1401,
+      "ego_motion_reasoning|forward|gets_closer_to": 1463,
+      "ego_motion_reasoning|left|does_not_get_closer_to": 966,
+      "ego_motion_reasoning|left|gets_closer_to": 430,
+      "ego_motion_reasoning|right|does_not_get_closer_to": 918,
+      "ego_motion_reasoning|right|gets_closer_to": 492,
+      "object_motion_reasoning|backward|does_not_get_closer_to": 878,
+      "object_motion_reasoning|backward|gets_closer_to": 556,
+      "object_motion_reasoning|forward|does_not_get_closer_to": 869,
+      "object_motion_reasoning|forward|gets_closer_to": 561,
+      "object_motion_reasoning|left|does_not_get_closer_to": 913,
+      "object_motion_reasoning|left|gets_closer_to": 509,
+      "object_motion_reasoning|right|does_not_get_closer_to": 885,
+      "object_motion_reasoning|right|gets_closer_to": 499
+    },
+    "strict_zero_checks": [
+      "object_alias_leaks",
+      "multiple_choice_leaks",
+      "description_spatial_leaks",
+      "coordinate_leaks",
+      "non_sentence_answers",
+      "duplicate_model_inputs"
+    ]
+  }
+}

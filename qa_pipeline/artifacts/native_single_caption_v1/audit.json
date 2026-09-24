@@ -1,0 +1,2257 @@
+{
+  "definition": "one released caption + its main bbox_3d + nested others boxes; no caption concatenation and no single-target records",
+  "counts": {
+    "ground_entries": 7481,
+    "native_multi_entries": 7481,
+    "native_other_boxes": 28823,
+    "rejected_missing_distinct_text_spans": 5540,
+    "usable_native_multi_entries": 1941,
+    "usable_targets": 4792,
+    "usable_unambiguous_subset_entries": 1461,
+    "usable_unambiguous_subset_targets": 2987,
+    "missing_sequences": 10
+  },
+  "native_target_count_distribution": {
+    "train_N2": 751,
+    "train_N3": 762,
+    "train_N4": 684,
+    "train_N5": 406,
+    "train_N6": 309,
+    "train_N7": 229,
+    "train_N8": 173,
+    "train_N9": 118,
+    "train_N10": 95,
+    "train_N11": 54,
+    "train_N12": 32,
+    "train_N13": 24,
+    "train_N14": 7,
+    "train_N15": 6,
+    "train_N16": 5,
+    "train_N17": 7,
+    "train_N18": 7,
+    "train_N19": 5,
+    "train_N20": 3,
+    "train_N22": 3,
+    "train_N23": 4,
+    "train_N24": 1,
+    "train_N26": 1,
+    "train_N27": 1,
+    "val_N2": 861,
+    "val_N3": 657,
+    "val_N4": 584,
+    "val_N5": 443,
+    "val_N6": 291,
+    "val_N7": 307,
+    "val_N8": 197,
+    "val_N9": 144,
+    "val_N10": 89,
+    "val_N11": 74,
+    "val_N12": 92,
+    "val_N13": 12,
+    "val_N14": 8,
+    "val_N15": 7,
+    "val_N16": 12,
+    "val_N17": 7,
+    "val_N18": 1,
+    "val_N20": 1,
+    "val_N21": 2,
+    "val_N22": 2,
+    "val_N23": 1,
+    "val_N25": 1,
+    "val_N29": 1
+  },
+  "usable_target_count_distribution": {
+    "train_N2": 536,
+    "train_N3": 337,
+    "train_N4": 52,
+    "train_N5": 2,
+    "val_N2": 637,
+    "val_N3": 297,
+    "val_N4": 74,
+    "val_N5": 6
+  },
+  "unambiguous_subset_target_count_distribution": {
+    "train_N2": 673,
+    "train_N3": 28,
+    "val_N2": 723,
+    "val_N3": 37
+  },
+  "others_entry_keys": {
+    "bbox_3d_other": 28823,
+    "class_other": 28823
+  },
+  "usable_class_sets": {
+    "car+car": 750,
+    "car+car+car": 457,
+    "car+pedestrian": 190,
+    "pedestrian+pedestrian": 138,
+    "car+car+car+car": 103,
+    "pedestrian+pedestrian+pedestrian": 64,
+    "car+car+pedestrian": 48,
+    "car+truck": 43,
+    "car+cyclist": 30,
+    "car+car+truck": 23,
+    "car+pedestrian+pedestrian": 15,
+    "bus+car+car": 10,
+    "car+car+car+car+car": 8,
+    "car+car+car+truck": 8,
+    "car+cyclist+cyclist": 7,
+    "car+car+car+pedestrian": 7,
+    "pedestrian+truck": 6,
+    "cyclist+cyclist": 6,
+    "cyclist+pedestrian": 6,
+    "pedestrian+pedestrian+truck": 3,
+    "car+truck+truck": 3,
+    "truck+truck": 2,
+    "cyclist+pedestrian+pedestrian+pedestrian": 2,
+    "car+cyclist+cyclist+cyclist": 1,
+    "cyclist+pedestrian+pedestrian": 1,
+    "cyclist+cyclist+pedestrian": 1,
+    "car+pedestrian+pedestrian+pedestrian": 1,
+    "car+car+othervehicle": 1,
+    "cyclist+cyclist+cyclist+cyclist": 1,
+    "pedestrian+pedestrian+pedestrian+truck": 1,
+    "car+cyclist+pedestrian": 1,
+    "pedestrian+pedestrian+pedestrian+pedestrian": 1,
+    "bus+pedestrian": 1,
+    "car+car+pedestrian+pedestrian": 1,
+    "car+othervehicle": 1
+  },
+  "usable_examples": [
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0060_0",
+      "ground_index": 1,
+      "caption": "The pedestrian, dressed in dark clothing and carrying a light-colored bag, is positioned on the left middle side of the view, facing the observer from the side, standing on the pedestrian crossing, with a person wearing a red backpack slightly further to the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 177,
+          "end": 187,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 205,
+          "end": 211,
+          "text": "person",
+          "matched_synonym": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0060_2",
+      "ground_index": 0,
+      "caption": "This is a blue vehicle with a long body and a toolbox at the rear, located in the right middle side of the view, close to the right edge. The side of the car faces the observer, and the front of the car points towards the left side of the image. There is a silver sedan in front of it on the left and a white sedan in front of it on the right.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 15,
+          "end": 22,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        },
+        {
+          "start": 154,
+          "end": 157,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 199,
+          "end": 202,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 264,
+          "end": 269,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        },
+        {
+          "start": 309,
+          "end": 314,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0080_0",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long coat and black pants with a gray backpack, is located slightly left of the lower left corner of the view, with the body facing the observer from the side and the head turned to the left. There is a person in a red top behind and to the right of the pedestrian, and a traffic light above and to the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 234,
+          "end": 240,
+          "text": "person",
+          "matched_synonym": "person"
+        },
+        {
+          "start": 285,
+          "end": 295,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0080_0",
+      "ground_index": 1,
+      "caption": "Pedestrian, wearing a red backpack and dark clothing, located on the left middle side of the view, body sideways facing the observer, situated on the pedestrian crossing, with a person in a light-colored coat behind and to the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 0,
+          "end": 10,
+          "text": "Pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 150,
+          "end": 160,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 178,
+          "end": 184,
+          "text": "person",
+          "matched_synonym": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants, carrying a bag; Position information: left middle side of the view, close to the center; Relationship with the surrounding environment: body facing the observer from the side, head turned to one side, with a pedestrian behind and a white truck to the right rear.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 303,
+          "end": 313,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark jacket and black pants with a backpack, is located on the pedestrian crossing in the lower right corner of the view, with the side of the body facing the observer and a white postal vehicle in front on the left.",
+      "classes": [
+        "pedestrian",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 213,
+          "end": 220,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_4",
+      "ground_index": 0,
+      "caption": "Silver sedan, side facing the observer, door open. Located slightly to the right of the center in the view, unobstructed. There is a yellow taxi in front and to the left, and a black car behind and to the right.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 7,
+          "end": 12,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        },
+        {
+          "start": 140,
+          "end": 144,
+          "text": "taxi",
+          "matched_synonym": "taxi"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0155_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants, carrying a red backpack; Location information: slightly left of center in the view, on the sidewalk; Relationship with the surrounding environment: walking away from the observer, with a person in a red jacket and a traffic signal ahead.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 282,
+          "end": 288,
+          "text": "person",
+          "matched_synonym": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0155_2",
+      "ground_index": 0,
+      "caption": "This is a blue truck with a white flame pattern on the front and blue decorations on the body. The truck is located slightly to the left in the view, with part of its body obscured by a fence, and it faces the observer directly. There is an orange traffic barrier in its right front and a red crane in its left rear.",
+      "classes": [
+        "truck",
+        "truck"
+      ],
+      "spans": [
+        {
+          "start": 15,
+          "end": 20,
+          "text": "truck",
+          "matched_synonym": "truck"
+        },
+        {
+          "start": 99,
+          "end": 104,
+          "text": "truck",
+          "matched_synonym": "truck"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0165_4",
+      "ground_index": 1,
+      "caption": "A black sedan is located slightly to the right in the view, with its back facing the observer, showing the taillights and license plate. There is a white car on the left side and a yellow car in front and to the left.",
+      "classes": [
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 8,
+          "end": 13,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        },
+        {
+          "start": 154,
+          "end": 157,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 188,
+          "end": 191,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0170_4",
+      "ground_index": 0,
+      "caption": "A small black car with headlights on, located slightly to the right of center and close to the right edge of the view, facing the observer directly, with a white car in front and an orange guardrail beside it.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 14,
+          "end": 17,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 162,
+          "end": 165,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0034_0",
+      "ground_index": 0,
+      "caption": "This is a silver SUV with an elongated body and numerous windows, located slightly left of center and close to the middle of the road, facing the observer with its front face and headlights visible. There is a large tree behind and to the left of it, and a red car behind and to the right.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 17,
+          "end": 20,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        },
+        {
+          "start": 261,
+          "end": 264,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0039_0",
+      "ground_index": 0,
+      "caption": "This is a silver SUV with an elongated body and numerous windows, located slightly left of center and close to the middle of the road, facing the observer. There is a white car behind and to the right of it, and a large tree behind and to the left.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 17,
+          "end": 20,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        },
+        {
+          "start": 173,
+          "end": 176,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0069_0",
+      "ground_index": 0,
+      "caption": "A small red car with a compact body and circular taillights. Located slightly to the right of the center of the view, close to the middle of the road, with the back facing the observer. There is a white car in front and to the right, and a trash bin on the left.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 12,
+          "end": 15,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 203,
+          "end": 206,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0074_0",
+      "ground_index": 0,
+      "caption": "A small red convertible car located slightly left of the center-left near the left edge of the road, side facing the observer, with a white car and a trash bin in front.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 12,
+          "end": 23,
+          "text": "convertible",
+          "matched_synonym": "convertible"
+        },
+        {
+          "start": 24,
+          "end": 27,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0074_0",
+      "ground_index": 1,
+      "caption": "This is a small black car with a roof rack, located near the right edge of the view, with its back facing the observer and the taillights clearly visible. There is a red small car on the left side and a trash bin in front of the right side.",
+      "classes": [
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 22,
+          "end": 25,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 176,
+          "end": 179,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0079_0",
+      "ground_index": 0,
+      "caption": "This is a small red car with white stripe decorations on the body, located slightly left of center and close to the middle of the road. The front of the car faces the observer, with the front face and headlights visible. There is a silver sedan behind and to the right, and a blue trash bin on the left.",
+      "classes": [
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 20,
+          "end": 23,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 153,
+          "end": 156,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 239,
+          "end": 244,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0084_0",
+      "ground_index": 0,
+      "caption": "A small red car with white decorative stripes on the hood, located on the left middle side near the center of the road, partially obscured by a vehicle in front, facing the camera directly, with a black car in front and to the left and a blue trash bin to the left.",
+      "classes": [
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 12,
+          "end": 15,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 144,
+          "end": 151,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        },
+        {
+          "start": 203,
+          "end": 206,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0129_0",
+      "ground_index": 0,
+      "caption": "This is a silver four-door sedan located on the left middle side of the view, partially obscured by a trash can. The front of the car points towards the left side of the view, with its side facing the observer. To its left, there is a black sedan and a blue trash can.",
+      "classes": [
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 27,
+          "end": 32,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        },
+        {
+          "start": 130,
+          "end": 133,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 241,
+          "end": 246,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0139_0",
+      "ground_index": 0,
+      "caption": "Black sedan with a silver grille decoration on the front face, located on the left middle side near the center of the road, partially obscured by the vehicle in front. There is a silver SUV in front and a white sedan behind.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 6,
+          "end": 11,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        },
+        {
+          "start": 150,
+          "end": 157,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        },
+        {
+          "start": 186,
+          "end": 189,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        },
+        {
+          "start": 211,
+          "end": 216,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0144_0",
+      "ground_index": 0,
+      "caption": "This is a silver SUV with smooth body lines and large windows. It is located slightly left of center in the view, with no obstruction. The side faces the observer, with the left side of the vehicle facing the camera. There is a silver sedan in front and a black sedan behind it.",
+      "classes": [
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 17,
+          "end": 20,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        },
+        {
+          "start": 190,
+          "end": 197,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        },
+        {
+          "start": 235,
+          "end": 240,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0164_0",
+      "ground_index": 0,
+      "caption": "This is a gray SUV with red taillights, located on the right middle side of the view, partially obscured by a vehicle in front. The back of the car faces the observer, with a white SUV in front and a black sedan behind.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 15,
+          "end": 18,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        },
+        {
+          "start": 110,
+          "end": 117,
+          "text": "vehicle",
+          "matched_synonym": "vehicle"
+        },
+        {
+          "start": 144,
+          "end": 147,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 181,
+          "end": 184,
+          "text": "SUV",
+          "matched_synonym": "suv"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+      "ground_index": 0,
+      "caption": "This is a white truck with green and orange billboards on the rear that read “peninsula catering&events”. The truck is located slightly to the right of the center of the view, with its back facing the observer. There is a white car on the left side and a blue-gray car in front of the right side.",
+      "classes": [
+        "truck",
+        "car",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 16,
+          "end": 21,
+          "text": "truck",
+          "matched_synonym": "truck"
+        },
+        {
+          "start": 228,
+          "end": 231,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 265,
+          "end": 268,
+          "text": "car",
+          "matched_synonym": "car"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+      "ground_index": 1,
+      "caption": "A small blue car located on the right middle side of the view, with its side facing the observer and the front pointing towards the left side of the image. There is a white truck in front of it on the right and a large white van on its right side.",
+      "classes": [
+        "car",
+        "truck",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 16,
+          "text": "car",
+          "matched_synonym": "car"
+        },
+        {
+          "start": 173,
+          "end": 178,
+          "text": "truck",
+          "matched_synonym": "truck"
+        },
+        {
+          "start": 225,
+          "end": 228,
+          "text": "van",
+          "matched_synonym": "van"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0094_4",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a light blue top and dark blue jeans, with a brown bag slung over the shoulder; Position information: located on the left middle side of the view, with part of the body being obscured; Relationship with the surrounding environment: there is a green lamppost on the right side, and a person behind and to the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 342,
+          "end": 348,
+          "text": "person",
+          "matched_synonym": "person"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0129_1",
+      "ground_index": 0,
+      "caption": "This is a white truck with the logo and website of “peninsula catering&events” printed on the body, and the lower part of the rear is orange. The truck is located slightly to the right of the center of the view, with the rear directly facing the camera. A pedestrian is in front of the truck on the right side, and a streetlight is above the truck on the left side.",
+      "classes": [
+        "truck",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 16,
+          "end": 21,
+          "text": "truck",
+          "matched_synonym": "truck"
+        },
+        {
+          "start": 256,
+          "end": 266,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0154_3",
+      "ground_index": 0,
+      "caption": "Object type: Pedestrian; Main appearance features: Wearing a white top and dark pants, carrying a black bag; Position information: Left middle side of the view, near the zebra crossing; Relationship with the surrounding environment: Another pedestrian on the left side, a white car behind and to the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 23,
+          "text": "Pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 241,
+          "end": 251,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0159_2",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing dark clothes; Position information: slightly to the right of the center of the view; Relationship with the surrounding environment: there is a gray sedan in front of and to the right, and a pedestrian signboard on the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car"
+      ],
+      "spans": [
+        {
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 249,
+          "end": 259,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 207,
+          "end": 212,
+          "text": "sedan",
+          "matched_synonym": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0164_2",
+      "ground_index": 0,
+      "caption": "The object is a pedestrian wearing a dark top and light-colored pants, located on the right middle side of the view, with the body facing sideways towards the observer. There is another pedestrian behind and to the left, and a gray car in front and to the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 16,
+          "end": 26,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 186,
+          "end": 196,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0164_2",
+      "ground_index": 1,
+      "caption": "The pedestrian, wearing a dark top and light-colored pants with a backpack, is located on the left middle side of the view, partially obscured. The side of the body faces the observer, showing the side profile. The pedestrian is on the sidewalk near a building, with a trash bin on the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "spans": [
+        {
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        },
+        {
+          "start": 215,
+          "end": 225,
+          "text": "pedestrian",
+          "matched_synonym": "pedestrian"
+        }
+      ]
+    }
+  ],
+  "unambiguous_subset_examples": [
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants, carrying a bag; Position information: left middle side of the view, close to the center; Relationship with the surrounding environment: body facing the observer from the side, head turned to one side, with a pedestrian behind and a white truck to the right rear.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 303,
+          "end": 313,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark jacket and black pants with a backpack, is located on the pedestrian crossing in the lower right corner of the view, with the side of the body facing the observer and a white postal vehicle in front on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 213,
+          "end": 220,
+          "text": "vehicle"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0105_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a red backpack, body side facing the observer; Position information: left middle side of the view, close to the center; Relationship with the surrounding environment: a pedestrian on the left side, a traffic light in front.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "pedestrian",
+          "start": 228,
+          "end": 238,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0110_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing dark clothes, carrying a red backpack; Position information: left middle side of the view, close to the center slightly left; Relationship with the surrounding environment: there is a pedestrian slightly further to the left, and a traffic light in front on the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "pedestrian",
+          "start": 243,
+          "end": 253,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0125_0",
+      "ground_index": 1,
+      "caption": "Object type: pedestrian; Main appearance features: dark top, light-colored pants, red backpack; Position information: slightly left of center in the view; Relationship with the surrounding environment: there is a pedestrian wearing a red jacket in front and to the right, and a traffic light on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "pedestrian",
+          "start": 213,
+          "end": 223,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; main appearance features: wearing a red backpack, facing away from the observer; position information: slightly left of center in the view; relationship with the surrounding environment: there is a person wearing a red jacket ahead and to the right, and a traffic light on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 223,
+          "end": 229,
+          "text": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0",
+      "ground_index": 1,
+      "caption": "The object is a pedestrian wearing a red top and dark pants, carrying a backpack, located on the right middle side of the view, with the body facing sideways towards the observer. There is another pedestrian ahead and to the left, and a traffic light on the left side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 16,
+          "end": 26,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 197,
+          "end": 207,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0",
+      "ground_index": 0,
+      "caption": "The pedestrian, dressed in dark clothing and carrying a red backpack, is located slightly left of center in the view, walking away from the observer. There is a person in a red jacket in front and to the right, and a traffic light on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 4,
+          "end": 14,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 161,
+          "end": 167,
+          "text": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0",
+      "ground_index": 1,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a red top and dark pants, carrying a backpack; Position information: slightly to the right of the center of the view, close to the middle of the view; Relationship with the surrounding environment: located on the sidewalk, with a pedestrian wearing a black top and a red backpack slightly behind and to the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 289,
+          "end": 299,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0155_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants, carrying a red backpack; Location information: slightly left of center in the view, on the sidewalk; Relationship with the surrounding environment: walking away from the observer, with a person in a red jacket and a traffic signal ahead.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 282,
+          "end": 288,
+          "text": "person"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0170_2",
+      "ground_index": 1,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a red backpack, black top and dark pants; Position information: slightly to the left in the view, close to the left edge; Relationship with the surrounding environment: a pedestrian stands behind, and a large truck is located to the right rear.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 230,
+          "end": 240,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0170_4",
+      "ground_index": 0,
+      "caption": "A small black car with headlights on, located slightly to the right of center and close to the right edge of the view, facing the observer directly, with a white car in front and an orange guardrail beside it.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 14,
+          "end": 17,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 162,
+          "end": 165,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0034_0",
+      "ground_index": 0,
+      "caption": "This is a silver SUV with an elongated body and numerous windows, located slightly left of center and close to the middle of the road, facing the observer with its front face and headlights visible. There is a large tree behind and to the left of it, and a red car behind and to the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 17,
+          "end": 20,
+          "text": "SUV"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 261,
+          "end": 264,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0039_0",
+      "ground_index": 0,
+      "caption": "This is a silver SUV with an elongated body and numerous windows, located slightly left of center and close to the middle of the road, facing the observer. There is a white car behind and to the right of it, and a large tree behind and to the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 17,
+          "end": 20,
+          "text": "SUV"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 173,
+          "end": 176,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0069_0",
+      "ground_index": 0,
+      "caption": "A small red car with a compact body and circular taillights. Located slightly to the right of the center of the view, close to the middle of the road, with the back facing the observer. There is a white car in front and to the right, and a trash bin on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 12,
+          "end": 15,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 203,
+          "end": 206,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0074_0",
+      "ground_index": 0,
+      "caption": "A small red convertible car located slightly left of the center-left near the left edge of the road, side facing the observer, with a white car and a trash bin in front.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 12,
+          "end": 23,
+          "text": "convertible"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 140,
+          "end": 143,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0074_0",
+      "ground_index": 1,
+      "caption": "This is a small black car with a roof rack, located near the right edge of the view, with its back facing the observer and the taillights clearly visible. There is a red small car on the left side and a trash bin in front of the right side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 22,
+          "end": 25,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 176,
+          "end": 179,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0024_0",
+      "ground_index": 0,
+      "caption": "This is a white truck with advertising patterns and text printed on its body. It is located slightly to the right of the center of the view, with its back facing the observer and the tail lights illuminated. There is a blue bus on the left side and a white car in front on the right side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "truck",
+          "start": 16,
+          "end": 21,
+          "text": "truck"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "car",
+          "start": 257,
+          "end": 260,
+          "text": "car"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0029_2",
+      "ground_index": 0,
+      "caption": "A police van, white with green stripes and \"SAN FRANCISCO SHERIFF\" text, equipped with warning lights on the roof. Located slightly to the right of the center in the view, partially obscured by a building. The side faces the observer, the front points left, and the rear points right. There is a pedestrian in front of it on the left and a silver sedan behind it on the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 9,
+          "end": 12,
+          "text": "van"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "car",
+          "start": 347,
+          "end": 352,
+          "text": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0",
+      "ground_index": 1,
+      "caption": "This is a white pickup truck with a roof rack, located slightly left of center in the view, side facing the observer, front facing the left side of the image. There is a black sedan behind and to the left of it, and an advertising trailer behind and to the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 16,
+          "end": 28,
+          "text": "pickup truck"
+        },
+        {
+          "source": "other",
+          "source_index": 3,
+          "class": "car",
+          "start": 176,
+          "end": 181,
+          "text": "sedan"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0",
+      "ground_index": 2,
+      "caption": "This is a dark-colored sedan located in the left middle side of the view, close to the left edge. It faces the observer from its side, with the front of the car pointing towards the right side of the image. There is a white truck on its right and a bus on its left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 23,
+          "end": 28,
+          "text": "sedan"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "truck",
+          "start": 224,
+          "end": 229,
+          "text": "truck"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0039_2",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants, carrying a bag; Position information: slightly left of the center of the view, near the zebra crossing; Relationship with the surrounding environment: the side of the body is facing the observer, there is a pedestrian behind and to the right, and a police car below and to the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "pedestrian",
+          "start": 302,
+          "end": 312,
+          "text": "pedestrian"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0",
+      "ground_index": 0,
+      "caption": "A small dark blue Toyota car is located in the lower right of the view, with its rear facing the observer. Nearby, there is a large white truck and a white car.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 25,
+          "end": 28,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "truck",
+          "start": 138,
+          "end": 143,
+          "text": "truck"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0",
+      "ground_index": 2,
+      "caption": "Object type: cyclist; Main appearance features: wearing a red top and dark pants; Position information: slightly left of center in the view; Relationship with the surroundings: a white car in front on the right, and a large truck behind on the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "cyclist",
+          "start": 13,
+          "end": 20,
+          "text": "cyclist"
+        },
+        {
+          "source": "other",
+          "source_index": 3,
+          "class": "truck",
+          "start": 224,
+          "end": 229,
+          "text": "truck"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+      "ground_index": 1,
+      "caption": "A small blue car located on the right middle side of the view, with its side facing the observer and the front pointing towards the left side of the image. There is a white truck in front of it on the right and a large white van on its right side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 13,
+          "end": 16,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "truck",
+          "start": 173,
+          "end": 178,
+          "text": "truck"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "car",
+          "start": 225,
+          "end": 228,
+          "text": "van"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+      "ground_index": 2,
+      "caption": "A small white SUV with an aerodynamic design, located slightly left of center in the view, with its side facing the observer. There is a large truck behind and to the right, and a bicycle in front and to the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 14,
+          "end": 17,
+          "text": "SUV"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "truck",
+          "start": 143,
+          "end": 148,
+          "text": "truck"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_0",
+      "ground_index": 1,
+      "caption": "A small dark-colored car is located slightly to the right of the center in the view, unobstructed. There is a large white truck in front and to the right, and a white van on the left side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "car",
+          "start": 21,
+          "end": 24,
+          "text": "car"
+        },
+        {
+          "source": "other",
+          "source_index": 1,
+          "class": "truck",
+          "start": 122,
+          "end": 127,
+          "text": "truck"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_1",
+      "ground_index": 1,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a gray top and blue shorts, holding a yellow item; Location information: slightly to the right of the center in the view, standing on a zebra crossing; Relationship with the surrounding environment: a pedestrian is on the left side, and a bicycle is behind and to the right.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "cyclist",
+          "start": 298,
+          "end": 305,
+          "text": "bicycle"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0089_1",
+      "ground_index": 1,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a gray top and blue shorts, holding a yellow object; Position information: slightly left of center in the view, standing on a zebra crossing; Relationship with the surrounding environment: a pedestrian on the left side and a bicycle on the right side.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "pedestrian",
+          "start": 13,
+          "end": 23,
+          "text": "pedestrian"
+        },
+        {
+          "source": "other",
+          "source_index": 2,
+          "class": "cyclist",
+          "start": 284,
+          "end": 291,
+          "text": "bicycle"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0094_0",
+      "ground_index": 0,
+      "caption": "This is a truck with yellow and green billboards displaying “peninsula catering&events”. It is located slightly left of center in the view, with its back facing the observer. There is a white van beside it and a traffic light in front to the left.",
+      "targets": [
+        {
+          "source": "main",
+          "source_index": 0,
+          "class": "truck",
+          "start": 10,
+          "end": 15,
+          "text": "truck"
+        },
+        {
+          "source": "other",
+          "source_index": 0,
+          "class": "car",
+          "start": 192,
+          "end": 195,
+          "text": "van"
+        }
+      ]
+    }
+  ],
+  "rejected_examples": [
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0025_2",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long coat and black pants, stands on the left middle side of the view, facing the observer from the side with the right hand raised near the head. There is a silver car in front on the right and an orange guardrail behind.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car"
+        ],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long coat and black pants with white sports shoes, is located in the lower left corner of the view, facing the observer from the side, showing a walking posture. A silver sedan is behind and to the right, and an orange guardrail is behind and to the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "sedan"
+        ],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0030_2",
+      "ground_index": 1,
+      "caption": "The pedestrian, wearing a dark top and light-colored pants with a backpack, is located in the lower right corner of the view with part of the body obscured. The side of the body faces the observer, with a silver car on the left and a white fire hydrant in front to the right.",
+      "classes": [
+        "pedestrian",
+        "car",
+        "car",
+        "pedestrian",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car"
+        ],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0035_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian, main appearance features: wearing a red backpack, black top and dark pants, walking; position information: located slightly left of center in the view, with part of the body obscured; relationship with the surrounding environment: there is a traffic light in front and to the left, and a street lamp on the left side.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0035_0",
+      "ground_index": 1,
+      "caption": "The pedestrian, wearing a dark top and light-colored pants, is positioned slightly left of center in the view, with their body facing sideways towards the observer. There is a traffic light in front and to the left of them, and a row of green fences on their left side.",
+      "classes": [
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0035_2",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long coat and light-colored shoes, is located in the lower left of the view, with the side of the body facing the observer. A silver car is behind and to the right of the pedestrian, and an orange guardrail is behind the pedestrian.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car"
+        ],
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian",
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0035_2",
+      "ground_index": 1,
+      "caption": "The pedestrian, wearing a dark top and light-colored pants with a backpack, is positioned slightly to the right in the view, with part of the body obscured. The side profile is visible as it faces the observer. There is a white fire hydrant in front and to the right, and a silver car on the left.",
+      "classes": [
+        "pedestrian",
+        "car",
+        "car",
+        "pedestrian",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car"
+        ],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0035_4",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian, main appearance features: wearing a dark top and light-colored pants, carrying a backpack, position information: slightly left of center, close to the left edge, relationship with the surrounding environment: a fire hydrant in front and to the left, a traffic signal on the right.",
+      "classes": [
+        "pedestrian",
+        "car",
+        "pedestrian"
+      ],
+      "mentions": {
+        "car": [],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0045_0",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long coat and black pants, stands on the pedestrian crossing at the lower right corner of the view, facing the observer from the side with the right hand raised near the face, and there is an orange traffic barrier on the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0050_1",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark top and light-colored pants with a red backpack, is positioned slightly to the right in the view, walking away from the observer. There is a trash can beside them, and they are located on the sidewalk.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "pedestrian"
+      ],
+      "mentions": {
+        "car": [],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0050_2",
+      "ground_index": 0,
+      "caption": "A small silver car with its rear visible, located slightly left of center in the view, facing the observer from the back. There is a black car and a white truck on its right side.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car",
+          "car"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0055_0",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark long down jacket and black pants with a backpack, is located slightly to the right and lower middle of the view, with the side of the body facing the observer. There is a traffic light in front of the target on the left and a large truck behind the target on the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0055_2",
+      "ground_index": 0,
+      "caption": "A small silver sedan with a spoiler on the rear, located slightly to the right of the center near the middle of the road, facing the observer from the back, with a black sedan in front on the right side and a white truck behind on the right side.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "sedan",
+          "sedan"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0060_0",
+      "ground_index": 0,
+      "caption": "The pedestrian is wearing a dark long coat and pants, white sports shoes, and a light-colored scarf. Located in the lower middle to right of the view, the body is facing sideways towards the observer with a clear walking posture. There is an orange traffic barrier behind and to the right, and a zebra crossing in front.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0060_2",
+      "ground_index": 1,
+      "caption": "This is a silver sedan located slightly to the right of the center of the view, with its rear facing the observer and tail lights on, suggesting it may be stationary. There is a white truck behind and to the right of it, and a black sedan in front and to the left.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "sedan",
+          "sedan"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0065_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian, main appearance features: wearing a red backpack, black top and dark pants, in a walking posture; position information: located slightly left of center in the view, with part of the body obscured; relationship with the surrounding environment: there is a traffic light in front and to the left, and a white car behind and to the right.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0065_2",
+      "ground_index": 0,
+      "caption": "A small blue-gray van with a compact body is located on the right middle side of the view, partially obscured. It faces the observer from its side, with the front pointing towards the left side of the image. There is a silver sedan in front of it on the left and a white sedan behind it on the right.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "van",
+          "sedan",
+          "sedan"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0065_2",
+      "ground_index": 1,
+      "caption": "A small silver car with a clear view of the rear, located on the right middle side of the view, facing the observer from the back, with a black car on its left and a white truck on its right.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car",
+          "car"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0070_2",
+      "ground_index": 0,
+      "caption": "A small blue-gray truck with a long body and a toolbox at the rear, located on the right middle side of the view with part of it obscured, facing the observer from its side and pointing the front towards the left side of the image. A silver sedan is in front and to the left of it, while a black sedan is behind and to the left of it.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "sedan",
+          "sedan"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0075_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a black top and dark pants, carrying a red backpack; Position information: slightly left of center in the view, close to the left edge; Relationship with the surrounding environment: body facing sideways towards the observer, with a pedestrian behind and to the right, and a traffic light in front and to the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0075_2",
+      "ground_index": 0,
+      "caption": "A small dark gray van with a compact body is located on the right middle side of the view, partially obscured by a tree trunk, with its side facing the observer. There is a silver SUV in front of it and a tree on its right side.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "van",
+          "suv"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0085_2",
+      "ground_index": 0,
+      "caption": "A small black car, located slightly left of center in the view, with its side facing the observer, an orange guardrail in front, and a silver pickup truck behind and to the right.",
+      "classes": [
+        "car",
+        "car",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car",
+          "pickup truck"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0090_1",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark jacket and black pants with a gray backpack, is on the pedestrian crossing in the lower right corner of the view, walking away from the observer, with a postal truck in front and to the left.",
+      "classes": [
+        "pedestrian",
+        "car"
+      ],
+      "mentions": {
+        "car": [],
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0100_0",
+      "ground_index": 0,
+      "caption": "This is a blue truck with white decorative patterns on the front, located slightly to the right in the view, facing the observer. There is an orange construction barrier on its left side and a red crane tower behind it.",
+      "classes": [
+        "truck",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [],
+        "truck": [
+          "truck"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0100_1",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a dark jacket and light-colored pants with a gray backpack, is located on the right middle side of the view with part of the body obscured, walking away from the observer. There is a black car in front of the target on the left and a traffic light above the target on the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "car"
+      ],
+      "mentions": {
+        "car": [
+          "car"
+        ],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0105_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing a red backpack, body side facing the observer; Position information: left middle side of the view, close to the center; Relationship with the surrounding environment: a pedestrian on the left side, a traffic light in front.",
+      "classes": [
+        "pedestrian",
+        "truck",
+        "truck",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian"
+        ],
+        "truck": []
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0110_0",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing dark clothes, carrying a red backpack; Position information: left middle side of the view, close to the center slightly left; Relationship with the surrounding environment: there is a pedestrian slightly further to the left, and a traffic light in front on the right.",
+      "classes": [
+        "pedestrian",
+        "truck",
+        "truck",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian",
+          "pedestrian"
+        ],
+        "truck": []
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0110_0",
+      "ground_index": 1,
+      "caption": "This is a blue truck with white decorative patterns on the front, located slightly to the right in the view, facing the observer. There is an orange crane behind it and an orange traffic barrier to its right.",
+      "classes": [
+        "truck",
+        "truck",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [],
+        "truck": [
+          "truck"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0110_1",
+      "ground_index": 0,
+      "caption": "Object type: pedestrian; Main appearance features: wearing dark clothes, carrying a gray backpack; Location information: located at the lower left side of the view, close to the left edge; Relationship with the surrounding environment: walking away from the observer, with a dark car in front and a traffic light above on the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    },
+    {
+      "split": "train",
+      "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0110_3",
+      "ground_index": 0,
+      "caption": "The pedestrian, wearing a blue top and brown pants with a backpack, is located slightly to the right of the center of the view, near the sidewalk, with the side of the body facing the observer. There is a trash bin on the left side and a postal truck in front of the target to the left.",
+      "classes": [
+        "pedestrian",
+        "pedestrian",
+        "car",
+        "pedestrian",
+        "car",
+        "pedestrian",
+        "pedestrian"
+      ],
+      "mentions": {
+        "car": [],
+        "pedestrian": [
+          "pedestrian"
+        ]
+      }
+    }
+  ]
+}

@@ -205,6 +205,7 @@ class Joint3DDataset(Dataset):
             "waymo-multi": lambda: self.waymo_multi_annos(dataset="waymo-multi"),
             "waymo-others-multi": lambda: self.waymo_multi_annos(dataset="waymo-others-multi"),
             "waymo-scene-multi": lambda: self.waymo_multi_annos(dataset="waymo-scene-multi"),
+            "waymo-native-multi": lambda: self.waymo_multi_annos(dataset="waymo-native-multi"),
         }
         annos = loaders[dset]()
         if self.overfit:
@@ -223,6 +224,7 @@ class Joint3DDataset(Dataset):
         file_prefix = {
             "waymo-others-multi": "waymo_others_multi",
             "waymo-scene-multi": "waymo_scene_multi",
+            "waymo-native-multi": "waymo_native_multi",
         }.get(dataset, "waymo_multi")
         data_file = os.path.join(self.data_path, f"{file_prefix}_{split}_info.pkl")
         print(f"Loading {data_file}")
@@ -734,7 +736,7 @@ class Joint3DDataset(Dataset):
         anno = self.annos[index]
 
         if anno["dataset"] in ("waymo-multi", "waymo-others-multi",
-                                "waymo-scene-multi"):
+                                "waymo-scene-multi", "waymo-native-multi"):
             return self.getitem_waymo_multi(index)
 
         if self.debug:

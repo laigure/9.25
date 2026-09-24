@@ -1,0 +1,43 @@
+{
+  "dataset_version": "waymo_native_multi_v1",
+  "source_policy": "one released ground_info caption; main target plus only uniquely mentioned nested others; no caption concatenation; no N=1",
+  "splits": {
+    "train": {
+      "records": 644,
+      "targets": 1310,
+      "target_count_distribution": {
+        "2": 622,
+        "3": 22
+      },
+      "sequences": 83,
+      "all_single_caption": true,
+      "single_target_records": 0,
+      "description_spatial_leaks": 0
+    },
+    "val": {
+      "records": 714,
+      "targets": 1459,
+      "target_count_distribution": {
+        "2": 683,
+        "3": 31
+      },
+      "sequences": 84,
+      "all_single_caption": true,
+      "single_target_records": 0,
+      "description_spatial_leaks": 0
+    }
+  },
+  "counters": {
+    "source_ground_entries": 7481,
+    "rejected_without_unambiguous_mentioned_other": 6020,
+    "rejected_duplicate_safe_descriptions": 103,
+    "records": 1358,
+    "targets": 2769,
+    "train_N2": 622,
+    "val_N2": 683,
+    "val_N3": 31,
+    "train_N3": 22,
+    "missing_sequences": 10
+  },
+  "description_policy": "appearance noun phrases with spatial terms removed"
+}

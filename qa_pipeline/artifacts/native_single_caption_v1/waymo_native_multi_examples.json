@@ -1,0 +1,2066 @@
+[
+  {
+    "caption": "The pedestrian , wearing a dark jacket and black pants with a backpack , is located on the pedestrian crossing in the lower right corner of the view , with the side of the body facing the observer and a white postal vehicle in front on the left.",
+    "target_spans": [
+      [
+        5,
+        15
+      ],
+      [
+        217,
+        224
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "vehicle"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0095_1",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "white postal vehicle"
+    ],
+    "object_views": [
+      "front-left view",
+      "front-left view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7252349257469177,
+        0.6884772777557373,
+        0.0057690939866006374,
+        -25210.482421875
+      ],
+      [
+        -0.6884954571723938,
+        0.7251681685447693,
+        0.01025418471544981,
+        42390.3359375
+      ],
+      [
+        0.0028762100264430046,
+        -0.011408688500523567,
+        0.9999307990074158,
+        -160.63400268554688
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      8.573376945860218,
+      4.329865119701935,
+      0.7834977542296713,
+      1.0875911001198517,
+      0.8059965415241722,
+      1.8100000000000023,
+      1.4831924288652747
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      12.0437355264512,
+      13.7602856557005,
+      0.6349736090953684,
+      4.750193399124475,
+      2.0782447080498336,
+      1.509999999999991,
+      -1.5376967971115285
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "Object type: pedestrian; main appearance features: wearing a red backpack , facing away from the observer; position information: slightly left of center in the view; relationship with the surrounding environment: there is a person wearing a red jacket ahead and to the right , and a traffic light on the left.",
+    "target_spans": [
+      [
+        14,
+        24
+      ],
+      [
+        225,
+        231
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "person"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0145_0",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0145_0#g0:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0145_0#g0:other1"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "person"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7511971592903137,
+        0.6599806547164917,
+        -0.011328451335430145,
+        -25201.6328125
+      ],
+      [
+        -0.65963214635849,
+        0.7512099742889404,
+        0.023854710161685944,
+        42382.28515625
+      ],
+      [
+        0.024253692477941513,
+        -0.01044697966426611,
+        0.9996512532234192,
+        -160.56700134277344
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      27.120574198794202,
+      2.0142337514844257,
+      0.11632875380087171,
+      1.1977767662200793,
+      0.7701549131795994,
+      1.759999999999991,
+      -0.21770348349717983
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      39.64935620856704,
+      1.2308048480881553,
+      -0.1543332182557151,
+      0.8518983794825985,
+      0.9269688107927688,
+      1.789999999999992,
+      2.9475638733965948
+    ],
+    "class_obj_2": "pedestrian"
+  },
+  {
+    "caption": "The object is a pedestrian wearing a red top and dark pants , carrying a backpack , located on the right middle side of the view , with the body facing sideways towards the observer. There is another pedestrian ahead and to the left , and a traffic light on the left side.",
+    "target_spans": [
+      [
+        17,
+        27
+      ],
+      [
+        201,
+        211
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0145_0",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0#g1",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0145_0",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0145_0#g1:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0145_0#g1:other1"
+    ],
+    "object_descriptions": [
+      "pedestrian wearing a red top",
+      "another pedestrian"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7511971592903137,
+        0.6599806547164917,
+        -0.011328451335430145,
+        -25201.6328125
+      ],
+      [
+        -0.65963214635849,
+        0.7512099742889404,
+        0.023854710161685944,
+        42382.28515625
+      ],
+      [
+        0.024253692477941513,
+        -0.01044697966426611,
+        0.9996512532234192,
+        -160.56700134277344
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      39.64935620856704,
+      1.2308048480881553,
+      -0.1543332182557151,
+      0.8518983794825985,
+      0.9269688107927688,
+      1.789999999999992,
+      2.9475638733965948
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      27.120574198794202,
+      2.0142337514844257,
+      0.11632875380087171,
+      1.1977767662200793,
+      0.7701549131795994,
+      1.759999999999991,
+      -0.21770348349717983
+    ],
+    "class_obj_2": "pedestrian"
+  },
+  {
+    "caption": "The pedestrian , dressed in dark clothing and carrying a red backpack , is located slightly left of center in the view , walking away from the observer. There is a person in a red jacket in front and to the right , and a traffic light on the left.",
+    "target_spans": [
+      [
+        5,
+        15
+      ],
+      [
+        165,
+        171
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "person"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0150_0",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0150_0#g0:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0150_0#g0:other1"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "person"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7556803226470947,
+        0.6548330783843994,
+        -0.011872061528265476,
+        -25200.986328125
+      ],
+      [
+        -0.6545125246047974,
+        0.7557175159454346,
+        0.02245868556201458,
+        42381.72265625
+      ],
+      [
+        0.02367861568927765,
+        -0.009201174601912498,
+        0.999677300453186,
+        -160.5469970703125
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      27.037589243394905,
+      1.6357389384029375,
+      0.10926645879817443,
+      1.1977767662200793,
+      0.7701549131755151,
+      1.759999999999991,
+      -0.20847499731674501
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      38.13676826651499,
+      1.1000677050615195,
+      -0.11843646107968198,
+      0.8518983794825985,
+      0.9269688107958155,
+      1.789999999999992,
+      2.953098034265233
+    ],
+    "class_obj_2": "pedestrian"
+  },
+  {
+    "caption": "Object type: pedestrian; Main appearance features: wearing a red top and dark pants , carrying a backpack; Position information: slightly to the right of the center of the view , close to the middle of the view; Relationship with the surrounding environment: located on the sidewalk , with a pedestrian wearing a black top and a red backpack slightly behind and to the left.",
+    "target_spans": [
+      [
+        14,
+        24
+      ],
+      [
+        293,
+        303
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0150_0",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0#g1",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0150_0",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0150_0#g1:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0150_0#g1:other1"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "pedestrian wearing a black top"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7556803226470947,
+        0.6548330783843994,
+        -0.011872061528265476,
+        -25200.986328125
+      ],
+      [
+        -0.6545125246047974,
+        0.7557175159454346,
+        0.02245868556201458,
+        42381.72265625
+      ],
+      [
+        0.02367861568927765,
+        -0.009201174601912498,
+        0.999677300453186,
+        -160.5469970703125
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      38.13676826651499,
+      1.1000677050615195,
+      -0.11843646107968198,
+      0.8518983794825985,
+      0.9269688107958155,
+      1.789999999999992,
+      2.953098034265233
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      27.037589243394905,
+      1.6357389384029375,
+      0.10926645879817443,
+      1.1977767662200793,
+      0.7701549131755151,
+      1.759999999999991,
+      -0.20847499731674501
+    ],
+    "class_obj_2": "pedestrian"
+  },
+  {
+    "caption": "Object type: pedestrian; Main appearance features: wearing a dark top and light-colored pants , carrying a red backpack; Location information: slightly left of center in the view , on the sidewalk; Relationship with the surrounding environment: walking away from the observer , with a person in a red jacket and a traffic signal ahead.",
+    "target_spans": [
+      [
+        14,
+        24
+      ],
+      [
+        286,
+        292
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "person"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0155_0",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0155_0#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0155_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0155_0#g0:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0155_0#g0:other0"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "person in a red jacket"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "pedestrian"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7692586183547974,
+        0.6387296915054321,
+        -0.01629668101668358,
+        -25200.2578125
+      ],
+      [
+        -0.638505756855011,
+        0.769426167011261,
+        0.01714000292122364,
+        42381.1015625
+      ],
+      [
+        0.023486921563744545,
+        -0.0027795694768428802,
+        0.9997202754020691,
+        -160.52200317382812
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      26.935330996770062,
+      0.927714999372256,
+      0.0937004958146872,
+      1.1977767662200793,
+      0.770154913177801,
+      1.759999999999991,
+      -0.1925797823914963
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      36.56920001802064,
+      0.44315081026798,
+      -0.10578029501755282,
+      0.8518983794825985,
+      0.9269688107956487,
+      1.789999999999992,
+      2.943996012251519
+    ],
+    "class_obj_2": "pedestrian"
+  },
+  {
+    "caption": "A small black car with headlights on , located slightly to the right of center and close to the right edge of the view , facing the observer directly , with a white car in front and an orange guardrail beside it.",
+    "target_spans": [
+      [
+        15,
+        18
+      ],
+      [
+        166,
+        169
+      ]
+    ],
+    "target_span_words": [
+      "car",
+      "car"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "1024360143612057520_3580_000_3600_000",
+    "frame_name": "0170_4",
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0170_4#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0170_4",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/1024360143612057520_3580_000_3600_000/0170_4#g0:main0",
+      "waymo/1024360143612057520_3580_000_3600_000/0170_4#g0:other0"
+    ],
+    "object_descriptions": [
+      "small black car with headlights on",
+      "white car"
+    ],
+    "object_views": [
+      "side-right view",
+      "side-right view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.9465786814689636,
+        0.32245904207229614,
+        0.0030033662915229797,
+        -25196.724609375
+      ],
+      [
+        -0.3221975564956665,
+        0.9461139440536499,
+        -0.03251432254910469,
+        42378.91015625
+      ],
+      [
+        -0.013326063752174377,
+        0.02980968728661537,
+        0.9994667768478394,
+        -160.44500732421875
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      -4.188941776614229,
+      -21.977859436119616,
+      1.345525954299319,
+      4.60638936510151,
+      1.996227196060079,
+      1.4300000000000068,
+      1.1254015601297995
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      -7.3082667108028545,
+      -28.87037008275729,
+      1.427122824653452,
+      4.620887601705396,
+      2.055794273564334,
+      1.5,
+      1.1127189551275496
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "This is a silver SUV with an elongated body and numerous windows , located slightly left of center and close to the middle of the road , facing the observer with its front face and headlights visible. There is a large tree behind and to the left of it , and a red car behind and to the right.",
+    "target_spans": [
+      [
+        18,
+        21
+      ],
+      [
+        265,
+        268
+      ]
+    ],
+    "target_span_words": [
+      "suv",
+      "car"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10247954040621004675_2180_000_2200_000",
+    "frame_name": "0034_0",
+    "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0034_0#g0",
+    "source_scene_id": "waymo/10247954040621004675_2180_000_2200_000/0034_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10247954040621004675_2180_000_2200_000/0034_0#g0:main0",
+      "waymo/10247954040621004675_2180_000_2200_000/0034_0#g0:other0"
+    ],
+    "object_descriptions": [
+      "silver suv with an elongated body",
+      "red car"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7805161476135254,
+        0.6251090168952942,
+        -0.005766210611909628,
+        -5913.07373046875
+      ],
+      [
+        -0.6249281167984009,
+        0.7799862027168274,
+        -0.03296011686325073,
+        11212.5087890625
+      ],
+      [
+        -0.016106102615594864,
+        0.029329370707273483,
+        0.9994400143623352,
+        169.53500366210938
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      20.231491621663736,
+      0.16689749304441648,
+      1.464448695729999,
+      5.830181557813585,
+      2.370419040140836,
+      2.210000000000008,
+      2.814297372734549
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      21.829919380918,
+      -8.068245483577812,
+      1.2689448334491829,
+      4.599999742579785,
+      2.0278512624108456,
+      1.7300000000000182,
+      -0.4405165933415476
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "This is a silver SUV with an elongated body and numerous windows , located slightly left of center and close to the middle of the road , facing the observer. There is a white car behind and to the right of it , and a large tree behind and to the left.",
+    "target_spans": [
+      [
+        18,
+        21
+      ],
+      [
+        176,
+        179
+      ]
+    ],
+    "target_span_words": [
+      "suv",
+      "car"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10247954040621004675_2180_000_2200_000",
+    "frame_name": "0039_0",
+    "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0039_0#g0",
+    "source_scene_id": "waymo/10247954040621004675_2180_000_2200_000/0039_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10247954040621004675_2180_000_2200_000/0039_0#g0:main0",
+      "waymo/10247954040621004675_2180_000_2200_000/0039_0#g0:other0"
+    ],
+    "object_descriptions": [
+      "silver suv with an elongated body",
+      "white car"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.7382428646087646,
+        0.6744594573974609,
+        -0.01009734533727169,
+        -5910.6455078125
+      ],
+      [
+        -0.674409031867981,
+        0.7377328276634216,
+        -0.030376341193914413,
+        11210.4423828125
+      ],
+      [
+        -0.01303846761584282,
+        0.029234858229756355,
+        0.9994875192642212,
+        169.47900390625
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      16.995355441344145,
+      1.3648003967309705,
+      1.3619164377688548,
+      5.830181557813585,
+      2.3704190401408356,
+      2.210000000000008,
+      2.879291732564691
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      19.108260952616547,
+      -6.746633539207323,
+      1.1740099238810728,
+      4.599999742579785,
+      2.0278512624108442,
+      1.7300000000000182,
+      -0.3755222335114037
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "A small red car with a compact body and circular taillights. Located slightly to the right of the center of the view , close to the middle of the road , with the back facing the observer. There is a white car in front and to the right , and a trash bin on the left.",
+    "target_spans": [
+      [
+        13,
+        16
+      ],
+      [
+        206,
+        209
+      ]
+    ],
+    "target_span_words": [
+      "car",
+      "car"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10247954040621004675_2180_000_2200_000",
+    "frame_name": "0069_0",
+    "scene_id": "waymo/10247954040621004675_2180_000_2200_000/0069_0#g0",
+    "source_scene_id": "waymo/10247954040621004675_2180_000_2200_000/0069_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10247954040621004675_2180_000_2200_000/0069_0#g0:main0",
+      "waymo/10247954040621004675_2180_000_2200_000/0069_0#g0:other0"
+    ],
+    "object_descriptions": [
+      "small red car with a compact body",
+      "white car"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.4585704803466797,
+        0.8878563046455383,
+        -0.03773951157927513,
+        -5898.47900390625
+      ],
+      [
+        -0.8886341452598572,
+        0.45845600962638855,
+        -0.012144457548856735,
+        11194.57421875
+      ],
+      [
+        0.006519372574985027,
+        0.03910570591688156,
+        0.9992138147354126,
+        169.43499755859375
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      35.185624512416325,
+      -6.187503901911427,
+      1.2947858647492012,
+      3.8405879978217934,
+      1.9932798400282243,
+      1.670000000000016,
+      2.7442220015337924
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      33.95853375162915,
+      -13.200419810955609,
+      1.4000024207294928,
+      4.834991244989807,
+      2.0696194238090073,
+      1.420000000000016,
+      -0.38365104456117205
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "This is a white truck with advertising patterns and text printed on its body. It is located slightly to the right of the center of the view , with its back facing the observer and the tail lights illuminated. There is a blue bus on the left side and a white car in front on the right side.",
+    "target_spans": [
+      [
+        17,
+        22
+      ],
+      [
+        259,
+        262
+      ]
+    ],
+    "target_span_words": [
+      "truck",
+      "car"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0024_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0024_0#g0",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0024_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0024_0#g0:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0024_0#g0:other2"
+    ],
+    "object_descriptions": [
+      "white truck with advertising patterns",
+      "white car"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "truck",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 2
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.150443896651268,
+        0.9886090755462646,
+        -0.004331601317971945,
+        -1687.2359619140625
+      ],
+      [
+        -0.9874519109725952,
+        0.15005211532115936,
+        -0.04922499135136604,
+        14418.64453125
+      ],
+      [
+        -0.048014309257268906,
+        0.011682847514748573,
+        0.9987783432006836,
+        -28.14299964904785
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      18.352123379887416,
+      0.13194838628322714,
+      1.8801234548888033,
+      7.28325344015407,
+      2.9177203448477633,
+      3.3000000000000007,
+      0.021314139875125537
+    ],
+    "class_obj_1": "truck",
+    "bbox3d_obj_2": [
+      38.7629909262414,
+      3.6822494678161775,
+      2.5296967824867806,
+      5.915593028130388,
+      2.4332129603904713,
+      2.3387661715115833,
+      3.0891511352057623
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "A police van , white with green stripes and \"SAN FRANCISCO SHERIFF\" text , equipped with warning lights on the roof. Located slightly to the right of the center in the view , partially obscured by a building. The side faces the observer , the front points left , and the rear points right. There is a pedestrian in front of it on the left and a silver sedan behind it on the left.",
+    "target_spans": [
+      [
+        10,
+        13
+      ],
+      [
+        353,
+        358
+      ]
+    ],
+    "target_span_words": [
+      "van",
+      "sedan"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0029_2",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0029_2#g0",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0029_2",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0029_2#g0:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0029_2#g0:other2"
+    ],
+    "object_descriptions": [
+      "police van",
+      "silver sedan"
+    ],
+    "object_views": [
+      "front-right view",
+      "front-right view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 2
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.15083080530166626,
+        0.9885424971580505,
+        -0.005813094787299633,
+        -1686.92333984375
+      ],
+      [
+        -0.9874480962753296,
+        0.15037983655929565,
+        -0.048292603343725204,
+        14416.568359375
+      ],
+      [
+        -0.04686511680483818,
+        0.013024142012000084,
+        0.9988163113594055,
+        -28.243999481201172
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      8.028734375395288,
+      -5.547755113330368,
+      1.1351969764815522,
+      5.737947081436828,
+      2.5931352588035015,
+      2.3299999999999983,
+      0.02034630434832163
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      31.96736926154881,
+      -23.488839481726245,
+      2.3132134440080563,
+      4.356967577503017,
+      2.026163891000903,
+      1.7870521257458236,
+      1.5919070326869234
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "This is a white pickup truck with a roof rack , located slightly left of center in the view , side facing the observer , front facing the left side of the image. There is a black sedan behind and to the left of it , and an advertising trailer behind and to the right.",
+    "target_spans": [
+      [
+        17,
+        29
+      ],
+      [
+        180,
+        185
+      ]
+    ],
+    "target_span_words": [
+      "pickup truck",
+      "sedan"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0034_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0#g1",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0034_0#g1:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0034_0#g1:other3"
+    ],
+    "object_descriptions": [
+      "white pickup truck with a roof rack",
+      "black sedan"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 3
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.1507394164800644,
+        0.9885581731796265,
+        -0.0055108750239014626,
+        -1686.6492919921875
+      ],
+      [
+        -0.9874846339225769,
+        0.1503094732761383,
+        -0.04776107892394066,
+        14414.755859375
+      ],
+      [
+        -0.046386267989873886,
+        0.012641382403671741,
+        0.9988436102867126,
+        -28.33099937438965
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      27.874324839382098,
+      4.078129617144953,
+      2.0068909686090137,
+      5.915593028130388,
+      2.433212960390157,
+      2.3387661715115833,
+      3.1160735150345946
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      35.90305807187906,
+      9.07723023510647,
+      1.7829487653913247,
+      4.917205464071415,
+      2.2732751045398434,
+      1.520104064057115,
+      2.642145079416185
+    ],
+    "class_obj_2": "car"
+  },
+  {
+    "caption": "This is a dark-colored sedan located in the left middle side of the view , close to the left edge. It faces the observer from its side , with the front of the car pointing towards the right side of the image. There is a white truck on its right and a bus on its left.",
+    "target_spans": [
+      [
+        24,
+        29
+      ],
+      [
+        227,
+        232
+      ]
+    ],
+    "target_span_words": [
+      "sedan",
+      "truck"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0034_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0#g2",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0034_0",
+    "source_ground_index": 2,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0034_0#g2:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0034_0#g2:other1"
+    ],
+    "object_descriptions": [
+      "dark-colored sedan",
+      "white truck"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "truck"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.1507394164800644,
+        0.9885581731796265,
+        -0.0055108750239014626,
+        -1686.6492919921875
+      ],
+      [
+        -0.9874846339225769,
+        0.1503094732761383,
+        -0.04776107892394066,
+        14414.755859375
+      ],
+      [
+        -0.046386267989873886,
+        0.012641382403671741,
+        0.9988436102867126,
+        -28.33099937438965
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      35.90305807187906,
+      9.07723023510647,
+      1.7829487653913247,
+      4.917205464071415,
+      2.2732751045398434,
+      1.520104064057115,
+      2.642145079416185
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      17.304655435225868,
+      0.18484792006768203,
+      1.8887494281715362,
+      7.28325344015407,
+      2.9177203448468774,
+      3.3000000000000007,
+      0.012060729264516734
+    ],
+    "class_obj_2": "truck"
+  },
+  {
+    "caption": "A small dark blue Toyota car is located in the lower right of the view , with its rear facing the observer. Nearby , there is a large white truck and a white car.",
+    "target_spans": [
+      [
+        26,
+        29
+      ],
+      [
+        141,
+        146
+      ]
+    ],
+    "target_span_words": [
+      "car",
+      "truck"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0064_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0#g0",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0",
+    "source_ground_index": 0,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0064_0#g0:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0064_0#g0:other2"
+    ],
+    "object_descriptions": [
+      "small dark blue toyota car",
+      "large white truck"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "truck"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 2
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.15073536336421967,
+        0.9885722994804382,
+        -0.0019173979526385665,
+        -1685.8829345703125
+      ],
+      [
+        -0.9874581098556519,
+        0.15047277510166168,
+        -0.04779559746384621,
+        14409.7080078125
+      ],
+      [
+        -0.04696088656783104,
+        0.009097836911678314,
+        0.9988552927970886,
+        -28.576000213623047
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      12.824724124322529,
+      -3.2860885631457677,
+      1.2710793031174035,
+      4.031596784899193,
+      1.934155090420023,
+      1.9899999999999984,
+      -0.022870580749672076
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      17.808982347842175,
+      0.47973537198282656,
+      2.246783960734547,
+      7.28325344015407,
+      2.9177203448465123,
+      3.3000000000000007,
+      0.10950865820447708
+    ],
+    "class_obj_2": "truck"
+  },
+  {
+    "caption": "Object type: cyclist; Main appearance features: wearing a red top and dark pants; Position information: slightly left of center in the view; Relationship with the surroundings: a white car in front on the right , and a large truck behind on the right.",
+    "target_spans": [
+      [
+        14,
+        21
+      ],
+      [
+        226,
+        231
+      ]
+    ],
+    "target_span_words": [
+      "cyclist",
+      "truck"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0064_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0#g2",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0064_0",
+    "source_ground_index": 2,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0064_0#g2:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0064_0#g2:other3"
+    ],
+    "object_descriptions": [
+      "cyclist",
+      "large truck"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "cyclist",
+      "truck"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 3
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.15073536336421967,
+        0.9885722994804382,
+        -0.0019173979526385665,
+        -1685.8829345703125
+      ],
+      [
+        -0.9874581098556519,
+        0.15047277510166168,
+        -0.04779559746384621,
+        14409.7080078125
+      ],
+      [
+        -0.04696088656783104,
+        0.009097836911678314,
+        0.9988552927970886,
+        -28.576000213623047
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      28.938598202094,
+      7.761274189532514,
+      1.9199065530057169,
+      1.926496922655545,
+      0.8283462216968648,
+      1.8500000000000014,
+      3.018773373249548
+    ],
+    "class_obj_1": "cyclist",
+    "bbox3d_obj_2": [
+      17.808982347842175,
+      0.47973537198282656,
+      2.246783960734547,
+      7.28325344015407,
+      2.9177203448465123,
+      3.3000000000000007,
+      0.10950865820447708
+    ],
+    "class_obj_2": "truck"
+  },
+  {
+    "caption": "A small blue car located on the right middle side of the view , with its side facing the observer and the front pointing towards the left side of the image. There is a white truck in front of it on the right and a large white van on its right side.",
+    "target_spans": [
+      [
+        14,
+        17
+      ],
+      [
+        175,
+        180
+      ],
+      [
+        227,
+        230
+      ]
+    ],
+    "target_span_words": [
+      "car",
+      "truck",
+      "van"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun",
+      "released_others_noun"
+    ],
+    "target_count": 3,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0079_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0#g1",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0079_0#g1:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0079_0#g1:other0",
+      "waymo/10289507859301986274_4200_000_4220_000/0079_0#g1:other1"
+    ],
+    "object_descriptions": [
+      "small blue car",
+      "white truck",
+      "large white van"
+    ],
+    "object_views": [
+      "front view",
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "truck",
+      "car"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.15095148980617523,
+        0.9885396361351013,
+        -0.001743317930959165,
+        -1685.6082763671875
+      ],
+      [
+        -0.987604022026062,
+        0.1507313847541809,
+        -0.043798767030239105,
+        14407.9072265625
+      ],
+      [
+        -0.04303404316306114,
+        0.008333196863532066,
+        0.9990388751029968,
+        -28.663999557495117
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      21.071743290165614,
+      -3.3182866874748242,
+      1.832496489920345,
+      4.031596784899193,
+      1.9341550904198466,
+      1.9899999999999984,
+      0.005069347794089296
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      18.51679251509995,
+      1.1258783284779952,
+      2.3189027043688384,
+      7.28325344015407,
+      2.9177203448477487,
+      3.3000000000000007,
+      0.2677309283375373
+    ],
+    "class_obj_2": "truck",
+    "bbox3d_obj_3": [
+      31.12207692867014,
+      8.100487547797513,
+      1.8615419637111472,
+      4.594295411745775,
+      2.1852689473779163,
+      1.6918878990530857,
+      2.6552163030037645
+    ],
+    "class_obj_3": "car"
+  },
+  {
+    "caption": "A small white SUV with an aerodynamic design , located slightly left of center in the view , with its side facing the observer. There is a large truck behind and to the right , and a bicycle in front and to the left.",
+    "target_spans": [
+      [
+        15,
+        18
+      ],
+      [
+        146,
+        151
+      ]
+    ],
+    "target_span_words": [
+      "suv",
+      "truck"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0079_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0#g2",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0079_0",
+    "source_ground_index": 2,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0079_0#g2:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0079_0#g2:other1"
+    ],
+    "object_descriptions": [
+      "small white suv with an aerodynamic design",
+      "large truck"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "truck"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.15095148980617523,
+        0.9885396361351013,
+        -0.001743317930959165,
+        -1685.6082763671875
+      ],
+      [
+        -0.987604022026062,
+        0.1507313847541809,
+        -0.043798767030239105,
+        14407.9072265625
+      ],
+      [
+        -0.04303404316306114,
+        0.008333196863532066,
+        0.9990388751029968,
+        -28.663999557495117
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      31.12207692867014,
+      8.100487547797513,
+      1.8615419637111472,
+      4.594295411745775,
+      2.1852689473779163,
+      1.6918878990530857,
+      2.6552163030037645
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      18.51679251509995,
+      1.1258783284779952,
+      2.3189027043688384,
+      7.28325344015407,
+      2.9177203448477487,
+      3.3000000000000007,
+      0.2677309283375373
+    ],
+    "class_obj_2": "truck"
+  },
+  {
+    "caption": "A small dark-colored car is located slightly to the right of the center in the view , unobstructed. There is a large white truck in front and to the right , and a white van on the left side.",
+    "target_spans": [
+      [
+        22,
+        25
+      ],
+      [
+        124,
+        129
+      ]
+    ],
+    "target_span_words": [
+      "car",
+      "truck"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0084_0",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_0#g1",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_0",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0084_0#g1:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0084_0#g1:other1"
+    ],
+    "object_descriptions": [
+      "small dark-colored car",
+      "large white truck"
+    ],
+    "object_views": [
+      "front view",
+      "front view"
+    ],
+    "object_classes": [
+      "car",
+      "truck"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 1
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.1510624885559082,
+        0.9885216951370239,
+        -0.0022248984314501286,
+        -1685.49169921875
+      ],
+      [
+        -0.9876963496208191,
+        0.15084350109100342,
+        -0.04125687852501869,
+        14407.1416015625
+      ],
+      [
+        -0.04044770821928978,
+        0.008429890498518944,
+        0.9991461038589478,
+        -28.701000213623047
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      23.57059091747942,
+      -3.2426209040515346,
+      1.8926340853880674,
+      4.031596784899193,
+      1.9341550904200115,
+      1.9899999999999984,
+      0.008896953770408889
+    ],
+    "class_obj_1": "car",
+    "bbox3d_obj_2": [
+      18.4534218945646,
+      1.397810717784921,
+      2.3027851924033484,
+      7.28325344015407,
+      2.9177203448459195,
+      3.3000000000000007,
+      0.31995092176700934
+    ],
+    "class_obj_2": "truck"
+  },
+  {
+    "caption": "Object type: pedestrian; Main appearance features: wearing a gray top and blue shorts , holding a yellow item; Location information: slightly to the right of the center in the view , standing on a zebra crossing; Relationship with the surrounding environment: a pedestrian is on the left side , and a bicycle is behind and to the right.",
+    "target_spans": [
+      [
+        14,
+        24
+      ],
+      [
+        302,
+        309
+      ]
+    ],
+    "target_span_words": [
+      "pedestrian",
+      "bicycle"
+    ],
+    "target_span_sources": [
+      "released_main_noun",
+      "released_others_noun"
+    ],
+    "target_count": 2,
+    "segment_name": "10289507859301986274_4200_000_4220_000",
+    "frame_name": "0084_1",
+    "scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_1#g1",
+    "source_scene_id": "waymo/10289507859301986274_4200_000_4220_000/0084_1",
+    "source_ground_index": 1,
+    "object_ids": [
+      "waymo/10289507859301986274_4200_000_4220_000/0084_1#g1:main0",
+      "waymo/10289507859301986274_4200_000_4220_000/0084_1#g1:other2"
+    ],
+    "object_descriptions": [
+      "pedestrian",
+      "bicycle"
+    ],
+    "object_views": [
+      "front-left view",
+      "front-left view"
+    ],
+    "object_classes": [
+      "pedestrian",
+      "cyclist"
+    ],
+    "source_target_indices": [
+      {
+        "source": "main",
+        "index": 0
+      },
+      {
+        "source": "other",
+        "index": 2
+      }
+    ],
+    "source": "released_single_caption_unambiguous_mentioned_others",
+    "coordinate_frame": "source_lidar",
+    "timestamp": 0,
+    "pose": [
+      [
+        0.1510624885559082,
+        0.9885216951370239,
+        -0.0022248984314501286,
+        -1685.49169921875
+      ],
+      [
+        -0.9876963496208191,
+        0.15084350109100342,
+        -0.04125687852501869,
+        14407.1416015625
+      ],
+      [
+        -0.04044770821928978,
+        0.008429890498518944,
+        0.9991461038589478,
+        -28.701000213623047
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bbox3d_obj_1": [
+      14.88458565703695,
+      13.196358206546051,
+      1.0419778156867778,
+      1.158125865952371,
+      0.9969440320641961,
+      1.764490410060521,
+      -2.7324447487679526
+    ],
+    "class_obj_1": "pedestrian",
+    "bbox3d_obj_2": [
+      17.21173966825154,
+      8.286275718161392,
+      1.3568216718081203,
+      1.926496922655545,
+      0.8283462216961435,
+      1.8500000000000014,
+      -3.070925926929312
+    ],
+    "class_obj_2": "cyclist"
+  }
+]

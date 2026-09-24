@@ -1,0 +1,197 @@
+{
+  "ego_motion_reasoning": {
+    "qa_id": "084d6ce5a17f0b5b",
+    "qa_split": "train",
+    "scenario": "ego_motion_reasoning",
+    "question_category": "ego_motion",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "The front view corresponds to north. If the ego car moves 5 meters forward while all other objects remain stationary, does it get closer to the pedestrian in the front-left view? Answer in one complete sentence.",
+    "answer": "After moving 5 meters forward, the ego car gets closer to the pedestrian in the front-left view.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "cardinal_relation": {
+    "qa_id": "2d0412f65f8e17e8",
+    "qa_split": "train",
+    "scenario": "cardinal_relation",
+    "question_category": "spatial_relation",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "The front view corresponds to north. From the perspective of the pedestrian in the front-left view while facing north, describe where the white postal vehicle in the front-left view is located in one complete sentence.",
+    "answer": "The white postal vehicle in the front-left view is in front of the pedestrian in the front-left view.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "object_motion_reasoning": {
+    "qa_id": "30842e47544bc880",
+    "qa_split": "train",
+    "scenario": "object_motion_reasoning",
+    "question_category": "object_motion",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "The front view corresponds to north. If the white postal vehicle in the front-left view moves 5 meters left while all other objects remain stationary, does it get closer to the pedestrian in the front-left view? Answer in one complete sentence.",
+    "answer": "After moving 5 meters left, the white postal vehicle in the front-left view does not get closer to the pedestrian in the front-left view.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "object_absolute_distance": {
+    "qa_id": "3f1add31d7b1a778",
+    "qa_split": "train",
+    "scenario": "object_absolute_distance",
+    "question_category": "distance",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "How far, in meters, is the pedestrian in the front-left view from the white postal vehicle in the front-left view? Answer in one complete sentence.",
+    "answer": "The distance from the pedestrian in the front-left view to the white postal vehicle in the front-left view is 10.0 meters.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "ego_relative_distance": {
+    "qa_id": "59ccd93b0c236141",
+    "qa_split": "train",
+    "scenario": "ego_relative_distance",
+    "question_category": "distance",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "Is the pedestrian in the front-left view closer to the ego car than the white postal vehicle in the front-left view? Explain the comparison in one complete sentence.",
+    "answer": "The pedestrian in the front-left view is closer to the ego car than the white postal vehicle in the front-left view is.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "ego_absolute_distance": {
+    "qa_id": "656ef15989bdeade",
+    "qa_split": "train",
+    "scenario": "ego_absolute_distance",
+    "question_category": "distance",
+    "target_count": 2,
+    "scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0",
+    "source_scene_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1",
+    "sequence": "1024360143612057520_3580_000_3600_000",
+    "question": "How far, in meters, is the pedestrian in the front-left view from the ego car? Answer in one complete sentence.",
+    "answer": "The pedestrian in the front-left view is 9.6 meters from the ego car.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:main0"
+      },
+      {
+        "slot": 1,
+        "description": "white postal vehicle",
+        "view": "front-left view",
+        "object_id": "waymo/1024360143612057520_3580_000_3600_000/0095_1#g0:other0"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  },
+  "object_relative_distance": {
+    "qa_id": "4831b8b19405031b",
+    "qa_split": "train",
+    "scenario": "object_relative_distance",
+    "question_category": "distance",
+    "target_count": 3,
+    "scene_id": "waymo/11048712972908676520_545_000_565_000/0125_2#g1",
+    "source_scene_id": "waymo/11048712972908676520_545_000_565_000/0125_2",
+    "sequence": "11048712972908676520_545_000_565_000",
+    "question": "Which is closer to the pedestrian in the front-right view, the person in the front-right view or the truck in the front-right view? Answer in one complete sentence.",
+    "answer": "The person in the front-right view is closer to the pedestrian in the front-right view than the truck in the front-right view is.",
+    "object_refs": [
+      {
+        "slot": 0,
+        "description": "pedestrian",
+        "view": "front-right view",
+        "object_id": "waymo/11048712972908676520_545_000_565_000/0125_2#g1:main0"
+      },
+      {
+        "slot": 1,
+        "description": "person",
+        "view": "front-right view",
+        "object_id": "waymo/11048712972908676520_545_000_565_000/0125_2#g1:other0"
+      },
+      {
+        "slot": 2,
+        "description": "truck",
+        "view": "front-right view",
+        "object_id": "waymo/11048712972908676520_545_000_565_000/0125_2#g1:other1"
+      }
+    ],
+    "input_policy": "natural_descriptions_plus_implicit_grounding_tokens"
+  }
+}

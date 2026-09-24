@@ -20,6 +20,7 @@ import torch.nn.functional as F
 from train_qa import (QATrainer, TokenProjector, PROMPT_PREFIX,
                       ASSISTANT_PREFIX, ASSISTANT_SUFFIX)
 from strict_scene_qa_eval import evaluate as evaluate_scene_strict
+from strict_natural_qa_eval import evaluate as evaluate_natural_strict
 
 
 class RelationalTokenProjector(nn.Module):
@@ -162,10 +163,16 @@ class ScenarioTrainer(QATrainer):
     def pieces(self, record, with_answer):
         # This is the complete model input. No GT or predicted coordinate,
         # bounding box, distance, or relation field is read here.
-        if record.get("input_policy") == "implicit_grounding_tokens_only":
+        input_policy = record.get("input_policy")
+        if input_policy == "implicit_grounding_tokens_only":
             assert all(not any(key in obj for key in (
                 "description", "category", "bbox", "center"))
                 for obj in record["object_refs"]), record["qa_id"]
+        elif input_policy == "natural_descriptions_plus_implicit_grounding_tokens":
+            assert all(obj.get("description") and obj.get("view")
+                       for obj in record["object_refs"]), record["qa_id"]
+            assert all(not any(key in obj for key in ("category", "bbox", "center"))
+                       for obj in record["object_refs"]), record["qa_id"]
         pieces = [("text", self.encode(PROMPT_PREFIX), False),
                   ("text", self.encode(record["question"]), False)]
         tokens, _ = self.token_arrays(record)
@@ -178,7 +185,12 @@ class ScenarioTrainer(QATrainer):
         contextual = self.projector.forward_group(vectors, role_indices)
         for index, obj in enumerate(record["object_refs"]):
             soft = contextual[index].to(self.embed_dtype).reshape(1, 1, -1)
-            pieces += [("text", self.encode("\nObject {} token: ".format(obj["role"])), False),
+            if input_policy == "natural_descriptions_plus_implicit_grounding_tokens":
+                token_label = "\nGrounding token for the {} in the {}: ".format(
+                    obj["description"], obj["view"])
+            else:
+                token_label = "\nObject {} token: ".format(obj["role"])
+            pieces += [("text", self.encode(token_label), False),
                        ("soft", soft, False)]
         pieces.append(("text", self.encode(ASSISTANT_PREFIX), False))
         if with_answer:
@@ -318,6 +330,8 @@ def main():
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--batch-size", type=int, default=2)
     ap.add_argument("--gen-batch", type=int, default=4)
+    ap.add_argument("--max-new-tokens", type=int, default=96,
+                    help="Maximum generated answer length; natural QA needs full sentences")
     ap.add_argument("--grad-accum", type=int, default=4)
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--lora-lr", type=float, default=1e-4)
@@ -369,8 +383,16 @@ def main():
     for name in args.eval_splits.split(","):
         records = select_eval(split[name], args)
         print("GENERATE", name, len(records), flush=True)
-        predictions = trainer.generate(records)
-        if records and "canonical_answer" in private[records[0]["qa_id"]]:
+        predictions = trainer.generate(records, max_new_tokens=args.max_new_tokens)
+        evaluation_schema = (private[records[0]["qa_id"]].get("evaluation_schema")
+                             if records else None)
+        if evaluation_schema == "natural_svo_v1":
+            prediction_rows = [{"qa_id": row["qa_id"], "prediction": prediction}
+                               for row, prediction in zip(records, predictions)]
+            result = evaluate_natural_strict(
+                records, prediction_rows,
+                [private[row["qa_id"]] for row in records])
+        elif records and "canonical_answer" in private[records[0]["qa_id"]]:
             prediction_rows = [{"qa_id": row["qa_id"], "prediction": prediction}
                                for row, prediction in zip(records, predictions)]
             result = evaluate_scene_strict(

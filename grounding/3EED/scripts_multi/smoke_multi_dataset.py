@@ -12,10 +12,10 @@ from utils.transform_waymo import transform_to_front_view
 parser = argparse.ArgumentParser()
 parser.add_argument("--dataset", default="waymo-multi",
                     choices=["waymo-multi", "waymo-others-multi",
-                             "waymo-scene-multi"])
+                             "waymo-scene-multi", "waymo-native-multi"])
 args = parser.parse_args()
 splits = (("train", "val") if args.dataset in
-          ("waymo-others-multi", "waymo-scene-multi")
+          ("waymo-others-multi", "waymo-scene-multi", "waymo-native-multi")
           else ("train", "val", "test"))
 
 for split in splits:
@@ -34,6 +34,8 @@ for split in splits:
             assert count == 2
         elif args.dataset == "waymo-scene-multi":
             assert 1 <= count <= 5
+        elif args.dataset == "waymo-native-multi":
+            assert count in (2, 3)
         else:
             assert count in (2, 3)
         assert annotation["pred_pos_map"].shape == (count, token_budget)
@@ -50,6 +52,8 @@ for split in splits:
         assert item_count == 2
     elif args.dataset == "waymo-scene-multi":
         assert 1 <= item_count <= 5
+    elif args.dataset == "waymo-native-multi":
+        assert item_count in (2, 3)
     else:
         assert item_count in (2, 3)
     assert item["coordinate_frame"] == "source_lidar"
