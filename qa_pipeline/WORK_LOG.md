@@ -924,3 +924,4 @@
 11. 新增可恢复总脚本 `run_native_multi_natural_qa.sh`：数据构建与 smoke 可在 CPU 完成；若无 GPU 会明确写 `GPU_REQUIRED` 并退出；GPU 恢复后从 `.done` 继续 Grounding、checkpoint 选择、token 导出/校验、自然 QA 对齐、两组 Projector/LoRA 与打乱 token 对照。
 12. 用户指定最终推送仓库改为 `https://github.com/laigure/9.25.git`。完成后推送代码、schema、审计与实验摘要；超出 GitHub 大小限制的完整数据和模型权重保留远程目录，并提交生成脚本、样例、校验摘要和路径说明。
 13. CPU 数据阶段已正式跑完：真实 train/val loader 分别载入 644/714 条，16,384 点采样后均观察到目标实例 0 和 1，侧视角 GT 框旋转与验证集确定性检查通过。完整 QA 与 private GT 单文件均小于 GitHub 100 MB，已复制进 `qa_pipeline/artifacts/native_single_caption_v1/`，逐文件 SHA-256、QA ID 一一对应、split 隔离、positive span、四类平衡和泄漏检查全部通过。
+14. 数据阶段检查点已提交为 `17e209b` 并成功推送到用户指定的 `https://github.com/laigure/9.25.git` `main` 分支；远程分支 SHA 已核对为 `17e209bdc3125b2f7b92a7ddbef9230d47ab8799`。仓库内未发现 SSH 地址或密码。旧 44707 实例连接被服务端重置，45009 实例仍无 GPU，因此当前状态是“数据与脚本完成、GPU 训练未启动”。
