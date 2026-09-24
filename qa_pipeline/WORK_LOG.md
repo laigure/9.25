@@ -898,3 +898,13 @@
 9. 17,490 条中 7,658 条满足全部所需目标 IoU≥0.25，Grounding 覆盖率 43.79%。Grounding 正确条件下 QA 为 68.73%，加入定位错误后端到端为 30.09%，当前完整系统的主要瓶颈仍是 N=4/5 多目标 Grounding。
 10. 单独发起的 epoch-3 `last.pt` 评测日志停在 `GENERATE val 17490`，没有生成 `eval_val.json`，不纳入正式比较。正式权重继续使用 epoch-1 `best.pt`。
 11. 保存机器可读统计 `qa_pipeline/artifacts/results/scene_qa_v3/final_metrics_analysis.json` 和人工分析 `FINAL_RESULTS.md`。下一轮优先平衡 within/farther 与 safe/unsafe 标签，并将候选动作判断和真正局部路径规划分开报告。
+
+## 77. 当前微调方法代码核对（2026-09-24）
+
+1. Grounding 使用可变 1–5 目标的场景级多目标版本，从自然分布训练的 epoch-100 checkpoint 初始化；平衡采样器每轮按 N1/N2/N3/N4 = 900/800/600/300 取样。计划微调 30 epoch，实际在 epoch-25 验证末尾被 SIGHUP 中断，正式 token 使用完整保留的 epoch-15 checkpoint。
+2. Grounding 训练结束后冻结并离线导出每个对象一个 288 维最终 decoder/query token；QA 训练没有回传到 Grounding 的梯度。
+3. QA 第一阶段冻结完整 Qwen2.5-7B-Instruct，只训练 Pairwise Relational Projector。对 N 个对象构造全部有向对 `[t_i,t_j,t_i-t_j,t_i*t_j]`，经 MLP、按源对象聚合和两层 8-head Transformer 后，为每个对象输出一个 3584 维 LLM soft token。
+4. Pairwise Projector 有训练期辅助关系头，使用 private GT geometry 监督所有有向对象对的 left/deadband/right 与 behind/deadband/front，辅助损失权重 0.2。坐标仅用于生成标签和辅助损失，不拼接到 token，不进入问题文字或 LLM embedding。
+5. QA 第二阶段从 Projector 最佳权重初始化，冻结 Qwen 原始参数，同时联合更新 Projector 与注意力层 LoRA。LoRA 配置为 r=16、alpha=32、dropout=0.05，仅作用于 q/k/v/o projection，bias=none。
+6. 两阶段均使用 AdamW；Projector 与 LoRA 学习率均为 1e-4、weight decay 0.01、3 epoch、3% warmup、cosine schedule、梯度裁剪 1.0，batch size 2、gradient accumulation 4，有效 batch size 8。checkpoint 按 val loss 选择；当前正式 LoRA 为 epoch-1 `best.pt`。
+7. 完整模型输入只有通用问题文字、A–E 角色标记和 1–5 个隐式 Grounding token；caption、类别、box、center、距离和关系标签均不进入推理输入。
