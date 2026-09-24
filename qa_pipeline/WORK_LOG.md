@@ -933,3 +933,4 @@
 3. 首次启动暴露出 GPU 探测缺陷：容器实际暴露 `/dev/nvidia4`，而脚本硬编码检查 `/dev/nvidia0`，导致 `nvidia-smi` 能看到卡却误报无 GPU。已将检查改为 `nvidia-smi -L`，兼容容器的物理设备编号映射。
 4. 完整流水线于 2026-09-25 04:11:12 启动，launcher PID 1965，Grounding run 为 `native_multi_run/Train_waymo-native-multi_Val_waymo-native-multi/0925_0411`。公开 checkpoint 严格初始化成功，train/val 分别载入 644/714 条；每轮平衡抽样 N2/N3=600/300，N=1 保持禁用。
 5. 首轮 75/112 batch 约 28 秒；GPU 显存约 11.4/24.6 GB、利用率约 83%，loss 由 25-step 的 21.0386 降至 75-step 的 13.7037，尚未发现 OOM、NaN、CUDA error 或 Traceback。完整耗时先按 8–12 小时估计，待 epoch-5 验证和 token 导出取得实测速度后更新。
+6. epoch 5 首次完整验证耗时约 3 分 15 秒：PerTargetContrast Acc@0.25/0.5 为 64.22%/26.73%，JointAll-bbf Acc@0.25/0.5 为 39.78%/8.68%；N2/N3 的 JointAll-bbf@0.25 为 41.29%/6.45%。这是早期 checkpoint，三目标仍明显弱于双目标，继续训练到 epoch 15/30 后按 N2/N3 宏平均选择权重。按单轮训练约 37 秒、每 5 轮验证约 3.25 分钟计算，Grounding 阶段约 40 分钟；结合历史同规模 Qwen 生成实测，完整两条 Projector/LoRA/打乱-token 对照预计 8–11 小时。
