@@ -925,3 +925,11 @@
 12. 用户指定最终推送仓库改为 `https://github.com/laigure/9.25.git`。完成后推送代码、schema、审计与实验摘要；超出 GitHub 大小限制的完整数据和模型权重保留远程目录，并提交生成脚本、样例、校验摘要和路径说明。
 13. CPU 数据阶段已正式跑完：真实 train/val loader 分别载入 644/714 条，16,384 点采样后均观察到目标实例 0 和 1，侧视角 GT 框旋转与验证集确定性检查通过。完整 QA 与 private GT 单文件均小于 GitHub 100 MB，已复制进 `qa_pipeline/artifacts/native_single_caption_v1/`，逐文件 SHA-256、QA ID 一一对应、split 隔离、positive span、四类平衡和泄漏检查全部通过。
 14. 数据阶段检查点已提交为 `17e209b` 并成功推送到用户指定的 `https://github.com/laigure/9.25.git` `main` 分支；远程分支 SHA 已核对为 `17e209bdc3125b2f7b92a7ddbef9230d47ab8799`。仓库内未发现 SSH 地址或密码。旧 44707 实例连接被服务端重置，45009 实例仍无 GPU，因此当前状态是“数据与脚本完成、GPU 训练未启动”。
+
+## 79. GPU 恢复、官方权重校验与原生多目标流水线启动（2026-09-25）
+
+1. 45009 实例已恢复一张 RTX 4090 D（24,564 MiB）。服务器缺少本轮要求的 3EED 官方 `ckpt_6384.pth`，且实例没有公网出口；从 3EED 官方 Hugging Face 数据包 `baseline_ckpt_pred.zip` 在本机下载后上传，只解压 `final_6384/ckpt_6384.pth` 到 `/root/autodl-tmp/3eed_data/checkpoints/ckpt_6384.pth`，随后删除远程压缩包。
+2. 官方 checkpoint 解压后为 738,272,386 bytes；本机直接流式读取 ZIP 成员和服务器解压文件的 SHA-256 均为 `bfdedb97971fb31640c5a78790716dc9547953caa646489138f048375e645ec8`，因此没有使用旧的拼接-caption checkpoint，也没有传输损坏。
+3. 首次启动暴露出 GPU 探测缺陷：容器实际暴露 `/dev/nvidia4`，而脚本硬编码检查 `/dev/nvidia0`，导致 `nvidia-smi` 能看到卡却误报无 GPU。已将检查改为 `nvidia-smi -L`，兼容容器的物理设备编号映射。
+4. 完整流水线于 2026-09-25 04:11:12 启动，launcher PID 1965，Grounding run 为 `native_multi_run/Train_waymo-native-multi_Val_waymo-native-multi/0925_0411`。公开 checkpoint 严格初始化成功，train/val 分别载入 644/714 条；每轮平衡抽样 N2/N3=600/300，N=1 保持禁用。
+5. 首轮 75/112 batch 约 28 秒；GPU 显存约 11.4/24.6 GB、利用率约 83%，loss 由 25-step 的 21.0386 降至 75-step 的 13.7037，尚未发现 OOM、NaN、CUDA error 或 Traceback。完整耗时先按 8–12 小时估计，待 epoch-5 验证和 token 导出取得实测速度后更新。

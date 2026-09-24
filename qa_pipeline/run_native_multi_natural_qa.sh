@@ -36,8 +36,8 @@ if [[ ! -f "$STAGE/data.done" ]]; then
   touch "$STAGE/data.done"
 fi
 
-if [[ ! -e /dev/nvidia0 ]]; then
-  mark "GPU_REQUIRED: /dev/nvidia0 is absent; data is ready, training not started"
+if ! command -v nvidia-smi >/dev/null 2>&1 || ! nvidia-smi -L >/dev/null 2>&1; then
+  mark "GPU_REQUIRED: nvidia-smi cannot see a GPU; data is ready, training not started"
   exit 3
 fi
 
