@@ -7,6 +7,8 @@ from pathlib import Path
 
 from audit_native_others import category_mentions, secondary_entity_mentions
 from build_native_natural_qa import audit, build_record, write_jsonl
+from build_native_no_view_qa import audit as audit_no_view
+from build_native_no_view_qa import convert as convert_no_view
 from strict_natural_qa_eval import evaluate
 
 
@@ -66,6 +68,21 @@ class NativeNaturalQATest(unittest.TestCase):
             loaded = [json.loads(line) for line in path.read_text(
                 encoding="utf-8").splitlines()]
         self.assertEqual(loaded, rows)
+
+    def test_no_view_variant_preserves_ids_and_oracle_contract(self):
+        rows, private = [], {}
+        build_record(synthetic_record(), "val", rows, private, 5.0)
+        converted, private_no_view = convert_no_view(rows, list(private.values()))
+        report = audit_no_view(converted, private_no_view)
+        self.assertEqual([row["qa_id"] for row in converted],
+                         [row["qa_id"] for row in rows])
+        self.assertEqual(report["oracle"]["strict_all_pass"], 1.0)
+        for row in converted:
+            self.assertNotIn("view", row["question"].lower())
+            self.assertNotIn("view", row["answer"].lower())
+            self.assertTrue(all("view" not in ref for ref in row["object_refs"]))
+            self.assertEqual(row["input_policy"],
+                             "natural_descriptions_and_implicit_tokens")
 
 
 if __name__ == "__main__":

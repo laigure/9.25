@@ -36,7 +36,8 @@ if [[ ! -f "$STAGE/data.done" ]]; then
   touch "$STAGE/data.done"
 fi
 
-if ! command -v nvidia-smi >/dev/null 2>&1 || ! nvidia-smi -L >/dev/null 2>&1; then
+GPU_LIST=$(nvidia-smi -L 2>/dev/null || true)
+if [[ -z "$GPU_LIST" ]]; then
   mark "GPU_REQUIRED: nvidia-smi cannot see a GPU; data is ready, training not started"
   exit 3
 fi

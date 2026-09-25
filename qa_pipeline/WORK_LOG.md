@@ -943,3 +943,12 @@
 4. `pairwise_aux` Projector 的 3 epoch 训练已完成，`best.pt`、`last.pt` 和 `history.json` 均完整；epoch 3 val loss 为 0.5425。原进程停在用 `best.pt` 生成完整 12,096 条 val 回答，尚未生成 `eval_val.json`，所以辅助监督效果还不能比较。
 5. 平台容器于 13:46 重新启动，当前没有任何 `/dev/nvidia*` 设备；launcher、Python 与 CUDA 进程因此全部消失，日志没有 Traceback/OOM/NaN，且没有正常退出标记。这次停止由 GPU 被平台回收造成，不是模型代码报错。
 6. 总脚本增加训练后生成阶段的断点恢复：若 `best.pt + history.json` 已存在但 `eval_val.json` 缺失，直接以 eval 模式续跑验证生成；Projector 和 LoRA 都适用。下次恢复 GPU 后不会重训已完成的 3 轮 aux Projector。剩余 aux Projector 生成、aux LoRA 训练/生成和打乱 token 评测按本轮实测约需 4.5 小时。
+
+## 81. QA 公共输入删除 view，Grounding 保持不变（2026-09-25）
+
+1. 按用户要求只修改下游 QA，不改多目标 Grounding。新增 `native_natural_qa_v2_no_view`：从 v1 稳定转换 22,680 条，QA ID、object ID、对象顺序、private answer key 和 token 绑定逐条保持一致；现有 Grounding 标注、epoch-30 checkpoint、导出 token 和 Grounding 代码均未重建或修改。
+2. 问题与标准答案删除 `front/front-left/front-right/side-left/side-right view`；公共 `object_refs` 删除 `view` 字段。坐标系说明改为 `Use the ego vehicle's current heading as north.`，它只定义运动与方位词的坐标轴，不透露任何目标所在视角。
+3. 模型 prompt 新增 `natural_descriptions_and_implicit_tokens` 策略，soft token 标签只写 `Grounding token for the <non-spatial description>`，不再把 view 名称送入 Qwen。private GT 中保留原 view 仅用于审计，`ScenarioTrainer.pieces()` 不读取它。
+4. 全量审计：train/val 10,584/12,096，四类各 5,670；公共问题/答案中的 `view` 命中 0，公共 view 字段 0，Object-A/B 0，坐标 0，重复模型输入 0。22,680 条 canonical answer 回灌后严格 SVO、完整句、一句话、全部合取和反向关系一致性均为 100%。
+5. 远程 QA 数据为 `/root/autodl-tmp/3eed_data/multi_grounding/native_natural_qa_v2_no_view`，复用既有 token 后的数据为 `/root/autodl-tmp/3eed_data/multi_grounding/native_natural_qa_tokens_v2_no_view`；已对齐 1,358 个 Grounding 场景、2,769 个 token，正确和同类别打乱分支均为 22,680 条。
+6. 新增 QA-only 入口 `run_native_no_view_qa.sh`，明确不调用 Grounding 构建、训练、checkpoint 选择或 token 导出。平台无 GPU 时 `nvidia-smi -L` 会以空输出返回成功，旧检查曾误启动一个尚未产生 batch/checkpoint 的 Python 进程；已立即停止，并将两个 runner 修正为必须得到非空 GPU 列表。当前 no-view 数据和 token 对齐已完成，GPU 恢复后才会重新训练两组 QA 对照。

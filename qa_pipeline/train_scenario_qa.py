@@ -173,6 +173,12 @@ class ScenarioTrainer(QATrainer):
                        for obj in record["object_refs"]), record["qa_id"]
             assert all(not any(key in obj for key in ("category", "bbox", "center"))
                        for obj in record["object_refs"]), record["qa_id"]
+        elif input_policy == "natural_descriptions_and_implicit_tokens":
+            assert all(obj.get("description") and "view" not in obj
+                       for obj in record["object_refs"]), record["qa_id"]
+            assert all(not any(key in obj for key in ("category", "bbox", "center"))
+                       for obj in record["object_refs"]), record["qa_id"]
+            assert "view" not in record["question"].lower(), record["qa_id"]
         pieces = [("text", self.encode(PROMPT_PREFIX), False),
                   ("text", self.encode(record["question"]), False)]
         tokens, _ = self.token_arrays(record)
@@ -188,6 +194,9 @@ class ScenarioTrainer(QATrainer):
             if input_policy == "natural_descriptions_plus_implicit_grounding_tokens":
                 token_label = "\nGrounding token for the {} in the {}: ".format(
                     obj["description"], obj["view"])
+            elif input_policy == "natural_descriptions_and_implicit_tokens":
+                token_label = "\nGrounding token for the {}: ".format(
+                    obj["description"])
             else:
                 token_label = "\nObject {} token: ".format(obj["role"])
             pieces += [("text", self.encode(token_label), False),

@@ -1,0 +1,42 @@
+{
+  "dataset_version": "native_natural_qa_v2_no_view",
+  "source_dataset": "grounding_QA_publish_http1\\qa_pipeline\\artifacts\\native_single_caption_v1",
+  "grounding_change": "none; object IDs and token bindings are preserved",
+  "rows": 22680,
+  "public_input": "natural non-spatial descriptions + ordered implicit Grounding tokens; no view names, Object-A/B aliases or explicit geometry",
+  "private_only": "GT geometry, source view metadata and answer keys",
+  "audit": {
+    "counts": {
+      "rows": 22680,
+      "split:train": 10584,
+      "category:ego_motion": 5670,
+      "scenario:ego_motion_reasoning": 5670,
+      "N:2": 20176,
+      "category:spatial_relation": 5670,
+      "scenario:cardinal_relation": 5670,
+      "category:object_motion": 5670,
+      "scenario:object_motion_reasoning": 5670,
+      "category:distance": 5670,
+      "scenario:object_absolute_distance": 1425,
+      "scenario:ego_relative_distance": 1414,
+      "scenario:ego_absolute_distance": 2679,
+      "N:3": 2504,
+      "scenario:object_relative_distance": 152,
+      "split:val": 12096
+    },
+    "strict_zero_checks": [
+      "public_view_text_leaks",
+      "public_view_field_leaks",
+      "object_alias_leaks",
+      "coordinate_leaks",
+      "duplicate_model_inputs"
+    ],
+    "oracle": {
+      "strict_svo_accuracy": 1.0,
+      "canonical_sentence_match_rate": 1.0,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 1.0,
+      "inverse_relation_consistency": 1.0
+    }
+  }
+}
