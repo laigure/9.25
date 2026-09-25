@@ -934,3 +934,12 @@
 4. 完整流水线于 2026-09-25 04:11:12 启动，launcher PID 1965，Grounding run 为 `native_multi_run/Train_waymo-native-multi_Val_waymo-native-multi/0925_0411`。公开 checkpoint 严格初始化成功，train/val 分别载入 644/714 条；每轮平衡抽样 N2/N3=600/300，N=1 保持禁用。
 5. 首轮 75/112 batch 约 28 秒；GPU 显存约 11.4/24.6 GB、利用率约 83%，loss 由 25-step 的 21.0386 降至 75-step 的 13.7037，尚未发现 OOM、NaN、CUDA error 或 Traceback。完整耗时先按 8–12 小时估计，待 epoch-5 验证和 token 导出取得实测速度后更新。
 6. epoch 5 首次完整验证耗时约 3 分 15 秒：PerTargetContrast Acc@0.25/0.5 为 64.22%/26.73%，JointAll-bbf Acc@0.25/0.5 为 39.78%/8.68%；N2/N3 的 JointAll-bbf@0.25 为 41.29%/6.45%。这是早期 checkpoint，三目标仍明显弱于双目标，继续训练到 epoch 15/30 后按 N2/N3 宏平均选择权重。按单轮训练约 37 秒、每 5 轮验证约 3.25 分钟计算，Grounding 阶段约 40 分钟；结合历史同规模 Qwen 生成实测，完整两条 Projector/LoRA/打乱-token 对照预计 8–11 小时。
+
+## 80. 原生多目标实验中断点与已完成结果（2026-09-25）
+
+1. Grounding 30 epoch 正常完成，并按预定规则选中 epoch 30：JointAll-bbf@0.25 总体 57.00%，N2/N3 为 57.83%/38.71%，N2/N3 宏平均 48.27%；优于 epoch 15 的 42.48% 宏平均。train/val token 导出均通过校验，共 644/714 个场景、1,310/1,459 个目标，每个场景使用 normalized text spans 下的唯一 query 分配。
+2. `pairwise_noaux` 完整完成。Projector 严格完整句/SVO 合取为 44.89%，LoRA 为 50.20%，包含 Grounding 错误的端到端准确率为 28.00%；LoRA 分类别为距离 18.62%、ego motion 82.97%、object motion 61.74%、普通方位 37.47%。
+3. `pairwise_noaux` 同类别打乱 token 后严格合取仍为 48.94%，正确 token 只高 1.26 个百分点；普通方位和 ego 相对距离的增益为 3.01/5.17 个百分点，其余题型接近零。当前无辅助监督分支存在明显的标签/语言先验，不能把 50.20% 直接解释成可靠空间 token 推理能力。
+4. `pairwise_aux` Projector 的 3 epoch 训练已完成，`best.pt`、`last.pt` 和 `history.json` 均完整；epoch 3 val loss 为 0.5425。原进程停在用 `best.pt` 生成完整 12,096 条 val 回答，尚未生成 `eval_val.json`，所以辅助监督效果还不能比较。
+5. 平台容器于 13:46 重新启动，当前没有任何 `/dev/nvidia*` 设备；launcher、Python 与 CUDA 进程因此全部消失，日志没有 Traceback/OOM/NaN，且没有正常退出标记。这次停止由 GPU 被平台回收造成，不是模型代码报错。
+6. 总脚本增加训练后生成阶段的断点恢复：若 `best.pt + history.json` 已存在但 `eval_val.json` 缺失，直接以 eval 模式续跑验证生成；Projector 和 LoRA 都适用。下次恢复 GPU 后不会重训已完成的 3 轮 aux Projector。剩余 aux Projector 生成、aux LoRA 训练/生成和打乱 token 评测按本轮实测约需 4.5 小时。

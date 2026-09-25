@@ -92,26 +92,54 @@ run_arm() {
     --aux-relation-weight "$weight" --eval-splits val --max-new-tokens 96)
 
   if [[ ! -f "$STAGE/${name}_projector.done" ]]; then
-    mark "TRAIN $name Pairwise Projector, auxiliary weight $weight"
-    "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode projector \
-      --data "$QA_OUT/joint/qa.jsonl" \
-      --private-gt "$QA_OUT/joint/private_gt.jsonl" \
-      --tokens-root "$QA_OUT/joint" \
-      --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
-      --out-dir "$projector" --epochs 3 "${common[@]}" \
-      > "$STAGE/${name}_projector.log" 2>&1
+    if [[ -f "$projector/eval_val.json" ]]; then
+      mark "RECOVER $name Pairwise Projector: completed evaluation already exists"
+    elif [[ -f "$projector/best.pt" && -f "$projector/history.json" ]]; then
+      mark "RESUME $name Pairwise Projector validation generation from saved best.pt"
+      "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode eval \
+        --init-projector "$projector/best.pt" \
+        --data "$QA_OUT/joint/qa.jsonl" \
+        --private-gt "$QA_OUT/joint/private_gt.jsonl" \
+        --tokens-root "$QA_OUT/joint" \
+        --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
+        --out-dir "$projector" "${common[@]}" \
+        >> "$STAGE/${name}_projector.log" 2>&1
+    else
+      mark "TRAIN $name Pairwise Projector, auxiliary weight $weight"
+      "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode projector \
+        --data "$QA_OUT/joint/qa.jsonl" \
+        --private-gt "$QA_OUT/joint/private_gt.jsonl" \
+        --tokens-root "$QA_OUT/joint" \
+        --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
+        --out-dir "$projector" --epochs 3 "${common[@]}" \
+        > "$STAGE/${name}_projector.log" 2>&1
+    fi
     touch "$STAGE/${name}_projector.done"
   fi
   if [[ ! -f "$STAGE/${name}_lora.done" ]]; then
-    mark "TRAIN $name Qwen LoRA from its best Pairwise Projector"
-    "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode lora \
-      --init-projector "$projector/best.pt" \
-      --data "$QA_OUT/joint/qa.jsonl" \
-      --private-gt "$QA_OUT/joint/private_gt.jsonl" \
-      --tokens-root "$QA_OUT/joint" \
-      --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
-      --out-dir "$lora" --epochs 3 "${common[@]}" \
-      > "$STAGE/${name}_lora.log" 2>&1
+    if [[ -f "$lora/eval_val.json" ]]; then
+      mark "RECOVER $name Qwen LoRA: completed evaluation already exists"
+    elif [[ -f "$lora/best.pt" && -f "$lora/history.json" ]]; then
+      mark "RESUME $name Qwen LoRA validation generation from saved best.pt"
+      "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode eval --with-lora \
+        --init-projector "$lora/best.pt" \
+        --data "$QA_OUT/joint/qa.jsonl" \
+        --private-gt "$QA_OUT/joint/private_gt.jsonl" \
+        --tokens-root "$QA_OUT/joint" \
+        --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
+        --out-dir "$lora" "${common[@]}" \
+        >> "$STAGE/${name}_lora.log" 2>&1
+    else
+      mark "TRAIN $name Qwen LoRA from its best Pairwise Projector"
+      "$PY" "$ROOT/qa_pipeline/train_scenario_qa.py" --mode lora \
+        --init-projector "$projector/best.pt" \
+        --data "$QA_OUT/joint/qa.jsonl" \
+        --private-gt "$QA_OUT/joint/private_gt.jsonl" \
+        --tokens-root "$QA_OUT/joint" \
+        --model-path /root/autodl-tmp/models/Qwen2.5-7B-Instruct \
+        --out-dir "$lora" --epochs 3 "${common[@]}" \
+        > "$STAGE/${name}_lora.log" 2>&1
+    fi
     touch "$STAGE/${name}_lora.done"
   fi
   if [[ ! -f "$STAGE/${name}_shuffled.done" ]]; then
