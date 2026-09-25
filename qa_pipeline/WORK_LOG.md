@@ -971,3 +971,12 @@
 6. 精确米制距离仍未解决：ego/object absolute distance 仅 0.84%/0.92%，不能用包含相对距离的整体 distance 21.33% 掩盖。下一轮应把连续距离单独建模或离散分桶，并继续保留正确/打乱 token 配对评测。
 7. 按目标数，aux LoRA N2/N3 为 57.93%/57.88%，打乱为 46.60%/50.07%，token 增益为 +11.33/+7.81 pp。训练按 val loss 选择：noaux Projector/LoRA 最佳均为 epoch 1（0.0923/0.0916）；aux Projector 最佳 epoch 1（0.4638），aux LoRA 最佳 epoch 3（0.6498）。
 8. 完整紧凑结果保存于 `qa_pipeline/artifacts/results/native_no_view_v2/FINAL_RESULTS.md` 和 `final_metrics_analysis.json`；可复现汇总脚本为 `analyze_native_no_view_results.py`。远程原始六组 `eval_val.json` 和 checkpoint 保留在 `/root/autodl-tmp/3eed_data/multi_grounding/runs/native_no_view_*`。
+
+## 84. no-view QA 分题型细化统计（2026-09-26）
+
+1. 对 12,096 条 val 按七个 scenario 重新统计正确数、noaux/aux、打乱 token、Grounding 覆盖、Grounding 条件准确率与端到端准确率；完整机器数据保存为 `detailed_metrics.json`，人工表格为 `DETAILED_RESULTS.md`。
+2. 方位 3,024 条中 aux LoRA 正确 1,732 条（57.28%），打乱 952 条（31.48%）；left/right/front/behind 分别为 52.44/51.74/60.77/60.13%，相对打乱提升 40.77/40.07/17.27/16.42 pp。
+3. 相对距离需要分开看：ego 相对距离 754 条，aux 75.33%、打乱 54.91%、条件 81.24%、端到端 45.36%；object 相对距离只有 92 条，aux/打乱 63.04/58.70%，95% 区间包含 0，样本不足以证明增益。
+4. 精确距离答案全部能生成一个数，失败来自数值误差。ego/object 精确到 0.05 m 仅 0.84/0.92%，但 2 m 内为 34.20/38.18%，MAE 为 4.33/4.03 m；ego 打乱 token 后 MAE 恶化到 9.44 m，说明 token 含粗粒度距离，但当前生成式目标不能稳定输出一位小数。
+5. Ego motion 的 forward/backward 正确和打乱均约 99.7%–99.9%，是数据规律，不是 token 推理。Object motion 的 forward/backward 为 75.75/77.43%，相对打乱提升 17.64/20.10 pp；left/right 只提升 1.19/5.25 pp。noaux 对 object `gets closer` 仅 0.60%、对 `does not` 99.30%，明确依赖多数标签；aux 将正例提高到 42.39%。
+6. N2/N3 的 aux QA 为 57.93/57.88%，Grounding 正确条件下为 61.99/58.60%，说明 QA 后端没有随三目标明显崩溃；端到端降为 36.21/22.69%，主要由 N3 Grounding 覆盖 38.72%（N2 为 58.41%）造成。
