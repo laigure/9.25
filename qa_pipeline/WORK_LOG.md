@@ -960,3 +960,14 @@
 3. 检查 no-view run 目录没有上次无 GPU 误启动留下的 checkpoint 或 history；只保留已完成的 `data.done` 和 `attach.done`。没有删除或覆盖旧 Grounding checkpoint、token、原 QA 实验和结果。
 4. QA-only 流水线于 14:39:57 启动，launcher PID 1777。第一阶段为 `native_no_view_pairwise_noaux_projector`，train/val 为 10,584/12,096，3 epoch、每轮 1,323 optimizer steps；初查 step 20/40/60/80/100 loss 为 1.6551/1.3856/1.0589/0.7309/0.5047。
 5. 首次运行状态：RTX 4090 利用率约 90%，显存约 20.1/24.6 GB，Qwen 原参数冻结、Projector 可训练参数 6,307,526；日志中无 OOM、NaN、CUDA error 或 Traceback。后续将依次完成 noaux Projector、LoRA、打乱 token，再完成 aux=0.2 的同组三阶段对照。
+
+## 83. no-view QA 两组完整对照结果（2026-09-26）
+
+1. QA-only 流水线于 2026-09-25 19:31:37 写入 `ALL_DONE` 和退出码 0；noaux/aux 的 Projector、LoRA、同类别打乱 token 六个阶段全部完成，日志中没有 OOM、NaN、CUDA error、RuntimeError 或 Traceback。2026-09-26 复查时 GPU 已被平台回收，但发生在实验正常完成之后。
+2. 无辅助监督：Projector 严格合取 47.62%；LoRA 正确 token 50.05%，打乱 token 49.60%，仅 +0.45 pp。配对 95% CI 为 [-0.05, 0.94] pp，包含 0；正确独占/打乱独占为 493/439，不能证明无辅助分支可靠使用 token。
+3. 辅助关系监督（权重 0.2）：Projector 51.83%；LoRA 正确 token 57.93%，打乱 token 47.02%，产生 +10.90 pp 的 token 增益。配对 95% CI 为 [10.05, 11.76] pp，正确独占/打乱独占 2,131/812，说明 Grounding token 中存在可被关系监督提取的空间信息。
+4. aux LoRA 相对 noaux LoRA：严格合取 +7.88 pp，Grounding 正确条件准确率从 49.37% 提高到 61.70%（+12.34 pp），端到端从 27.65% 提高到 34.57%（+6.91 pp），反向关系一致率从 29.30% 提高到 55.56%（+26.26 pp）。
+5. aux 正确 token 相对打乱 token 的具体增益：普通方位 +25.79 pp（57.28% vs 31.48%）、ego 相对距离 +20.42 pp、object motion +11.18 pp、object 相对距离 +4.35 pp；ego motion 只有 +1.03 pp，仍主要依赖语言/标签先验。
+6. 精确米制距离仍未解决：ego/object absolute distance 仅 0.84%/0.92%，不能用包含相对距离的整体 distance 21.33% 掩盖。下一轮应把连续距离单独建模或离散分桶，并继续保留正确/打乱 token 配对评测。
+7. 按目标数，aux LoRA N2/N3 为 57.93%/57.88%，打乱为 46.60%/50.07%，token 增益为 +11.33/+7.81 pp。训练按 val loss 选择：noaux Projector/LoRA 最佳均为 epoch 1（0.0923/0.0916）；aux Projector 最佳 epoch 1（0.4638），aux LoRA 最佳 epoch 3（0.6498）。
+8. 完整紧凑结果保存于 `qa_pipeline/artifacts/results/native_no_view_v2/FINAL_RESULTS.md` 和 `final_metrics_analysis.json`；可复现汇总脚本为 `analyze_native_no_view_results.py`。远程原始六组 `eval_val.json` 和 checkpoint 保留在 `/root/autodl-tmp/3eed_data/multi_grounding/runs/native_no_view_*`。

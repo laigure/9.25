@@ -1,0 +1,590 @@
+{
+  "dataset": "native_natural_qa_v2_no_view",
+  "evaluation_rows": 12096,
+  "public_input": "natural non-spatial descriptions + implicit Grounding tokens; no public view names or explicit geometry",
+  "models": {
+    "noaux_projector": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.4771825396825397,
+      "canonical_sentence_match_rate": 0.47619047619047616,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.47619047619047616,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.13822751322751323,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.4700413223140496,
+      "end_to_end_accuracy": 0.2633101851851852,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.1693121693121693
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8115079365079365
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.6015211640211641
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.32242063492063494
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.32242063492063494
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.0028149190710767065
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8115079365079365
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.6074270557029178
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.003963011889035667
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.6015211640211641
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.5108695652173914
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.4743975903614458
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.4891304347826087
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    },
+    "noaux_lora": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.5004960317460317,
+      "canonical_sentence_match_rate": 0.5004960317460317,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.5004960317460317,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.29298941798941797,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.49365407319952775,
+      "end_to_end_accuracy": 0.27653769841269843,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.18121693121693122
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.6134259259259259
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.3783068783068783
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.3783068783068783
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.00422237860661506
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.6379310344827587
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.005284015852047556
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.6134259259259259
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.6195652173913043
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.49661144578313254
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.5285326086956522
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    },
+    "noaux_shuffled": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.49603174603174605,
+      "canonical_sentence_match_rate": 0.49603174603174605,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.49603174603174605,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.30158730158730157,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.48288075560802834,
+      "end_to_end_accuracy": 0.2705026455026455,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.17394179894179895
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.6154100529100529
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.36574074074074076
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.36574074074074076
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.00211118930330753
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.6180371352785146
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.003963011889035667
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.6154100529100529
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.5869565217391305
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.49134036144578314
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.529891304347826
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    },
+    "aux_projector": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.519510582010582,
+      "canonical_sentence_match_rate": 0.5182705026455027,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.5182705026455027,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.31547619047619047,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.5326151121605667,
+      "end_to_end_accuracy": 0.29836309523809523,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.1917989417989418
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8062169312169312
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.6061507936507936
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.4689153439153439
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.4689153439153439
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.0063335679099225895
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8062169312169312
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.6989389920424404
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.003963011889035667
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.6061507936507936
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.44565217391304346
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.5207078313253012
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.5006793478260869
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    },
+    "aux_lora": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.5792824074074074,
+      "canonical_sentence_match_rate": 0.5792824074074074,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.5792824074074074,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.5555555555555556,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.6170306965761512,
+      "end_to_end_accuracy": 0.345651455026455,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.21329365079365079
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.7020502645502645
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.5727513227513228
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.5727513227513228
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.00844475721323012
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8290343915343915
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.753315649867374
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.009247027741083224
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.7020502645502645
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.6304347826086957
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.5793486445783133
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.5788043478260869
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    },
+    "aux_shuffled": {
+      "n": 12096,
+      "strict_svo_accuracy": 0.47023809523809523,
+      "canonical_sentence_match_rate": 0.47023809523809523,
+      "one_sentence_rate": 1.0,
+      "strict_all_pass": 0.47023809523809523,
+      "inverse_relation_pair_n": 1512,
+      "inverse_relation_consistency": 0.30092592592592593,
+      "grounding_condition_n": 6776,
+      "grounding_conditional_accuracy": 0.4543978748524203,
+      "end_to_end_accuracy": 0.2545469576719577,
+      "by_question_category": {
+        "distance": {
+          "n": 3024,
+          "accuracy": 0.15707671957671956
+        },
+        "ego_motion": {
+          "n": 3024,
+          "accuracy": 0.8187830687830688
+        },
+        "object_motion": {
+          "n": 3024,
+          "accuracy": 0.5902777777777778
+        },
+        "spatial_relation": {
+          "n": 3024,
+          "accuracy": 0.3148148148148148
+        }
+      },
+      "by_scenario": {
+        "cardinal_relation": {
+          "n": 3024,
+          "accuracy": 0.3148148148148148
+        },
+        "ego_absolute_distance": {
+          "n": 1421,
+          "accuracy": 0.0014074595355383533
+        },
+        "ego_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.8187830687830688
+        },
+        "ego_relative_distance": {
+          "n": 754,
+          "accuracy": 0.5490716180371353
+        },
+        "object_absolute_distance": {
+          "n": 757,
+          "accuracy": 0.0066050198150594455
+        },
+        "object_motion_reasoning": {
+          "n": 3024,
+          "accuracy": 0.5902777777777778
+        },
+        "object_relative_distance": {
+          "n": 92,
+          "accuracy": 0.5869565217391305
+        }
+      },
+      "by_target_count": {
+        "2": {
+          "n": 10624,
+          "accuracy": 0.4660203313253012
+        },
+        "3": {
+          "n": 1472,
+          "accuracy": 0.5006793478260869
+        }
+      },
+      "pass_rule": "canonical full sentence AND one sentence AND strict private subject-predicate-object/value key"
+    }
+  },
+  "token_ablation": {
+    "noaux": {
+      "n": 12096,
+      "both_correct": 5561,
+      "correct_only": 493,
+      "shuffled_only": 439,
+      "both_wrong": 5603,
+      "accuracy_delta": 0.004464285714285714,
+      "paired_standard_error": 0.0025235388980655877,
+      "normal_95ci": [
+        -0.0004818505259228381,
+        0.009410421954494267
+      ],
+      "z_score": 1.7690576189286407
+    },
+    "aux": {
+      "n": 12096,
+      "both_correct": 4876,
+      "correct_only": 2131,
+      "shuffled_only": 812,
+      "both_wrong": 4277,
+      "accuracy_delta": 0.10904431216931217,
+      "paired_standard_error": 0.004373940814832904,
+      "normal_95ci": [
+        0.10047138817223968,
+        0.11761723616638466
+      ],
+      "z_score": 24.930449858745504
+    }
+  },
+  "aux_lora_minus_noaux_lora": {
+    "strict_all_pass": 0.0787863756613757,
+    "inverse_relation_consistency": 0.2625661375661376,
+    "grounding_conditional_accuracy": 0.12337662337662342,
+    "end_to_end_accuracy": 0.06911375661375657
+  },
+  "training": {
+    "noaux_projector": {
+      "val_loss": [
+        {
+          "epoch": 1,
+          "val_loss": 0.0923
+        },
+        {
+          "epoch": 2,
+          "val_loss": 0.0995
+        },
+        {
+          "epoch": 3,
+          "val_loss": 0.0957
+        }
+      ],
+      "epoch_seconds": [
+        443.7,
+        439.8,
+        441.6
+      ],
+      "total_steps": 3969
+    },
+    "noaux_lora": {
+      "val_loss": [
+        {
+          "epoch": 1,
+          "val_loss": 0.0916
+        },
+        {
+          "epoch": 2,
+          "val_loss": 0.0952
+        },
+        {
+          "epoch": 3,
+          "val_loss": 0.1071
+        }
+      ],
+      "epoch_seconds": [
+        590.0,
+        606.0,
+        613.0
+      ],
+      "total_steps": 3969
+    },
+    "aux_projector": {
+      "val_loss": [
+        {
+          "epoch": 1,
+          "val_loss": 0.4638
+        },
+        {
+          "epoch": 2,
+          "val_loss": 0.5947
+        },
+        {
+          "epoch": 3,
+          "val_loss": 0.55
+        }
+      ],
+      "epoch_seconds": [
+        522.5,
+        522.8,
+        519.9
+      ],
+      "total_steps": 3969
+    },
+    "aux_lora": {
+      "val_loss": [
+        {
+          "epoch": 1,
+          "val_loss": 0.7067
+        },
+        {
+          "epoch": 2,
+          "val_loss": 0.7206
+        },
+        {
+          "epoch": 3,
+          "val_loss": 0.6498
+        }
+      ],
+      "epoch_seconds": [
+        658.9,
+        652.8,
+        652.7
+      ],
+      "total_steps": 3969
+    }
+  },
+  "unchanged_grounding": {
+    "selected_checkpoint": "/root/autodl-tmp/3eed_data/multi_grounding/native_multi_run/Train_waymo-native-multi_Val_waymo-native-multi/0925_0411/ckpt_epoch_last.pth",
+    "selected_epoch": 30,
+    "selection_metric": "macro JointAll-bbf Acc@0.25 over native N=2,3",
+    "selected_metrics": {
+      "joint_all_bbf_025": 0.57,
+      "joint_by_target_count_025": {
+        "2": 0.5783,
+        "3": 0.3871
+      },
+      "macro_n2_n3_025": 0.4827
+    },
+    "candidate_metrics": {
+      "15": {
+        "joint_all_bbf_025": 0.5476,
+        "joint_by_target_count_025": {
+          "2": 0.5593,
+          "3": 0.2903
+        },
+        "macro_n2_n3_025": 0.4248
+      },
+      "30": {
+        "joint_all_bbf_025": 0.57,
+        "joint_by_target_count_025": {
+          "2": 0.5783,
+          "3": 0.3871
+        },
+        "macro_n2_n3_025": 0.4827
+      }
+    }
+  }
+}
