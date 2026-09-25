@@ -952,3 +952,11 @@
 4. 全量审计：train/val 10,584/12,096，四类各 5,670；公共问题/答案中的 `view` 命中 0，公共 view 字段 0，Object-A/B 0，坐标 0，重复模型输入 0。22,680 条 canonical answer 回灌后严格 SVO、完整句、一句话、全部合取和反向关系一致性均为 100%。
 5. 远程 QA 数据为 `/root/autodl-tmp/3eed_data/multi_grounding/native_natural_qa_v2_no_view`，复用既有 token 后的数据为 `/root/autodl-tmp/3eed_data/multi_grounding/native_natural_qa_tokens_v2_no_view`；已对齐 1,358 个 Grounding 场景、2,769 个 token，正确和同类别打乱分支均为 22,680 条。
 6. 新增 QA-only 入口 `run_native_no_view_qa.sh`，明确不调用 Grounding 构建、训练、checkpoint 选择或 token 导出。平台无 GPU 时 `nvidia-smi -L` 会以空输出返回成功，旧检查曾误启动一个尚未产生 batch/checkpoint 的 Python 进程；已立即停止，并将两个 runner 修正为必须得到非空 GPU 列表。当前 no-view 数据和 token 对齐已完成，GPU 恢复后才会重新训练两组 QA 对照。
+
+## 82. 新 51762 实例启动 no-view QA（2026-09-25）
+
+1. 用户更换到 51762 实例。核对为单张 RTX 4090（24,564 MiB）、16 CPU/120 GB RAM；GPU 启动前空闲，数据盘约 4.5 GB 可用。Qwen2.5-7B、no-view QA、旧 Grounding token 和 QA 对齐结果均已存在。
+2. 新实例 `/root/3eedqa` 不是 Git checkout，因此从本地已推送版本同步 QA runner、no-view 构建器、trainer、严格评测器、测试和工作日志；远程 `bash -n`、Python compile 与 4 个单元测试均通过。
+3. 检查 no-view run 目录没有上次无 GPU 误启动留下的 checkpoint 或 history；只保留已完成的 `data.done` 和 `attach.done`。没有删除或覆盖旧 Grounding checkpoint、token、原 QA 实验和结果。
+4. QA-only 流水线于 14:39:57 启动，launcher PID 1777。第一阶段为 `native_no_view_pairwise_noaux_projector`，train/val 为 10,584/12,096，3 epoch、每轮 1,323 optimizer steps；初查 step 20/40/60/80/100 loss 为 1.6551/1.3856/1.0589/0.7309/0.5047。
+5. 首次运行状态：RTX 4090 利用率约 90%，显存约 20.1/24.6 GB，Qwen 原参数冻结、Projector 可训练参数 6,307,526；日志中无 OOM、NaN、CUDA error 或 Traceback。后续将依次完成 noaux Projector、LoRA、打乱 token，再完成 aux=0.2 的同组三阶段对照。
